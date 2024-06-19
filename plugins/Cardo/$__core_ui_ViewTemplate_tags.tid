@@ -1,0 +1,13 @@
+created: 20160825000401713
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213308398
+revision: 2
+tags: Cardo
+title: $:/core/ui/ViewTemplate/tags
+type: text/vnd.tiddlywiki
+
+<$reveal type="nomatch" state=<<folded-state>> text="hide" tag="div" retain="yes" animate="yes">
+<div class="tc-tags-wrapper">
+<$list filter="[all[current]tags[]sort[title]]" template="$:/core/ui/TagTemplate" storyview="pop"/>
+</div>
+</$reveal>

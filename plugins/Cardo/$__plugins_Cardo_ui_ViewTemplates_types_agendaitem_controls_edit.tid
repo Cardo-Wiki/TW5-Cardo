@@ -1,0 +1,51 @@
+created: 20170224191303198
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170224191313545
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/agendaitem/controls/edit
+type: text/vnd.tiddlywiki
+
+<$set name=agendaItemGuid value={{!!cardo-guid}}>
+<div class="controls controlstint"> 
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button>
+        <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/AgendaItemHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleComplete>>
+    <<toggleStarred>>
+      <span class='title'>
+
+<$vars pattern="""[\|\[\]{}]""" bad-chars="""`| [ ] { }`""">
+
+<$list filter="[is[current]regexp:draft.title<pattern>]" variable="listItem">
+
+<div class="tc-message-box">
+
+{{$:/language/EditTemplate/Title/BadCharacterWarning}}
+
+</div>
+
+</$list>
+
+</$vars>
+
+<$edit-text field="draft.title" class="tc-titlebar tc-edit-texteditor" focus="true"/>
+
+      </span><br>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+  <div class="projectGroup">
+    <span class="label">Meeting:</span><br/>
+    <<meetingSelect agendaItemGuid:$(agendaItemGuid)$>><span class="linkTo"><$link to={{!!cardo-guid}} aria-label="Open this meeting" tooltip="Open this meeting">⇪</$link></span><$button class="deleteX" aria-label="Remove from this meeting" tooltip="Remove from this meeting">×<$action-deletefield $field="cardo-onmeeting" /></$button>
+  </div>
+  <div class="assignedToGroup">
+      <span class="label">Put forward by:</span><br>
+      <<toggleTagSelect tag:Person field:cardo-requestor>><span class="linkTo"><$link to={{!!cardo-requestor}} aria-label="Open this person's dashboard" tooltip="Open this person's dashboard">⇪</$link></span><$button class="deleteX" aria-label="Remove as requestor" tooltip="Remove as requestor">×<$action-listops $field="cardo-requestor" $filter="[[]]"/></$button>
+  </div>&nbsp;
+  <div class="clearboth"></div>
+</div>
+</$set>

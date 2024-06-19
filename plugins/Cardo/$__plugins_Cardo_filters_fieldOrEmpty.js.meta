@@ -1,0 +1,10 @@
+created: 20160828051301996
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20170222190923318
+modifier: David Szego
+module-type: filteroperator
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/filters/fieldOrEmpty.js
+type: application/javascript

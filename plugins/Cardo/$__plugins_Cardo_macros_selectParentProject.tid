@@ -1,0 +1,28 @@
+created: 20160913021855652
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170224172713812
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/selectParentProject
+type: text/vnd.tiddlywiki
+
+\define setParentProject()
+<$action-setfield $tiddler=<<currentTiddler>> $field="cardo-project" $value={{$:/temp/$(currentTiddler)$/project}} />
+<!--$action-listops $tiddler=<<currentTiddler>> $field="cardo-project" $subfilter={{$:/temp/$(currentTiddler)$/project}} /-->
+\end
+\define selectParentProject(fieldName, tag)
+<$select tiddler="""$:/temp/$(currentTiddler)$/project""" default={{!!cardo-project}} actions=<<setParentProject>> >
+    <optgroup label="Current Projects:">
+    <$list filter='[tag[Project]] -[title<currentTiddler>] -[tag[Complete]] -[has[draft.of]]'>
+      <option value={{!!cardo-guid}} ><$view field='title'/></option>
+    </$list>
+    </optgroup>
+    <optgroup label="Completed Projects:">
+    <$list filter='[tag[Project]] -[title<currentTiddler>] +[tag[Complete]] -[has[draft.of]]'>
+      <option value={{!!cardo-guid}} ><$view field='title'/></option>
+    </$list>
+    </optgroup>
+  </$select>
+\end

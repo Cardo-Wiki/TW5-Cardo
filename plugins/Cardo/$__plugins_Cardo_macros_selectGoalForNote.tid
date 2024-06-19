@@ -1,0 +1,22 @@
+created: 20190107193051872
+creator: Joe Cardo
+icon: $:/themes/Cardo/images/paper
+modified: 20190107193343018
+modifier: Joe Cardo
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/selectGoalForNote
+type: text/vnd.tiddlywiki
+
+\define setGoalNoteUpdate()
+<$action-deletefield cardo-goal/>
+<$action-setfield cardo-goal={{$:/state/$(currentTiddler)$/goal}} />
+<$action-listops $field="cardo-goal" $subfilter={{$:/temp/$(currentTiddler)$/goal}} />
+\end
+\define selectGoalForNote(goalGuid, myGuid)
+<$select tiddler="""$:/state/$(currentTiddler)$/goal""" default=$goalGuid$ actions=<<setGoalNoteUpdate>> >
+    <$list filter='[field:cardo-type[goal]] -[has[draft.of]] -[field:cardo-guid<goalGuid>]'>
+      <option value={{!!cardo-guid}} ><$view field='title'/></option>
+    </$list>
+  </$select>
+\end

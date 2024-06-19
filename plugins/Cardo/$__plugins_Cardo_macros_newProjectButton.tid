@@ -1,0 +1,31 @@
+created: 20170210152636048
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170226050332224
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/newProjectButton
+type: text/vnd.tiddlywiki
+
+\define setProject(status)
+<$action-listops $tiddler={{$(newProjectButtonStatusTiddler)$}} $field="cardo-projectteam" $subfilter={{!!cardo-guid}} />
+<$action-setfield $tiddler="$:/temp/$(currentTiddler)$/$status$" $field="text" $value="hide"/>
+\end
+\define newProjectButton(person, status, newTag, newProjectLead:"-SKIP-", listExisting, newParentProject:"-SKIP-") 
+<$button class="newButton" aria-label="Create a new Project" tooltip="Create a new Project">N<$action-sendmessage $message="tm-new-tiddler" title="A whole bunch of tasks I have to do..." tags="$newTag$" cardo-type='project' icon="$:/plugins/Cardo/images/project" cardo-guid=<<guid>> cardo-projectlead=$newProjectLead$ cardo-parentproject=$parentProject$ cardo-projectteam=$newProjectLead$ cardo-category={{!!cardo-category}} /> 
+</$button>
+<$reveal type="nomatch" state="$:/temp/$(currentTiddler)$/$status$" text="show">
+  <$button class="newButton" aria-label="Add a Project" tooltip="Add a Project" set="$:/temp/$(currentTiddler)$/$status$" setTo="show">E</$button>
+</$reveal>
+<$reveal type="match" state="$:/temp/$(currentTiddler)$/$status$" text="show">
+  <$button class="newButton" set="$:/temp/$(currentTiddler)$/$status$" setTo="hide">-</$button>
+  <$set name="newProjectButtonStatusTiddler" value=<<qualify 'newProjectButtonStatusTiddler'>> >
+    <$select tiddler=<<qualify 'newProjectButtonStatusTiddler'>> actions=<<setProject status:$status$>> >
+      <$list filter='[field:cardo-type[project]tag[$status$]get[title]] -'>
+        <option value=<<currentTiddler>> ><$view field='title' format='text'/></option>
+      </$list>
+    </$select>
+  </$set>
+</$reveal>
+\end

@@ -1,0 +1,28 @@
+cardo-rating: 2
+created: 20170212150253254
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170212193302156
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/setRating
+type: text/vnd.tiddlywiki
+
+\define setRating(maxRating, field, tiddler:$currentTiddler$)
+  <$list filter="[numberOfItems[$maxRating$]]" variable="count">
+    <$button class="starred" aria-label="Rate $(storyTiddler)$" tooltip="Rate $(storyTiddler)$" >
+      <$macrocall $name='lessThanOrEqual' leftSide=<<count>> rightSide={{!!cardo-rating}} trueValue='<span class="starred">{{$:/plugins/Cardo/images/star-filled}}</span>' falseValue='<span class="starred">{{$:/plugins/Cardo/images/star-outline}}</span>' />
+      <$action-setfield $tiddler="$tiddler$" $field="cardo-rating" $value=<<count>> />
+    </$button>            
+  </$list>
+\end
+
+Set Rating: <<setRating maxRating:4 field:"cardo-rating">>
+
+Use like:\\
+``<$macrocall $name="setRating" maxRating={{!!cardo-rating}} field="cardo-rating" tiddler:$currentTiddler$ />``
+
+``<<setRating maxRating:5 field:"cardo-rating" tiddler:$currentTiddler$>>``
+
+Current Rating: {{!!cardo-rating}}

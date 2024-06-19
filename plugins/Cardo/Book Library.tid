@@ -1,0 +1,43 @@
+created: 20160831183143256
+creator: David Szego
+icon: $:/plugins/Cardo/images/clipboard-checkmarks
+modified: 20170223210352031
+modifier: Joe Cardo
+tags: about Reading
+title: Book Library
+
+!!Track your entire [[Book Library]] with ''Cardo''
+
+Your entire library can be kept in your Cardo. Assign a book to a particular Arena to keep books separated by work, personal reading, or any other part of your life.
+
+Dashboards easily show you whether the book is one you mean to read, are currently reading, finished, stopped part way through reading it, or was so bad you couldn't bear to keep it.
+
+<div class="controls controlstint" style="float:none !important;">
+ <div class="statusButtons" style="float: none !important;">
+    <<toggleTagButtons tag:BookStatus>>
+  </div>
+</div>
+
+Keep track of when you started reading this book. When the date is set and shown, click on the [x] to clear it. Click the checkbox if you've read it (or at least attempted to) more than once.
+
+Rate this book by clicking the stars beside the title.
+
+Select the proper genre of the book from the row of checkboxes. You can add a genre by creating a new Tiddler and tagging it with .
+
+Use the Author: dropdown to indicate who wrote the book. Other books by this author will appear on the author's dashboard, by clicking the ⇪ arrow.
+
+Use the ''Loaned Out'' checkbox and dropdown to keep track of who's borrowing the book at the moment.
+
+<div class="controls controlstint" style="float:none !important;">
+{{2001: A Space Odyssey||$:/plugins/Cardo/ui/ViewTemplates/types/book/controls}}
+{{2001: A Space Odyssey||$:/plugins/Cardo/ui/ViewTemplates/types/book/body}}
+{{2001: A Space Odyssey||$:/plugins/Cardo/ui/ViewTemplates/types/book/detail}}
+</div>
+
+<hr>
+
+<div class="controls controlstint" style="float:none !important;">
+{{Arthur C. Clarke||$:/plugins/Cardo/ui/ViewTemplates/types/author/controls}}
+{{Arthur C. Clarke||$:/plugins/Cardo/ui/ViewTemplates/types/author/body}}
+{{Arthur C. Clarke||$:/plugins/Cardo/ui/ViewTemplates/types/author/detail}}
+</div>

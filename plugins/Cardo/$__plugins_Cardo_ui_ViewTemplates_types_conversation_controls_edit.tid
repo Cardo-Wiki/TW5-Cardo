@@ -1,0 +1,63 @@
+created: 20170224191011064
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170224191039802
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/conversation/controls/edit
+type: text/vnd.tiddlywiki
+
+\define conversationState() $:/state/$(currentTiddler)$/conversationitem
+<div class="controls controlstint">
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button>
+        <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/ConversationHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleStarred>>
+      <span class='title'>
+
+<$vars pattern="""[\|\[\]{}]""" bad-chars="""`| [ ] { }`""">
+
+<$list filter="[is[current]regexp:draft.title<pattern>]" variable="listItem">
+
+<div class="tc-message-box">
+
+{{$:/language/EditTemplate/Title/BadCharacterWarning}}
+
+</div>
+
+</$list>
+
+</$vars>
+
+<$edit-text field="draft.title" class="tc-titlebar tc-edit-texteditor" focus="true"/>
+
+      </span><br>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+  <div class="statusButtons">
+    <<toggleTagButtons tag:ConversationType shortButtons:'false'>>
+  </div>
+  <!-- Give all Conversations a date -->
+  <div class="dueDateBox">
+    <div class="datePicker">
+        <$edit-date field="cardo-date" icon="$:/plugins/Cardo/images/calendar-clock" tag=div />
+    </div>
+    <span class="label">Date:</span><br>           
+      <$list filter="[is[current]has[cardo-date]]">
+      <div class="duedate">
+        <$button tag="label" class="internal button off">×<$action-listops $field="cardo-date" $filter="[[]]"/>
+        </$button>
+        <$view field="cardo-date" format="relativedate"/>       
+      </div>
+    </$list>
+  </div>
+  <!-- /Date Section -->
+  <div class="projectGroup">
+    <span class="label">Person:</span><br/>
+    <<selectPersonForConversation personGuid:{{!!cardo-person}} myGuid:{{!!cardo-guid}}>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-person}} label="Open this Person"/></span><$button class="deleteX" aria-label="Remove from this Person" tooltip="Remove from this Person">×<$action-deletefield $field="cardo-person" /><$action-setfield $tiddler=<<conversationState>> $field="text"/></$button>
+  </div>&nbsp;
+  <div class="clearboth"></div>
+</div>

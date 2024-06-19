@@ -1,0 +1,23 @@
+cardo-area: Work
+cardo-attendees: [[My Boss]] [[Sam Tasker]] dcb08717-3d17-4d9a-aad7-826a54bcf5df 8d5f87cd-44c5-4afa-b8e3-437d6df9940f 07f0b01d-0fff-40a0-b57c-9a9c0b1939ca
+cardo-category: Work
+cardo-chair: 07f0b01d-0fff-40a0-b57c-9a9c0b1939ca
+cardo-due: 20160818040000000
+cardo-guid: af29ba78-bbf3-45e5-b5a5-762a2b8ce25d
+cardo-onmeeting: be40968b-fb35-4989-94e9-02d696b0f9d2
+cardo-parent: A Big Project Im Working On
+cardo-priority: P2
+cardo-project: 6bb420a3-95c4-4ead-8f9a-e3337ee4cb11
+cardo-requestor: 8d5f87cd-44c5-4afa-b8e3-437d6df9940f
+cardo-type: meeting
+created: 20160921021430438
+creator: Cardo
+icon: $:/plugins/Cardo/images/meeting
+modified: 20190108013211037
+modifier: Joe Cardo
+tags: Meeting Upcoming
+title: Discuss TPS reports
+true: Work
+type: text/vnd.tiddlywiki
+
+We need to meet and discuss how to report on the TPS reports

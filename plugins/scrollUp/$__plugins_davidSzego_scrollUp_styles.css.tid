@@ -1,0 +1,17 @@
+created: 20170303151922267
+creator: David Szego
+modified: 20170303152043018
+modifier: David Szego
+tags: $:/tags/Stylesheet scrollUp
+title: $:/plugins/davidSzego/scrollUp/styles.css
+
+.scrollup {
+    width: 100%;
+    text-align: right;
+    margin-bottom: -10px;
+}
+
+.scrollup a {
+    text-decoration: none;
+    color: <<colour modal-background>>;
+}

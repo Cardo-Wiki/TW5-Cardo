@@ -1,0 +1,11 @@
+caption: Corner Ribbon
+created: 20170303033520009
+creator: David Szego
+modified: 20170305034551723
+modifier: Joe Cardo
+ribbontoggle: off
+tags: $:/tags/ControlPanel/Appearance pageRibbonLogo
+title: $:/plugins/davidSzego/pageRibbonLogo/ControlPanel/CornerRibbon
+
+<$checkbox tiddler="$:/plugins/davidSzego/pageRibbonLogo/ControlPanel/CornerRibbon" field="ribbontoggle" checked="on" unchecked="off" default="off">Ribbon on</$checkbox>
+<div style="align: top; width: 90%;">Text for corner ribbon: <$edit-text tiddler="$:/plugins/davidSzego/pageRibbonLogo/CornerRibbon" field="text" tag="textarea"/></div>

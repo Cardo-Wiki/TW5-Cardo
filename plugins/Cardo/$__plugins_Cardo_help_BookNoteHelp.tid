@@ -1,0 +1,26 @@
+caption: Book Note Help
+created: 20170223191101080
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170223191453062
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/BookNoteHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Make notes as you read. 
+
+Any notes you want to keep as you read can be added to a book by clicking the ''(+)'' button in the ''Book Notes (By Chapter)'' list. 
+
+{{$:/plugins/Cardo/images/star-outline}}If it's an important note, click the star on the note's row.
+
+Use the ''Book:'' dropdown to select what book you're making a note on. Jump back to the book by clicking the ''⇪'' arrow.
+
+Use the ''Chapter:'' and ''Page:'' field to indicate where in the book this note refers to.
+
+@@

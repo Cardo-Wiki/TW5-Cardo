@@ -1,0 +1,12 @@
+created: 20160927020956386
+creator: Cardo
+icon: $:/plugins/Cardo/images/card
+modified: 20160928193152663
+modifier: Cardo
+tags: 
+title: Delete Cardo
+
+<$button>
+<$action-deletetiddler $filter="[all[shadows+tiddlers]tag[Cardo]]"/>
+Reeeeeeally?
+</$button>

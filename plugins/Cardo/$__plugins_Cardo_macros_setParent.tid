@@ -1,0 +1,22 @@
+created: 20190107234327828
+creator: Joe Cardo
+icon: $:/themes/Cardo/images/paper
+modified: 20190108001035668
+modifier: Joe Cardo
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/setParent
+type: text/vnd.tiddlywiki
+
+\define setTiddler()
+<$action-deletefield cardo-dependancy/>
+<$action-setfield cardo-dependancy={{$:/temp/$(currentTiddler)$/dependancy}} />
+<$action-listops $field="cardo-dependancy" $subfilter={{$:/temp/$(currentTiddler)$/dependancy}} />
+\end
+\define selectParent(parentGuid, myGuid, type)
+<$select tiddler="""$:/temp/$(currentTiddler)$/dependancy""" actions=<<setTiddler>> >
+    <$list filter='Task Project +[tagging[]]+[field:cardo-parent[$parentGuid$]] -[title<currentTiddler>] -[tag[Complete]] -[has[draft.of]] -[field:cardo-guid[$myGuid$]]'>
+      <option value={{!!cardo-guid}} ><$view field='title'/></option>
+    </$list>
+  </$select>
+\end

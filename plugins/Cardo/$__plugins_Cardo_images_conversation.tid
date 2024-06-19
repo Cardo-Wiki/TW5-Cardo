@@ -1,0 +1,53 @@
+created: 20160921000324842
+creator: DavidSzego
+icon: $:/plugins/Cardo/images/conversation
+modified: 20160925232106639
+modifier: DavidSzego
+revision: 1
+tags: $:/tags/Image Cardo
+title: $:/plugins/Cardo/images/conversation
+type: text/vnd.tiddlywiki
+
+<svg class="tc-image-conversation tc-image-button" x="0px" y="0px"
+	 viewBox="0 0 488.2 488.2" style="enable-background:new 0 0 488.2 488.2;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M52.9,271.4v44.9h435.3V175.1H52.9V220L0,245.7L52.9,271.4z M105,212h331.2v23.8H105V212z M105,255.5h242.1v23.8H105
+			V255.5z"/>
+		<path d="M0,4.1v141.3h435.3v-44.9l52.9-25.7l-52.9-25.7v-45H0z M151.7,108.4H52V84.6h99.7V108.4z M300.3,108.4H175.8V84.6h124.5
+			V108.4z M383.2,64.9H52V41.1h331.2V64.9z"/>
+		<path d="M0,484.1h435.3v-44.9l52.9-25.7l-52.9-25.7v-44.9H0V484.1z M52,379.8h242.1v23.8H52V379.8z M52,423.3h331.2v23.8H52V423.3
+			z"/>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>

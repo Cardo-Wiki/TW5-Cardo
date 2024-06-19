@@ -1,0 +1,19 @@
+created: 20160820053151224
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20160926182846631
+modifier: DSzego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleTagSelect
+type: text/vnd.tiddlywiki
+
+\define toggleTagSelect(tag, field)
+  <$set name="tagName" value="cardo-$tag$">
+    <$select field=$field$>
+      <$list filter="[all[shadows+tiddlers]tag[$tag$]sort[order]] -[has[draft.of]]">
+	    <option value=<<currentTiddler>> ><<currentTiddler>></option>
+      </$list>
+    </$select>
+  </$set>
+\end

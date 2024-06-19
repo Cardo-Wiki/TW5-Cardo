@@ -1,0 +1,41 @@
+caption: Book Help
+created: 20170223190045218
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170223191230320
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/BookHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Keep a library of all the ''Books'' you've read, or want to read. 
+
+Your entire library can be kept in your Cardo. Assign a book to a particular Arena using the ''Arena:'' dropdown to keep books separated by work, personal reading, etc.
+
+Keep track of your Books by status:
+
+:''ToRead'' - A book you mean to read, whether you have it, or need to buy it
+:''Reading'' - Currently reading, but not finished yet
+:''Finished'' - A book you've read from start to finish
+:''PutDown'' - Stopped part way through reading it, for any reason
+:''GaveAway'' - Whether it was really good and you wanted to share, or really bad and you couldn't bear to keep it
+
+{{$:/plugins/Cardo/images/calendar-x}}Keep track of when you started reading this book. When the date is set and shown, click on the ''[x]'' to clear it. 
+{{$:/plugins/Cardo/images/checkbox}}Click the checkbox if you've read it (or at least attempted to) more than once.
+
+{{$:/plugins/Cardo/images/star-filled}}{{$:/plugins/Cardo/images/star-filled}}{{$:/plugins/Cardo/images/star-outline}}{{$:/plugins/Cardo/images/star-outline}}Rate this book by clicking the stars beside the title.
+
+Select the proper genre of the book from the row of checkboxes. You can add a genre by creating a new Tiddler and tagging it with <<tag genre>>.
+
+Use the ''Author:'' dropdown to indicate who wrote the book. Other books by this author will appear on the author's dashboard, by clicking the ''⇪'' arrow.
+
+Use the ''Loaned Out'' checkbox and dropdown to keep track of who's borrowing the book at the moment.
+
+Any notes you want to keep as you read can be added to a book by clicking the ''(+)'' button in the "Book Notes (By Chapter)'' list. If it's an important note, click the {{$:/plugins/Cardo/images/star-outline}} on the note's row.
+
+@@

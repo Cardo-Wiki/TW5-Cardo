@@ -1,0 +1,17 @@
+caption: Export Your Cardo Cards
+created: 20160831184751413
+creator: David Szego
+icon: $:/core/images/options-button
+modified: 20160926173157935
+modifier: David Szego
+revision: 2
+tags: Cardo Tools
+title: $:/plugins/Cardo/Tools/Export Your Cardo Cards
+type: text/vnd.tiddlywiki
+
+Click the button to export all your Tasks, Projects, and other ''Cardo'' Cards. You can drag the resulting file onto a new [[TiddlyWiki||http://www.tiddlywiki.com]] to turn it into a ''Cardo'' with all your stuff!
+
+<$button>
+  <$macrocall $name="exportButton" exportFilter='[has[cardo-type]][tag[Cardo]]' lingoBase="$:/language/Buttons/ExportTiddlers/"/>
+Export all Cardo Cards
+</$button> 

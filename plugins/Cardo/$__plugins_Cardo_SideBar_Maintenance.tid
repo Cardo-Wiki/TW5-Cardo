@@ -1,0 +1,122 @@
+caption: Maintenance
+created: 20160919165431551
+creator: DavidSzego
+icon: $:/plugins/Cardo/images/card
+modified: 20170228204017433
+modifier: David Szego
+revision: 5
+tags: Cardo
+title: $:/plugins/Cardo/SideBar/Maintenance
+type: text/vnd.tiddlywiki
+
+<div class="intakeTabButtons" style="padding-left: 10px; padding-right: 10px;">
+These buttons let you maintain your Cardo.
+<p>
+//Warning:// They could override things you've entered!<p>
+
+<div class="intakeTabHeader">Cleanup:</div>
+
+<$button>List items without a Project
+  <$action-navigate $to="Items Without a Project"/>
+</$button>
+
+<$button>
+  <$list filter="[has[cardo-type]]">
+    <$action-deletefield cardo-assignee cardo-requestor /> 
+  </$list>
+  <$action-deletetiddler $filter="[fieldContains:title[$:/temp/]]+[fieldContains:title[assignee]]" /> 
+  <$action-deletetiddler $filter="[fieldContains:title[$:/temp/]]+[fieldContains:title[requestor]]" />
+Remove person assignments from all Cardo items
+</$button>
+
+
+<$button>Delete all completed items<br>(Warning!)
+  <$action-deletetiddler $filter="[has[cardo-type]]+[tag[Complete]]" />
+</$button>
+
+<div class="intakeTabHeader">Upgrade Maintenance:</div>
+
+<$button>
+  <$action-sendmessage $message="tm-new-tiddler" title={{$:/status/UserName}} icon="$:/plugins/Cardo/images/person" tags="Person" cardo-type="person" cardo-guid=<<guid>> />
+Create "My Dashboard"
+</$button>
+
+<$button>Add Arena to items not showing on Dashboards
+  <$list filter='[has[cardo-type]!has[cardo-category]] [has[cardo-type]fieldOrEmpty:cardo-category["--empty--"]]'>
+    <$action-setfield cardo-category="(Unassigned)" /> 
+  </$list>
+</$button>
+
+<$button>
+  <$list filter="[has[cardo-type]] -[has[cardo-guid]]">
+    <$action-listops $field="cardo-guid" $subfilter=<<guid>> /> 
+  </$list>
+Add missing GUID's to Cardo Tiddlers
+</$button>
+
+<$button>
+  <$list filter="[has[cardo-type]]+[field:cardo-type[task]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/task" /> 
+  </$list>
+  <$list filter="[has[cardo-type]]+[field:cardo-type[project]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/project" /> 
+   </$list>
+  <$list filter="[has[cardo-type]]+[field:cardo-type[person]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/person" /> 
+   </$list>
+  <$list filter="[has[cardo-type]]+[field:cardo-type[reference]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/reference" /> 
+   </$list>
+  <$list filter="[has[cardo-type]]+[field:cardo-type[meeting]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/meeting" /> 
+   </$list>
+  <$list filter="[has[cardo-type]]+[field:cardo-type[agendaitem]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/agendaitem" /> 
+   </$list>
+  <$list filter="[has[cardo-type]]+[field:cardo-type[context]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/context" /> 
+   </$list>
+  <$list filter="[has[cardo-type]]+[field:cardo-type[area]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/area" /> 
+   </$list>   
+  <$list filter="[has[cardo-type]]+[field:cardo-type[realm]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/realm" /> 
+   </$list> 
+  <$list filter="[has[cardo-type]]+[field:cardo-type[dashboard]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/dashboard" /> 
+   </$list>   
+  <$list filter="[!has[cardo-type] -[has[icon]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/card" /> 
+   </$list>   
+  <$list filter="[tag[Cardo] -[has[icon]]">
+      <$action-listops $field="icon" $subfilter="+$:/core/images/options-button" /> 
+   </$list>  
+  <$list filter="[tag[about] -[has[icon]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/clipboard-checkmarks" /> 
+   </$list>  
+  <$list filter="[has[cardo-type]]+[field:cardo-type[statusupdate]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/statusupdate" /> 
+   </$list> 
+  <$list filter="[has[cardo-type]]+[field:cardo-type[email]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/stamp" /> 
+   </$list>   
+  <$list filter="[has[cardo-type]]+[field:cardo-type[dashboard]]">
+      <$action-listops $field="icon" $subfilter="+$:/plugins/Cardo/images/inbox" /> 
+   </$list> 
+Add missing icons to Cardo Tiddlers
+</$button> 
+
+<$button>
+  <$list filter="[has[cardo-parent]] [has[true]] [has[cardo-primary]]">
+    <$action-deletefield cardo-parent true cardo-primary /> 
+  </$list>
+Remove obsolete fields from all Cardo Tiddlers
+</$button>
+
+<div class="intakeTabHeader">Export:</div>
+
+Click the button to export all your Tasks, Projects, and other ''Cardo'' Tiddlers. You can drag the resulting file onto a new [[TiddlyWiki||http://www.tiddlywiki.com]] to turn it into a ''Cardo'' with all your stuff!
+<div style="clear:both; margin-top:20px;">
+  <$macrocall $name="exportButton" exportFilter='[has[cardo-type]]' lingoBase="$:/language/Buttons/ExportTiddlers/"/>
+Export all Cardo items
+</div>

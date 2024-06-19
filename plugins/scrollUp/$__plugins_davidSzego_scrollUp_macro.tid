@@ -1,0 +1,10 @@
+created: 20170303152118483
+creator: David Szego
+modified: 20170303152207976
+modifier: David Szego
+tags: $:/tags/Macro scrollUp
+title: $:/plugins/davidSzego/scrollUp/macro
+
+\define scrollUp()
+<div class="scrollup"><$button tag="p" class="te-btn-to-top" tooltip="Back to Top"><$action-navigate $to=<<currentTiddler>>/>▲</$button></div>
+\end

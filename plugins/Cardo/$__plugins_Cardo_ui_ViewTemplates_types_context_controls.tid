@@ -1,0 +1,21 @@
+created: 20160812194749217
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170223171553596
+modifier: David Szego
+revision: 2
+title: $:/plugins/Cardo/ui/ViewTemplates/types/context/controls
+type: text/vnd.tiddlywiki
+
+I AM CONTEXT CONTROLS!!!
+<div class="contextcontrols controls controlstint">
+ <div class="floatright smaller">
+  <span class="label">Realm:</span>&nbsp;<span macro="multiSelectTag Realm allowNone:on"></span>
+  <span macro="tag Context"></span>    <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/ContextHelp" />?</$button></span>
+ </div>
+ <div>
+  <span macro="singleToggleTag tag:Starred"></span>
+  <span class='title' macro='view title'></span>
+  <span macro="miniTag"></span>
+ </div>
+</div>

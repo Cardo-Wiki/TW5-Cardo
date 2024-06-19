@@ -1,0 +1,42 @@
+created: 20190107220136593
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/paper
+modified: 20190108011816233
+modifier: Joe Cardo
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoGoalList
+type: text/vnd.tiddlywiki
+
+\define cardoGoalList(title, status, priority, newButton="false", newButtonText="My Goal is to...", newTag="Goal Ongoing", assigneeGuid="-SKIP-", completeButton="true", includeComplete="false", starred="false")
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newGoalButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='goal' newTags='$newTag$' newButtonAssignee='$assigneeGuid$' newButtonText='$newButtonText$'/>
+      </$set>
+    </div>
+    <$set name='itemFilter' value=<<booleanMatch leftSide:$includeComplete$ rightSide:'false' 
+      trueValue:'$status$ +[tagging[]] +[fieldOrEmpty:cardo-assignee[$assigneeGuid$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[field:cardo-category<currentTiddler>]+[tagOrEmpty[$starred$]]+[field:cardo-type[goal]] -[tag[Complete]] -[has[draft.of]]'
+      falseValue:'$status$ +[tagging[]] +[fieldOrEmpty:cardo-assignee[$assigneeGuid$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[field:cardo-category<currentTiddler>]+[tagOrEmpty[$starred$]]+[field:cardo-type[goal]] -[has[draft.of]]'>> > 
+      <$list filter="[list[$:/state/Cardo/showCategory]]">
+        <$list filter=<<itemFilter>> >
+          <div class="cardoList.listitem"><$set name='doIWantThisButton' value=<<booleanMatch leftSide:$completeButton$ rightSide:'false' trueValue:'dummyMacro' falseValue:'toggleComplete'>> ><$macrocall $name=<<doIWantThisButton>> type='goal' newTag='$newTag$' newButtonText='$newButtonText$'/></$set><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this Goal" aria-label="Delete this Goal">×</$button><span style="display:inline-block;"><<toggleTagButtons tag:'GoalStatus' shortButtons:'true'>></span>
+            <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+              <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+          </div><!-- listitem -->
+        </$list>
+      </$list>
+    </$set>
+  </div><!-- cardoList -->
+\end
+\define dummyMacro()
+&nbsp;
+\end

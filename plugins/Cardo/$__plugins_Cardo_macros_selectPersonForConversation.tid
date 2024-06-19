@@ -1,0 +1,22 @@
+created: 20170130214919954
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20170221002637106
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/selectPersonForConversation
+type: text/vnd.tiddlywiki
+
+\define setPerson()
+<$action-deletefield cardo-person/>
+<$action-setfield cardo-person={{$:/state/$(currentTiddler)$/person}} />
+<$action-listops $field="cardo-person" $subfilter={{$:/state/$(currentTiddler)$/person}} />
+\end
+\define selectPersonForConversation(personGuid, myGuid)
+<$select tiddler="""$:/state/$(currentTiddler)$/person""" default={{!!cardo-person}} actions=<<setPerson>> >
+    <$list filter='[field:cardo-type[person]] -[has[draft.of]] -[field:cardo-guid<personGuid>]'>
+      <option value={{!!cardo-guid}} ><$view field='title'/></option>
+    </$list>
+  </$select>
+\end

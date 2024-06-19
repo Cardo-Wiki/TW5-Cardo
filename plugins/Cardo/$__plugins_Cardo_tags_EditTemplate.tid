@@ -1,0 +1,9 @@
+created: 20160923020150100
+creator: DavidSzego
+list: $:/plugins/Cardo/ui/EditTemplate/controls $:/plugins/Cardo/ui/EditTemplate/title $:/plugins/Cardo/ui/EditTemplate/tags $:/plugins/Cardo/ui/EditTemplate/body
+modified: 20161005011027902
+modifier: DavidSzego
+revision: 4
+tags: Cardo
+title: $:/plugins/Cardo/tags/EditTemplate
+type: text/vnd.tiddlywiki

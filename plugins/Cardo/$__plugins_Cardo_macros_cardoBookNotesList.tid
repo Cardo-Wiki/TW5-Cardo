@@ -1,0 +1,51 @@
+created: 20160930024039868
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20160930024653746
+modifier: DavidSzego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoBookNotesList
+type: text/vnd.tiddlywiki
+
+\define stateTiddler() $:/state/$(storyTiddler)$/$(currentTiddler)$/booknote
+\define newBookNoteButton(bookGUID)
+<$button class="newButton" aria-label="Create a new Book Note" tooltip="Create a new Book Note">+<$action-sendmessage $message="tm-new-tiddler" title="I read..." tags="BookNote" cardo-type='booknote' cardo-date=<<now format:'YYYY0MM0DD0hh0mm0ss000'>> icon="$:/plugins/Cardo/images/booknote" cardo-guid=<<guid>> cardo-book=$(bookguid)$ />
+</$button>
+\end
+\define cardoBookNotesList(title)
+  <div class="cardoList">
+    <div class="cardoList title">
+      $title$&nbsp;<<newBookNoteButton bookGUID:$(bookguid)$ >>
+    </div>
+    <$list filter='[field:cardo-book[$(bookguid)$]]+[field:cardo-type[booknote]] -[has[draft.of]]' >
+        <div class="cardoList.listitem"><<toggleStarred>><$button class="deleteX" tooltip="Delete this Book Note" aria-label="Delete this Book Note" >×<$action-sendmessage $message="tm-delete-tiddler" $tiddler=<<currentTiddler>>/></$button>
+          <span class="dueDate"><$view tiddler=<<currentTiddler>> field="cardo-bookchapter" /></span>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+          <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+          <$reveal type="nomatch" state=<<stateTiddler>> text="show">
+            <$button class="newButton" set=<<stateTiddler>> setTo="show">{{$:/core/images/chevron-down}}</$button>
+          </$reveal>
+          <$reveal type="match" state=<<stateTiddler>> text="show">
+            <$button class="newButton" set=<<stateTiddler>> setTo="hide">{{$:/core/images/chevron-up}}</$button>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+          </$reveal>
+
+        </div><!-- listitem -->
+    </$list>
+  </div><!-- cardoBookNoteList -->
+\end

@@ -1,0 +1,19 @@
+created: 20160831183043419
+creator: David Szego
+icon: $:/plugins/Cardo/images/clipboard-checkmarks
+modified: 20170223210436367
+modifier: Joe Cardo
+tags: about
+title: Meetings
+
+!!''Cardo'' gives you the ability to create, schedule, and track Meetings complete with:
+
+* Agenda Items
+* Attendees & Attendance
+* Discussion-based notes
+* Quick-view of project status & important tasks
+
+<div class="controls controlstint" style="float:none !important;">
+{{Discuss TPS reports||$:/plugins/Cardo/ui/ViewTemplates/types/meeting/controls}}
+{{Discuss TPS reports||$:/plugins/Cardo/ui/ViewTemplates/types/meeting/body}}
+</div>

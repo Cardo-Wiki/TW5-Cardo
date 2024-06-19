@@ -1,0 +1,23 @@
+created: 20160904150721861
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213314683
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/meetingSelect
+type: text/vnd.tiddlywiki
+
+\define onMeeting(agendaItemGuid)
+<$list filter='[fieldContains:cardo-agendaitems[$(agendaItemGuid)$]]'><<currentTiddler>></$list>
+\end
+\define meetingGuid(meetingName)
+{{$meetingName$!!cardo-guid}}
+\end
+\define meetingSelect()
+<$select tiddler=<<currentTiddler>> field="cardo-onmeeting" >
+  <$list filter="[field:cardo-type[meeting]]">
+    <option value={{!!cardo-guid}} ><<currentTiddler>></option>
+  </$list>
+</$select>
+\end

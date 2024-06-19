@@ -1,0 +1,21 @@
+caption: Tasks by Context
+cardo-type: dashboard
+created: 20160929231457303
+creator: David Szego
+icon: $:/plugins/Cardo/images/dashboard
+modified: 20170216144304518
+modifier: David Szego
+tags: Cardo
+title: Tasks by Context
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols1"><!-- list columns -->
+    <div class="col"><!--column 1-->
+      <$list filter="[all[shadows+tiddlers]] +[tag[context]] -[has[draft.of]]">
+        <<cardoTaskList title:"$(currentTiddler)$" status:"{{$:/status/Cardo/selectedCategory}} $(currentTiddler)$" includeComplete:'false' newButton:'true' newTag:'Task Next $(currentTiddler)$' >>
+      </$list>
+    </div><!-- column 1 -->
+  </div><!-- list columns -->
+</div><!-- dashboard -->

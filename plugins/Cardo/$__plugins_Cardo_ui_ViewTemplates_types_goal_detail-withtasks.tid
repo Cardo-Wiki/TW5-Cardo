@@ -1,0 +1,41 @@
+created: 20190108012106420
+creator: Joe Cardo
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20190108012113819
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/goal/detail-withtasks
+type: text/vnd.tiddlywiki
+
+<div class="controls controlstint">
+
+<$vars goalguid={{!!cardo-guid}} goalName=<<currentTiddler>> >
+<div class="dashboard">
+
+  <div class="cols2"><!-- status column -->
+    <div class="col"><!-- col 1 -->
+      <<cardoGoalNotesList title:"Why I need to do this" type:"why" newButtonText:"I'm driven to achieve this because...">>
+      <<cardoGoalNotesList title:"What I will gain if I do this" type:"positive" newButtonText:"This will benefit me by...">>
+      <<cardoGoalNotesList title:"What I will lose of I don't do this" type:"negative" newButtonText:"If I don't achieve this...">>
+      <<cardoGoalNotesList title:"What rituals will support this" type:"ritual" newButtonText:"Get in the habit of...">>
+    </div><!-- col 1 -->
+    <div class="col"><!-- col 2 -->
+      <div class="highlight"><<cardoTaskList title:'Important Tasks' status:'Starred' newButton:'true' newButtonText:'An Important Task...' newTag:'Task Next Starred' includeComplete:'false' project:$(goalguid)$>>
+        <<cardoDueList title:'Upcoming or Overdue Tasks' type:'task' status:'Next WaitingFor' dueWithin:'5' project:$(goalguid)$>>
+      </div>
+	  <<cardoTaskList title:'Next Tasks' status:'Next' newButton:'true' newButtonText:'The Next Thing We Must Do Is...' newTag:'Task Next'  includeComplete:'false' project:$(goalguid)$>>
+      <<cardoDueList title:'Waiting Tasks' type:'task' status:'WaitingFor' buttonType:'TaskStatus' groupBy:'cardo-priority' newButton:'true' newButtonText:'Someone should get on this...' newTag:'Task WaitingFor'  includeComplete:'false' project:$(goalguid)$>>
+      <<cardoTaskList title:'Future Tasks' status:'Future' newButton:'true' newButtonText:'We can do this later...' newTag:'Task Future' includeComplete:'false' project:$(goalguid)$>>
+      <div class="highlight">
+        <<cardoDueRemindersList title:"Today's Reminders" newButton:'true' project:$(goalguid)$>>
+      </div><!--highlight-->
+      <<cardoAllRemindersList title:"All Reminders" newButton:'true' project:$(goalguid)$>>
+    </div><!-- col 2 -->
+  </div>
+
+</div><!-- dashboard -->
+</$vars>
+
+</div>

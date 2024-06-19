@@ -1,0 +1,19 @@
+created: 20160923023358162
+creator: David Szego
+modified: 20170224193137320
+modifier: David Szego
+revision: 2
+tags: $:/plugins/Cardo/tags/EditTemplate Cardo
+title: $:/plugins/Cardo/ui/EditTemplate/title
+type: text/vnd.tiddlywiki
+
+<div class="tc-titlebar" style="float: left; clear: none; margin-bottom: 15px;">
+    <div class="tc-tiddler-title-icon" style=<<title-styles>>  style="display: flex; margin-top: 5px;">
+            <$list filter="[all[current]has[cardo-personphoto]]">
+              <img src={{!!cardo-personphoto}} style="width: 24px; height: 24px; float: left; margin-right: 5px; align-self: center;">
+            </$list>
+            <$list filter="[all[current]!has[cardo-personphoto]]">
+              <$transclude tiddler={{!!icon}}/>
+            </$list>
+    </div>
+</div>

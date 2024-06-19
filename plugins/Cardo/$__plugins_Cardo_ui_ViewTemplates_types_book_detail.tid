@@ -1,0 +1,17 @@
+created: 20160812192734067
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20160930024004153
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/book/detail
+type: text/vnd.tiddlywiki
+
+<$vars bookguid={{!!cardo-guid}} bookName=<<currentTiddler>> >
+<div class="dashboard">
+  <div class="cols1"><!-- status column -->
+    <<cardoBookNotesList title:"Book Notes (By Chapter)">>
+  </div> <!-- status column -->
+</div><!-- dashboard -->
+</$vars>

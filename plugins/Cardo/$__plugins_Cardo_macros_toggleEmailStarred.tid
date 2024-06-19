@@ -1,0 +1,15 @@
+created: 20161004183255751
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20161005143722037
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleEmailStarred
+type: text/vnd.tiddlywiki
+
+\define toggleEmailStarred(messageUID)
+    <$button class="emailStar" aria-label="Mark this email as important" tooltip="Mark this email as important">{{$:/plugins/Cardo/images/star-outline}}
+      <<setEmailFlagged messageUID:$messageUID$>>
+    </$button>
+\end

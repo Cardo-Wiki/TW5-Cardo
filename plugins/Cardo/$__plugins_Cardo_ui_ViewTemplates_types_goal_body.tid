@@ -1,0 +1,20 @@
+created: 20190107172717219
+creator: Joe Cardo
+hide-body: yes
+icon: $:/plugins/Cardo/images/goal
+modified: 20190107173251003
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/goal/body
+type: text/vnd.tiddlywiki
+
+<div class="postityellow">
+
+<$transclude>
+
+<$transclude tiddler="$:/language/MissingTiddler/Hint"/>
+
+</$transclude>
+
+</div>

@@ -1,0 +1,86 @@
+created: 20180102171458781
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/card
+modified: 20180103010726189
+modifier: Joe Cardo
+tags: 
+title: Railroad Test
+
+Whole chain in railroad macro:
+<$railroad text="""
+\start single
+"Project Name Outside ()'s"
+(
+'Milestone in Quotes' Task1 RectNoQuotes  'Milestone'
+|
+"Task 4" "Milestone" 
+|
+{ "Curly Brackets" Repeat}
+)
+"Phase Name" 
+\end double
+"""/>
+
+<$railroad text="""
+\start double
+\end double
+"Project With Consecutive Tasks"
+Task1  Task2  Task3
+"""/>
+
+<$railroad text="""
+\start double
+\end double
+"Project With Simultaneous Tasks"
+(
+Task1 |Task2| Task3
+)
+
+"""/>
+
+<$railroad text="""
+\start double
+\end double
+"Project With Task Chains"
+(
+Task1 Task4 | Task2 | Task3 Task5 Task6
+)
+
+"""/>
+
+<$railroad text="""
+\start double
+\end double
+
+"Project With Task Chains"
+(
+Task1 Task4 
+|
+( Task7 Task8 ) 
+|
+Task2 
+|
+Task3 Task5 Task6
+)
+
+"""/>
+
+<$railroad text="""
+\start single
+\end double
+\arrow yes
+"Project With Task Chains"
+(
+Task DepOnTask1
+| Task2 [
+                Dep1OnTask2 (
+                                      Task12 Task13
+                                     | Task9 Task10
+                                     )
+           ] 
+| Task3 
+| {RepTask4}
+| Task5 Dep1OnTask5 {RepDep2OnTask5}
+)
+
+"""/>

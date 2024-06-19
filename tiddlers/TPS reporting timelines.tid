@@ -1,0 +1,18 @@
+cardo-area: Work
+cardo-category: Work
+cardo-guid: be40968b-fb35-4989-94e9-02d696b0f9d2
+cardo-onmeeting: af29ba78-bbf3-45e5-b5a5-762a2b8ce25d
+cardo-parent: Discuss TPS reports
+cardo-requestor: My Boss
+cardo-type: agendaitem
+created: 20160901021703082
+creator: David Szego
+icon: $:/plugins/Cardo/images/agendaitem
+modified: 20170212222012663
+modifier: Joe Cardo
+tags: AgendaItem
+title: TPS reporting timelines
+true: Discuss TPS reports
+type: text/vnd.tiddlywiki
+
+Staff is being tardy on TPS reports. This is where I'd summarize what's on the agenda, and store my notes on the discussion we had.

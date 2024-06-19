@@ -1,0 +1,15 @@
+created: 20170223201808713
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/clipboard-checkmarks
+modified: 20170223210644840
+modifier: Joe Cardo
+tags: about
+title: Status Updates
+
+!!''Cardo'' lets you keep "Journal" entries of Project Status Updates
+
+These show up at the bottom of the Project Dashboard, in a collapsible section with Status Updates ordered newest to oldest.
+
+<$set name="projectGUID" value="6bb420a3-95c4-4ead-8f9a-e3337ee4cb11">
+<div class="dashboard"><<cardoStatusUpdateList title:"Status Updates">></div>
+</$set>

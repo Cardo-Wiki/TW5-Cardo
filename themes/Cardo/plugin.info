@@ -1,0 +1,17 @@
+{
+    "title": "$:/themes/Cardo",
+    "author": "David Szego (info@cardo.wiki)",
+    "bag": "default",
+    "core-version": ">=5.1.9",
+    "created": "20160930011633003",
+    "creator": "David Szego",
+    "dependents": "$:/plugins/Cardo",
+    "description": "Cardo Theme - A responsive, creamy-smooth theme to compliment the Cardo GTD plugin",
+    "modified": "20190108015253420",
+    "modifier": "Joe Cardo",
+    "name": "Cardo Theme",
+    "plugin-type": "theme",
+    "revision": "10",
+    "source": "http://cardo.wiki",
+    "version": "1.0.4"
+}

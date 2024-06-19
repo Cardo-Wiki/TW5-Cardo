@@ -1,0 +1,21 @@
+created: 20160812194820126
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170223171709026
+modifier: David Szego
+revision: 2
+title: $:/plugins/Cardo/ui/ViewTemplates/types/area/controls
+type: text/vnd.tiddlywiki
+
+I AM AREA CONTROLS!!!
+<div class="areacontrols controls">
+ <div style="float:right;" class="smaller">
+  <span class="label">Realm:</span>&nbsp;<span macro="multiSelectTag Realm allowNone:on"></span>
+  <span macro="tag Area"></span><span macro="help Area"></span>
+ </div>
+ <div>
+  <span macro="singleToggleTag tag:Starred"></span>
+  <span class='title' macro='view title'></span>
+  <span macro="miniTag"></span>
+ </div>
+</div>

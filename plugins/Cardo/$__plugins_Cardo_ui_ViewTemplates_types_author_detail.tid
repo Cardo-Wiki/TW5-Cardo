@@ -1,0 +1,19 @@
+created: 20160930144240698
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170223184754411
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/author/detail
+type: text/vnd.tiddlywiki
+
+<$set name=authorguid value={{!!cardo-guid}}>
+<div class="dashboard">
+  <div class="cols1"><!-- list columns group 1 -->
+    <div class="col">
+      <<cardoBookList title:'Books by {{!!title}}' author:'$(authorguid)$' status:'Book' newButton:'true' newTag:'Book' newButtonText:'Another great read...' newButtonAuthor:'$(authorguid)$'>>
+    </div><!-- column 1 -->
+  </div><!-- list columns -->
+</div><!-- dashboard -->
+</$set>

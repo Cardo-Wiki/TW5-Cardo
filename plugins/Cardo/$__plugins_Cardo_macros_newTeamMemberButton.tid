@@ -1,0 +1,31 @@
+created: 20160907025846583
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170219041034346
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/newTeamMemberButton
+type: text/vnd.tiddlywiki
+
+\define setTeamMember()
+<$action-listops $tiddler=<<currentTiddler>> $field="cardo-projectteam" $subfilter={{$:/temp/$(currentTiddler)$/$project$/teammember}} />
+\end
+\define newTeamMemberButton() 
+<$set name="newPersonGUID" value=<<guid>> >
+<$button class="newButton" aria-label="Create a new Team Member" tooltip="Create a new Team Member">N<$action-sendmessage $message="tm-new-tiddler" title="Look who joined us..." tags="Person" cardo-type="person" icon="$:/plugins/Cardo/images/person" cardo-guid=<<newPersonGUID>> cardo-category={{!!cardo-category}}/>
+  <$action-listops $tiddler=<<storyTiddler>> $field="cardo-projectteam" $subfilter=<<newPersonGUID>> />
+</$button>
+</$set>
+<$reveal type="nomatch" state="$:/temp/$(currentTiddler)$/$project$/teammember" text="show">
+  <$button class="newButton" aria-label="Add a Team Member" tooltip="Add a Team Member" set="$:/temp/$(currentTiddler)$/$project$/teammember" setTo="show">E</$button>
+</$reveal>
+<$reveal type="match" state="$:/temp/$(currentTiddler)$/$project$/teammember" text="show">
+  <$button class="newButton" set="$:/temp/$(currentTiddler)$/$project$/teammember" setTo="hide">-</$button>
+  <$select tiddler="$:/temp/$(currentTiddler)$/$project$/teammember" actions=<<setTeamMember>> >
+    <$list filter='[field:cardo-type[person]] -[has[draft.of]]'>
+      <option value={{!!cardo-guid}} ><$view field='title'/></option>
+    </$list>
+  </$select>
+</$reveal>
+\end

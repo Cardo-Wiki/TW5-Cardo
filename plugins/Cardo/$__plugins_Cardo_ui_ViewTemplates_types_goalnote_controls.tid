@@ -1,0 +1,28 @@
+created: 20190107191911894
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/paper
+modified: 20190107193039032
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/goalnote/controls
+type: text/vnd.tiddlywiki
+
+<div class="controls controlstint">
+  <div class="floatright smaller">
+        <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/GoalNoteHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleStarred>>
+    <$list filter="[is[current]!has[draft.of]]">
+      <span class='title'>{{!!title}}</span><br>
+    </$list>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+  <div class="projectGroup">
+    <span class="label">Goal:</span><br>
+    <<selectGoalForNote goalGuid:{{!!cardo-goal}} myGuid:{{!!cardo-guid}}>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-goal}} label="Open this Goal"/></span><$button class="deleteX" aria-label="Remove from this Goal" tooltip="Remove from this Goal">×<$action-listops $field="cardo-goal" $filter="[[]]"/></$button>
+  </div>
+&nbsp;
+  <div class="clearboth"></div>
+</div>

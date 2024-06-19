@@ -1,0 +1,16 @@
+{
+    "title": "$:/plugins/davidSzego/scrollUp",
+    "author": "David Szego",
+    "bag": "default",
+    "caption": "scrollUp Plugin",
+    "created": "20170303152318891",
+    "creator": "David Szego",
+    "description": "scrollUp - Puts a ▲at the bottom right of Tiddlers, to jump back to the top",
+    "list": "readme",
+    "modified": "20170305032949907",
+    "modifier": "David Szego",
+    "plugin-type": "plugin",
+    "revision": "2",
+    "tags": "[[My Plugins]]",
+    "version": "1.0.1"
+}

@@ -1,0 +1,11 @@
+caption: Tiddlers
+created: 20170213155244006
+creator: David Szego
+modified: 20170213155428062
+modifier: David Szego
+tags: Cardo $:/tags/SideBar
+title: $:/plugins/Cardo/SideBar/Tiddlers
+
+<div class="tc-more-sidebar">
+<<tabs "[title[Shown]] [all[shadows+tiddlers]tag[$:/tags/MoreSideBar]!has[draft.of]]" "$:/core/ui/MoreSideBar/Tags" "$:/state/tab/moresidebar" "tc-vertical">>
+</div>

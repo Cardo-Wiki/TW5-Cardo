@@ -1,0 +1,20 @@
+caption: Cardo
+created: 20170224031756223
+creator: David Szego
+modified: 20170224031758600
+modifier: David Szego
+revision: 18
+tags: Cardo $:/tags/SideBar
+title: $:/plugins/Cardo/SideBar
+type: text/vnd.tiddlywiki
+
+<div class="intakeTabButtons">
+<div class="intakeTabHeader">Focus:</div>
+<<showCategory>>
+<div style="margin: 5px;">
+<$set name="categoryImage" filter="[field:title{$:/state/Cardo/showCategory}get[icon]]"><$transclude tiddler=<<categoryImage>> />
+<$view tiddler={{$:/state/Cardo/showCategory}} field="text"/></$set></div>
+</div>
+<div style="display: flex;">
+<<tabs "[title[$:/plugins/Cardo/SideBar/New]] [title[$:/plugins/Cardo/SideBar/Review]] [title[$:/plugins/Cardo/SideBar/Maintenance]]" "[title[$:/plugins/Cardo/SideBar/Maintenance]]" "$:/state/tab/cardotoolssidebar">>
+</div>

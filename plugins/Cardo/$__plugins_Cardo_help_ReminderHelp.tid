@@ -1,0 +1,43 @@
+caption: ReminderHelp
+created: 20170216205021094
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170216205448320
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/ReminderHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Reminders alert you of anything time-sensitive. 
+
+Tasks can be turned into Reminders, but generally a reminder is less detailed.
+
+Use the ''Project:'' dropdown to attach a reminder to a project. Any upcoming reminders for that project will be shown in the project's dashboard.
+
+Reminders can be one-time, or repeating:
+
+:''Upcoming'' - A discussion to be had, may need planning
+:''Held'' - A discussion that was had, for referencing it's notes and attendees
+:''Cancelled'' - A discussion that got cancelled, but worth noting
+
+{{$:/plugins/Cardo/images/calendar-x}}Meetings can have a date and time set by clicking on the calendar icon. When the date and time is set and shown, click on the ''[x]'' to clear it.
+
+{{$:/plugins/Cardo/images/checkbox}}When the task is completed, click the checkbox to the left of the task's name.
+
+{{$:/plugins/Cardo/images/star-outline}}If the task is particularly important, click the star.
+
+Use the ''Chair:'' and ''Requested by:'' dropdowns to indicate who is leading the discussion, and who asked for it. The meeting will show up in the dashboard of the Chair, the requestor, and any attendees.
+
+!!!Agenda Items and Attendees
+To help guide your meetings, create and track Agenda Items and list the Attendees in the meeting's dashboard using the ''(N)'' (New) and ''(E)'' (existing) buttons.
+
+When your meeting starts, check off each person who attended.
+
+During your meeting, open each Agenda Item to see what needs discussing and edit it to keep notes. Check them off to indicate they've been discussed, or leave them unchecked if you didn't get to that item.
+
+@@

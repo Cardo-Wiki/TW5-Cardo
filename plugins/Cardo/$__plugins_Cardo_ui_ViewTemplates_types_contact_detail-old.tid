@@ -1,0 +1,143 @@
+created: 20160823164225440
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170216145237885
+modifier: David Szego
+revision: 1
+title: $:/plugins/Cardo/ui/ViewTemplates/types/contact/detail-old
+type: text/vnd.tiddlywiki
+
+<span><b><u>Assigned Tasks</u></b> [<b>+</b>]<br>
+<i>Next</i><br>
+[​][N][w][f][d] ★ × Code regression testing on new module [Example Project]<p>
+<i>WaitingFor</i><br>
+[​][n][W][f][d] ★ × Some action someone is waiting for me to do [Test Project]<p>
+<hr>
+<p>
+
+    <<cardoList type:"task" status:"Next" priority:"P1" starred:"true" project:"Test Project">> 
+<p>
+<hr>
+
+    </div>
+</div>
+
+
+
+
+	[[CardoTagDashboards##Ticklers Requiring Action]]
+
+	<div macro="CardoList title:'Next Actions'
+	  tags:'Action && Next && !Done && !Trash'
+	  view:Action
+	  ignoreRealm:yes
+	  group:Priority
+	  gView:bold
+	  newButtonTags:'Action Next'
+	"></div>
+
+	<div macro="CardoList title:'Waiting Actions by Person' 
+	  tags:'Action && [(Waiting For)] && !Done && !Trash'
+	  view:Action
+	  ignoreRealm:yes
+	  group:Contact
+	  gView:bold
+	  newButtonTags:'Action [[Waiting For]]'
+	"></div>
+
+	<div macro="CardoList title:'Future Actions'
+	  tags:'Action && Future && !Done && !Trash'
+	  view:Action
+	  ignoreRealm:yes
+	  group:Priority
+	  gView:bold
+	  newButtonTags:'Action Future'
+	"></div>
+
+    </div>
+    <div class="col">
+
+	[[CardoTagDashboards##Upcoming Ticklers]]
+
+        <div macro="CardoList title:'Future Ticklers'
+	  tags:'Tickler && !Actioned && !Trash'
+	  view:Tickler
+	  ignoreRealm:yes
+	  where:'!tiddler.ticklerWillBeActiveWithin(7)'
+	  newButtonTags:'Tickler Once'
+	  sort:tickleDate
+	"></div>
+
+        <div macro="CardoList title:'Upcoming Meetings'
+	  tags:'Meeting && Upcoming && !Trash'
+          view:Meeting
+	  ignoreRealm:yes
+	  sort:-tickleDate
+	  addButtonTags:'Meeting Upcoming'
+	"></div>
+
+        <div class="scroll10" macro="CardoList title:'Previous Meetings'
+	  tags:'Meeting && Held && !Trash'
+          view:Meeting
+	  ignoreRealm:yes
+	  sort:-tickleDate
+	"></div>
+
+    </div>
+    <div class="col">
+
+        <!-- div class="scroll10" macro="tiddler ProjectTeam with:{{tiddler.title}}></div -->
+
+	<div macro="CardoList title:'Project Team'
+	  dontShowEmpty:no
+	  tags:'Contact' 
+	  xgSort:TeamRole
+	  xgroup:TeamRole
+	  gView:bold
+	  ignoreRealm:yes
+	  view:projectTeam
+	  addButtonTagsAndRef:'Contact'
+	"></div>
+
+	<div macro="CardoList title:'Reference Items'
+	  tags:'Reference && !Trash'
+          view:plainNotes
+          addButtonTags:'Reference' 
+          ignoreRealm:yes
+	  withParentTag:yes
+	"></div>
+
+	<div macro="CardoList title:'Active Subprojects'
+	  tags:'Project && !Complete && Active && !Trash'
+	  view:Project
+	  ignoreRealm:yes
+	  group:ProjectStatus
+	  gView:bold
+	  newButtonTags:'Project'
+	"></div>
+
+	<div macro="CardoList title:'Completed Subprojects'
+	  tags:'Project && Complete && !Trash'
+	  view:ProjectComplete
+	  ignoreRealm:yes
+	  newButtonTags:'Project Active Complete'
+	  dontShowEmpty:yes
+	"></div>
+
+	<div class="scroll10" macro="CardoList title:'Done Actions'
+	  tags:'Action && Done && !Trash'
+	  view:DoneAction
+	  ignoreRealm:yes
+	  newButtonTags:'Action Done Next'
+	  dontShowEmpty:yes
+	  sort:-modified">
+	</div>
+
+    </div>
+</div>
+<p>
+<div class="cols3">
+  <hr style="width: 98%;"><p>
+    <div macro="tiddler StatusUpdateView with:{{tiddler.title}}" style="float:left; clear:none;"></div>
+</div>
+</div>

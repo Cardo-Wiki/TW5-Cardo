@@ -1,0 +1,41 @@
+created: 20170202205724073
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20190107232815585
+modifier: Joe Cardo
+revision: 11
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoDueRemindersList
+type: text/vnd.tiddlywiki
+
+\define regExDateMonthly() ^\d{6}$(dayNum)$
+\define regExDateYearly() ^\d{4}$(monthNum)$$(dayNum)$
+\define cardoDueRemindersList(title, newButton, newButtonAssignee:"-SKIP-", parentGuid:"-SKIP-", project:"-SKIP-", assignee:"-SKIP-", dueWithin:"-SKIP-", newButtonAssignee:"-SKIP-", newButtonProject:"-SKIP-") 
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newReminderButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='reminder' newTag='Reminder' newButtonText='I must not forget...' assigneeGuid=<<newButtonAssignee>> parentGuid=$parentGuid$ projectGuid=$newButtonProject$ />
+      </$set>
+    </div>
+    <$vars dayNum=<<now 0DD>> dayName=<<now DDD>> monthNum=<<now 0MM>> >
+      <$list filter="[list[$:/state/Cardo/showCategory]]">
+        <$list filter='[tag[Daily]] [tag[Once]days:cardo-due[0]] [tag<dayName>tag[Weekly]] [regexp:cardo-due<regExDateMonthly>tag[Monthly]] [regexp:cardo-due<regExDateYearly>tag[Yearly]] +[fieldOrEmpty:cardo-assignee[$(personguid)$]] +[fieldOrEmpty:cardo-project[$(projectguid)$]]+[fieldOrEmpty:cardo-guid[$(parentGuid)$]]+[field:cardo-category<currentTiddler>] +[field:cardo-type[reminder]] -[has[draft.of]]' >
+          <div class="cardoList.listitem"><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this Reminder" aria-label="Delete this reminder">×</$button><span style="display:inline-block;"><<toggleTagButtons tag:'ReminderStatus' shortButtons:'true'>></span>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+            <$set name="parentProject" value={{!!cardo-project}}>
+              <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+            </$set>
+          </div><!-- listitem -->
+        </$list>
+      </$list>
+    </$vars>
+  </div><!-- cardoList -->
+\end

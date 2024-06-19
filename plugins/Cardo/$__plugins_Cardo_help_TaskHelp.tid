@@ -1,0 +1,38 @@
+caption: Task Help
+created: 20170216200828010
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170216202101937
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/TaskHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Tasks are individual items on your To-Do list. 
+
+Put everything you have to do into a series of new tasks, and assign them to appropriate Projects if they are part of a larger set using the ''Project:'' dropdown.
+
+Keep track of your Tasks by status:
+
+:''Next'' - The thing you should immediately focus on, to allow other tasks to progress
+:''~WaitingFor'' - Can't complete until something else happens, or delegated to someone else to complete
+:''Future'' - A task that doesn't need to happen any time soon, but should get done
+:''Dismissed'' - Didn't get done, but worth keeping
+
+{{$:/plugins/Cardo/images/calendar-x}}Next or Waiting tasks can have a due-date set by clicking on the calendar icon. When the date is set and shown, click on the ''[x]'' to clear it.
+
+{{$:/plugins/Cardo/images/context}}Contexts describe the environment best suited to do this task. Sorting by context helps you see everything you need to do while you're //@work//, //@home//, making //@phone// calls, etc.
+
+{{$:/plugins/Cardo/images/checkbox}}When the task is completed, click the checkbox to the left of the task's name.
+
+{{$:/plugins/Cardo/images/star-outline}}If the task is particularly important, click the star.
+
+Using the ''Depends on:'' dropdown, a task can be dependant on another task. For instance, "//Paint the bedroom//" could be dependant on "//Buy paint//"
+
+Use the ''Assigned to:'' and ''Requested by:'' dropdowns to indicate who is responsible for this task, and who asked for it. Tasks will show up in the appropriate person's dashboard.
+@@

@@ -1,0 +1,50 @@
+created: 20160831173445779
+creator: David Szego
+icon: $:/plugins/Cardo/images/card
+modified: 20190108015938849
+modifier: Joe Cardo
+revision: 0
+title: Get Cardo
+type: text/vnd.tiddlywiki
+
+\define lingo-base() $:/plugins/Cardo/language/Download/
+!!To download your own copy of Cardo, click here:
+
+<span class="button" style="width:auto;height:auto; padding:5px; font-size:1.25em;">
+<a style="text-decoration:none;" download="Cardo.html" href="Cardo.html">Download ''Cardo'' </a>
+</span>
+
+//(Some browsers (Safari) may require you to right-click and "Save As" this link)//
+
+<$reveal type="nomatch" state="$:/state/GetCardo/advanced" text="show">
+
+<$button set="$:/state/GetCardo/advanced"setTo="show">Advanced TW users click here...</$button>
+
+</$reveal>
+<$reveal type="match" state="$:/state/GetCardo/advanced" text="show">
+
+<$button set="$:/state/GetCardo/advanced" setTo="hide">Advanced TW users click here...</$button>
+
+!!!Individual Plugins:
+If you're already a TW5 user, and would like to add Cardo to your TiddlyWiki, load it in another tab and drag the following Tiddlers to it:
+
+>[[$:/plugins/Cardo]]
+>[[$:/plugins/kixam/datepicker]]
+>[[$:/plugins/kixam/moment]]
+
+You'll also like the matching theme:
+
+>[[$:/themes/Cardo]]
+
+Finally, I recommend this Search plugin:
+
+>[[$:/plugins/spangenhelm/enhancedsearch]]
+
+!!!All the above Plugins in an importable file:
+
+<span class="button" style="width:auto;height:auto; padding:5px; font-size:1.25em;">
+<a style="text-decoration:none;" download="Cardo-1.0.4.json" href="Cardo-1.0.4.json">Download Plugins </a>
+</span>
+
+//(Some browsers (Safari) may require you to right-click and "Save As" this link)//
+</$reveal>

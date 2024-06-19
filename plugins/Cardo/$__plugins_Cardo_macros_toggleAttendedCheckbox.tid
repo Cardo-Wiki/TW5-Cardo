@@ -1,0 +1,26 @@
+created: 20170130142304669
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20170221194038618
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleAttendedCheckbox
+type: text/vnd.tiddlywiki
+
+\define toggleAttendedCheckbox(attendeeGUID)
+  <$set name="buttonClass" filter="[fieldContains:cardo-attended<attendeeGUID>]" value="checkbox" emptyValue="checkbox off">
+    <$list filter="[is[current]] -[fieldContains:cardo-attended<attendeeGUID>]">
+      <$button class=<<buttonClass>> aria-label="Attended meeting" tooltip="Attended meeting">
+        <$action-listops $tiddler=<<currentTiddler>> $field="cardo-attended" $subfilter="+[append<attendeeGUID>]"/>
+        {{$:/plugins/Cardo/images/checkbox}}
+      </$button>
+    </$list>
+    <$list filter="[is[current]] +[fieldContains:cardo-attended<attendeeGUID>]">
+      <$button class=<<buttonClass>> aria-label="Attended meeting" tooltip="Attended meeting">
+        <$action-listops $tiddler=<<currentTiddler>> $field="cardo-attended" $subfilter="+[remove<attendeeGUID>]"/>
+        {{$:/plugins/Cardo/images/checkbox-checked}}
+      </$button>
+    </$list>
+  </$set>
+\end

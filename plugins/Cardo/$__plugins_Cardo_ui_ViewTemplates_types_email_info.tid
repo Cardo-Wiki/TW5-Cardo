@@ -1,0 +1,18 @@
+created: 20161002001110502
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20170213010205507
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/email/info
+type: text/vnd.tiddlywiki
+
+<div class="controls controlstint">
+  <div class="cols1"><!-- Contact info and conversation log -->
+    <div class="col "><!-- Contact info -->
+{{!!cardo-emailbody}}
+    </div>
+  </div>
+</div>

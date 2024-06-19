@@ -1,0 +1,26 @@
+created: 20160829192152361
+creator: DSzego
+icon: $:/plugins/Cardo/images/paper
+modified: 20160926141750017
+modifier: DavidSzego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleFieldCheckbox
+type: text/vnd.tiddlywiki
+
+\define toggleFieldCheckbox(field, class)
+  <$set name="buttonClass" filter="[has[$field$]" value="checkbox" emptyValue="checkbox off">
+  <$list filter="[has[$field]]">
+    <$button class=<<buttonClass>> aria-label="Mark this as unchecked" tooltip="Mark this as checked">
+      <$action-listops $tiddler=<<currentTiddler>> $tags="+[remove[Complete]]" />
+      {{$:/plugins/Cardo/images/checkbox-checked}}
+    </$button>
+  </$list>
+  <$list filter="[is[current]!tag[Complete]]">
+    <$button class=<<buttonClass>> aria-label="Mark this as complete" tooltip="Mark this as complete">
+      <$action-listops $tiddler=<<currentTiddler>> $tags="+[append[Complete]]" />
+      {{$:/plugins/Cardo/images/checkbox}}
+    </$button>
+  </$list>
+  </$set>
+\end

@@ -1,0 +1,37 @@
+caption: GoalHelp
+created: 20190107182031475
+creator: Joe Cardo
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20190107221904694
+modifier: Joe Cardo
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/GoalHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Goals are like personal projects with a meaning and rituals attached. 
+
+Each goal has a defined outcome, described in the body of the goal. It is supported by notes you make to describe the benefits of achieving that goal, the risks of not achieving it, and what rituals (habits) you need to do to ensure you reach and maintain your goals.
+
+Goals can be one-time, or repeating:
+
+:''Once'' - Something you have to achieve a single time, with a target date to achieve the goal by
+:''Daily/Weekly/Monthly/Yearly'' - Something you have to do on a regular basis, but in certain intervals
+:''Ongoing'' - An ongoing goal never ends. It's more a journey than a destination
+
+{{$:/plugins/Cardo/images/calendar-x}}Goals set to "Once" can have a date and time set by clicking on the calendar icon. When the date and time is set and shown, click on the ''[x]'' to clear it.
+
+{{$:/plugins/Cardo/images/checkbox}}When the goal as been achieved, click the checkbox to the left of the goal's name.
+
+{{$:/plugins/Cardo/images/star-outline}}If the goal is particularly important, click the star.
+
+!!!Supporting Reasons and Rituals
+To help you achieve your goals, you should think about what deep need you'd be fulfilling by reaching this goal. What would change in your life and how you would benefit from those changes? What would stay the same if you didn't achieve this goal, and what are the personal, emotional, and physical risks of that happening? Think about how these questions would affect all areas of your life - your career, finances, family, relationships, even your self-worth.
+
+Once you have a solid understanding of the reasons you're setting this goal, what rituals do you need to create to ensure you reach it? These are habit-forming activities that change your day-to-day mindset and energy level, and move you ever forward towards your goal. Rituals can be positive and negative - for instance, working out every other day at 7am, or not stopping at the coffee shop for that extra tall mocha whip latte.
+
+@@

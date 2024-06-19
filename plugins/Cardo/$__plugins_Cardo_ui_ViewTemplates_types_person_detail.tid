@@ -1,0 +1,48 @@
+created: 20160830190834012
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20190108005909302
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/person/detail
+type: text/vnd.tiddlywiki
+
+<$vars personguid={{!!cardo-guid}} >
+<div class="dashboard">
+  <div class="cols3"><!-- list columns group 1 -->
+    <div class="col">
+    <!-- cardoList(title, type, status, priority, buttonType, starred -->
+      <div class="highlight">
+        <<cardoTaskList assignee:'$(personguid)$' title:'Important Tasks' type:'task' status:'Starred' buttonType:'TaskStatus' newButton:'true' newButtonText:'An Important Task...' newTag:'Task Next Starred' newButtonAssignee:'$(personguid)$' includeComplete:'false'>>
+      </div>
+      <<cardoTaskList title:'Next Tasks' assignee:'$(personguid)$' type:'task' status:'Next' buttonType:'TaskStatus'  newButton:'true' newButtonText:'The Next Thing We Must Do Is...' newTag:'Task Next' newButtonAssignee:'$(personguid)$'  includeComplete:'false'>>
+      <<cardoDueList title:'Waiting Tasks' assignee:'$(personguid)$' type:'task' status:'WaitingFor' buttonType:'TaskStatus'  newButton:'true' newButtonText:'Someone Should Get On This...' newTag:'Task WaitingFor' newButtonAssignee:'$(personguid)$'  includeComplete:'false'>>
+      <<cardoTaskList title:'Future Tasks' type:'task' assignee:'$(personguid)$' status:'Future' buttonType:'TaskStatus' groupBy:'cardo-priority' newButton:'true' newButtonText:'We can do this later...' newTag:'Task Future'  newButtonAssignee:'$(personguid)$' includeComplete:'false'>>
+    </div><!-- column 1 -->
+    <div class="col"><!-- column 2 -->
+      <div class="highlight">
+        <<cardoDueRemindersList title:"Today's Reminders" assignee:'$(personguid)$' newButton:'true' newButtonAssignee:$(personguid)$>>
+      </div><!--highlight-->    
+    <div class="highlight">
+      <<cardoDueList title:'Upcoming or Overdue Tasks' type:task status:'Next WaitingFor' buttonType:'TaskStatus' dueWithin:'5' assignee:$(personguid)$>>
+    </div>
+    <<cardoMeetingList title:'Upcoming Meetings' attendeeGUID:'$(personguid)$'  status:'Upcoming' newButton:'true' newButtonText:'Meeting to discuss...' newTag:'Meeting Upcoming' dueWithin:'5'>>
+    <<cardoMeetingList title:'Held & Cancelled Meetings' attendeeGUID:'$(personguid)$' status:'Held Cancelled' >>
+<<cardoList title:'Reference Items' type:'reference' assignee:'$(personguid)$' status:'Reference' newButton:'true'  newButtonText:'In reference to $(currentTiddler)$...' newTag:'Reference' newPersonGuid:'$(personguid)$' completeButton:'false' scrolling:'true'>>
+    </div><!-- column 2 -->
+    <div class="col"><!-- column 3 -->
+      <div class="highlight">
+        <<cardoProjectDueList title:"Upcoming or Overdue Projects" status:"Active"  dueWithin:"10" personGuid:$(personguid)$>>
+      </div>
+      <<cardoProjectRoleList title:'Active Projects' status:'Active' includeComplete:'false' newButton:'true' newTag:'Project Active' personGuid:$(personguid)$ shortButtons:'true' newProjectLead:$(personguid)$ >>
+      <<cardoProjectRoleList title:'Ongoing Projects' status:'Ongoing' includeComplete:'false' newButton:'true' newTag:'Project Ongoing' personGuid:$(personguid)$ shortButtons:'true' newProjectLead:$(personguid)$>>
+      <div class="highlight">
+        <<cardoGoalList title:"Goals" status:'Once Daily Weekly Monthly Yearly Ongoing' assigneeGuid:$(personguid)$ includeComplete:'false' newButton:'true' newTag:'Goal Ongoing' shortButtons:'true' >>
+      </div>
+      <<cardoProjectRoleList title:'Completed Projects' status:'Complete' newButton:'false' includeComplete:'true' personGuid:$(personguid)$ shortButtons:'true'>>
+        <<cardoTaskList title:'Completed Tasks' type:'task' assignee:{{!!cardo-guid}} requestor:{{!!cardo-guid}} status:'Complete' newButton:'false' includeComplete:'true' scrolling:'true' >>
+    </div><!-- column 3 -->
+  </div><!-- list columns -->
+</div><!-- dashboard -->
+</$vars>

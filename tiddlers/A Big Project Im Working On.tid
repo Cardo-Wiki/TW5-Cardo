@@ -1,0 +1,29 @@
+cardo-area: Web & Software
+cardo-category: Web Development
+cardo-due: 20190131000000000
+cardo-guid: 6bb420a3-95c4-4ead-8f9a-e3337ee4cb11
+cardo-primary: Sam Tasker
+cardo-priority: P1
+cardo-progress: 8
+cardo-projectlead: dcb08717-3d17-4d9a-aad7-826a54bcf5df
+cardo-projectteam: dcb08717-3d17-4d9a-aad7-826a54bcf5df--Responsible dcb08717-3d17-4d9a-aad7-826a54bcf5df
+cardo-start: 20190101000000000
+cardo-type: project
+created: 20190101195433441
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/clipboard-checkmarks
+modified: 20190108013217857
+modifier: Joe Cardo
+tags: Project Active ❹ Starred about Recurring
+title: A Big Project Im Working On
+true: Home
+type: text/vnd.tiddlywiki
+
+This is a really important project to plan all the projects I'm planning. It involves making a whole bunch of tasks, getting a group of people together, and organizing them all.
+
+Generally, I want to:
+
+*Get all my stuff together
+*Figure out a way to get it all done
+**(Using David Allen's //Getting Things Done// methodology would be good)
+*Managing it with ''Cardo''

@@ -1,0 +1,66 @@
+created: 20160825000503174
+creator: DavidSzego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170305033356280
+modifier: David Szego
+revision: 2
+tags: pageRibbonLogo
+title: $:/core/ui/PageTemplate
+type: text/vnd.tiddlywiki
+
+\define containerClasses()
+tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
+\end
+
+<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+
+<$set name="tv-config-toolbar-icons" value={{$:/config/Toolbar/Icons}}>
+
+<$set name="tv-config-toolbar-text" value={{$:/config/Toolbar/Text}}>
+
+<$set name="tv-config-toolbar-class" value={{$:/config/Toolbar/ButtonClass}}>
+
+<$set name="themeTitle" value={{$:/view}}>
+
+<$set name="currentTiddler" value={{$:/language}}>
+
+<$set name="languageTitle" value={{!!name}}>
+
+<$set name="currentTiddler" value="">
+
+<div class=<<containerClasses>>>
+<$navigator story="$:/StoryList" history="$:/HistoryList" openLinkFromInsideRiver={{$:/config/Navigation/openLinkFromInsideRiver}} openLinkFromOutsideRiver={{$:/config/Navigation/openLinkFromOutsideRiver}}>
+<$list filter="[title[$:/plugins/davidSzego/pageRibbonLogo/ControlPanel/CornerRibbon]field:ribbontoggle[on]]">
+  <div class="github-fork-ribbon-wrapper right">
+    <div class="github-fork-ribbon">{{$:/plugins/davidSzego/pageRibbonLogo/CornerRibbon}}</div>
+  </div>
+</$list>
+<$dropzone>
+
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/PageTemplate]!has[draft.of]]" variable="listItem">
+
+<$transclude tiddler=<<listItem>>/>
+
+</$list>
+
+</$dropzone>
+
+</$navigator>
+
+</div>
+<div class="logobackground">{{$:/plugins/davidSzego/pageRibbonLogo/PageLogo}}</div>
+</$set>
+
+</$set>
+
+</$set>
+
+</$set>
+
+</$set>
+
+</$set>
+
+</$set>
+
+</$importvariables>

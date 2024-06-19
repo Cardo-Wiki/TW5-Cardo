@@ -1,0 +1,103 @@
+created: 20160923023823214
+creator: David Szego
+modified: 20190107192233360
+modifier: Joe Cardo
+revision: 2
+tags: Cardo $:/plugins/Cardo/tags/EditTemplate
+title: $:/plugins/Cardo/ui/EditTemplate/body
+type: text/vnd.tiddlywiki
+
+\define lingo-base() $:/language/EditTemplate/Body/
+\define config-visibility-title()
+$:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
+\end
+
+<$list filter="[all[current]field:cardo-type[task]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/task/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[project]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/project/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[person]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/person/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[reference]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/reference/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[meeting]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/meeting/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[agendaitem]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/agendaitem/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[dashboard]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/dashboard/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[statusupdate]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/statusupdate/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[book]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/book/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[booknote]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/booknote/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[conversation]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/conversation/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[author]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/author/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[reminder]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/reminder/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[goal]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/goal/controls/edit}}
+</$list>
+<$list filter="[all[current]field:cardo-type[goalnote]]">
+  {{||$:/plugins/Cardo/ui/ViewTemplates/types/goalnote/controls/edit}}
+</$list>
+
+<$list filter="[is[current]has[_canonical_uri]]">
+
+<div class="tc-message-box">
+
+<<lingo External/Hint>>
+
+<a href={{!!_canonical_uri}}><$text text={{!!_canonical_uri}}/></a>
+
+<$edit-text field="_canonical_uri" class="tc-edit-fields"></$edit-text>
+
+</div>
+
+</$list>
+
+<$list filter="[is[current]!has[_canonical_uri]]">
+
+<$reveal state="$:/state/showeditpreview" type="match" text="yes">
+
+<div class="tc-tiddler-preview">
+
+<$transclude tiddler="$:/plugins/Cardo/ui/EditTemplate/body/editor" mode="inline"/>
+
+<div class="tc-tiddler-preview-preview">
+
+<$transclude tiddler={{$:/state/editpreviewtype}} mode="inline">
+
+<$transclude tiddler="$:/core/ui/EditTemplate/body/preview/output" mode="inline"/>
+
+</$transclude>
+
+</div>
+
+</div>
+
+</$reveal>
+
+<$reveal state="$:/state/showeditpreview" type="nomatch" text="yes">
+
+<$transclude tiddler="$:/plugins/Cardo/ui/EditTemplate/body/editor" mode="inline"/>
+
+</$reveal>
+
+</$list>

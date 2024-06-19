@@ -1,0 +1,23 @@
+created: 20170212031413042
+creator: David Szego
+modified: 20170221161310116
+modifier: David Szego
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/showCategory
+
+\define setAreas()
+<$action-listops $tiddler='$:/state/Cardo/showCategory' $filter="[[Realm]][[Area]] +[tagging[]]" $subfilter="+[tagOrEmpty{$:/state/Cardo/showCategory}] [title{$:/state/Cardo/showCategory}]"
+/>
+\end
+\define showCategory()
+<$select class="iconButtonText" tiddler='$:/state/Cardo/showCategory' actions=<<setAreas>> >
+    <option value="" style="font-weight:bold;font-style:italic;">All</option>
+    <option value="(Unassigned)" style="font-weight:bold;font-style:italic;">(Unassigned)</option>
+  <$list filter='[all[shadows+tiddlers]tag[Realm]sort[]] -[title[(Unassigned)]] -[has[draft.of]]'>
+    <option class="optionGroup" value=<<currentTiddler>> ><<currentTiddler>></option>
+      <$list filter='[all[shadows+tiddlers]tag<currentTiddler>tag[Area]] -[has[draft.of]]'>
+        <option class="optionChild" value=<<currentTiddler>> ><<currentTiddler>></option>
+      </$list>
+  </$list>
+</$select>
+\end

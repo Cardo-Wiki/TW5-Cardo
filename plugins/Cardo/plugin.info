@@ -1,0 +1,19 @@
+{
+    "title": "$:/plugins/Cardo",
+    "author": "David Szego (info@cardo.wiki)",
+    "bag": "default",
+    "core-version": ">=5.1.15",
+    "created": "20160926005154294",
+    "creator": "DavidSzego",
+    "dependents": "$:/plugins/kixam/moment $:/plugins/kixam/datepicker",
+    "description": "Cardo - A Task and Project Management Wiki for Getting Stuff Done",
+    "icon": "$:/plugins/Cardo/images/clipboard-checkmarks",
+    "list": "[[Cardo Version & Release Notes]]",
+    "modified": "20190108025223389",
+    "modifier": "Joe Cardo",
+    "name": "Cardo",
+    "plugin-type": "plugin",
+    "revision": "9",
+    "source": "http://cardo.wiki",
+    "version": "1.0.4"
+}

@@ -1,0 +1,34 @@
+created: 20160916130448167
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213315302
+modifier: DSzego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleRoleButtons
+type: text/vnd.tiddlywiki
+
+\define toggleRoleButtons(tag, shortButtons, personGUID)
+
+      <$action-listops $tiddler="$:/temp/$(currentTiddler)$/$tag$" $field:list $subfilter="[tag[$tag$]] -[has[draft.of]]"/>
+      <!-- This line removes the tags in the list from the tiddler, and adds the tagWithSpaces clicked on -->
+      <!-- action-listops $tiddler=<<currentTiddler>> $tags="+[remove{$:/temp/$(currentTiddler)$/$tag$!!list}append<tagWithSpaces>]" -->
+
+  <$list filter="[tag[ProjectRole]]" variable="role">
+
+    <$set filter="[list[!!cardo-projectteam]prefix<personGUID>suffix<role>]" name="buttonClass" value=<<role>> emptyValue="off" >
+      <$button class=<<buttonClass>> aria-label=<<role>> tooltip=<<role>> >
+        <$action-listops $field="cardo-projectteam" $subfilter="-[list[!!cardo-projectteam]prefix<personGUID>] [<myGuid>addsuffix[--]addsuffix<role>]" />
+        <$set name=buttonField value=<<booleanMatch leftSide:'$shortButtons$' rightSide:'true' trueValue:'shortbutton' falseValue:'title'>> >
+        <$view tiddler=<<role>> field=<<buttonField>> format="text"/></$set>BC: <<buttonClass>>
+      </$button>
+    </$set>
+  </$list>
+
+      <$set name=buttonField value=<<booleanMatch leftSide:'$shortButtons$' rightSide:'true' trueValue:'shortbutton' falseValue:'title'>> >
+        <$view tiddler=<<myTag>> field=<<buttonField>> format="text"/>
+      </$set>
+  </$button>
+  </$set>
+</$list>
+\end

@@ -1,0 +1,13 @@
+created: 20161004183922838
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20161004184039873
+modifier: David Szego
+revision: 0
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/deleteEmailXButton
+type: text/vnd.tiddlywiki
+
+\define deleteEmailXButton(messageUID)
+  <$button class="deleteX" aria-label="Delete this email from server" tooltip="Delete this email from server">×</$button>
+\end

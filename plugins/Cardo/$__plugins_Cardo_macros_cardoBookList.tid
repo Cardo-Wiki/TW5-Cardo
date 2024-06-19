@@ -1,0 +1,57 @@
+created: 20160930161828510
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170307151815148
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoBookList
+type: text/vnd.tiddlywiki
+
+\define stateTiddler() $:/state/$(storyTiddler)$/$(currentTiddler)$/book
+\define newBookButton()
+<$button class="newButton" aria-label="Create a new book" tooltip="Create a new book">+<$action-sendmessage $message="tm-new-tiddler" title="A bestseller..." tags="Book" cardo-type='book' icon="$:/plugins/Cardo/images/book" cardo-guid=<<guid>> cardo-bookauthor=$(authorguid)$ />
+</$button>
+\end
+\define cardoBookList(title, status, newButton:false, newButtonText:"This is a great read...", newTag, newButtonAuthor, includeComplete:false, completeButton:true, authorguid)
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newBookButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='book' newTag='$newTag$' newButtonText='$newButtonText$' authorguid='$newButtonAuthor$' />
+      </$set>
+    </div>
+    <$set name='itemFilter' value=<<booleanMatch leftSide:$includeComplete$ rightSide:'false'
+      trueValue:'$status$ +[tagging[]]+[fieldOrEmpty:cardo-bookauthor[$(authorguid)$]]+[field:cardo-type[book]]+[field:cardo-category<currentTiddler>] -[tag[Complete]] -[has[draft.of]]'
+      falseValue:'$status$ +[tagging[]]+[fieldOrEmpty:cardo-bookauthor[$(authorguid)$]]+[field:cardo-type[book]]+[field:cardo-category<currentTiddler>] -[has[draft.of]]'>> >
+    <$list filter="[list[$:/state/Cardo/showCategory]]">
+      <$list filter=<<itemFilter>> >
+        <div class="cardoList.listitem"><$macrocall $name="setRating" maxRating=4 field="cardo-rating" tiddler=<<currentTiddler>>/><$button class="deleteX" tooltip="Delete this book" aria-label="Delete this book" >×<$action-sendmessage $message="tm-delete-tiddler" $tiddler=<<currentTiddler>>/></$button>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+          <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+          <$reveal type="nomatch" state=<<stateTiddler>> text="show">
+            <$button class="newButton" set=<<stateTiddler>> setTo="show">{{$:/core/images/chevron-down}}</$button>
+          </$reveal>
+          <$reveal type="match" state=<<stateTiddler>> text="show">
+            <$button class="newButton" set=<<stateTiddler>> setTo="hide">{{$:/core/images/chevron-up}}</$button>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+          </$reveal>
+        </div><!-- listitem -->
+      </$list>
+    </$list>
+  </$set>
+  </div><!-- cardoBookList -->
+\end

@@ -1,0 +1,37 @@
+created: 20160904165127035
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170217222727822
+modifier: David Szego
+revision: 2
+tags: Cardo $:/tags/Macro
+title: $:/plugins/Cardo/macros/cardoAgendaItemList
+type: text/vnd.tiddlywiki
+
+\define dummyMacro() 
+&nbsp; 
+\end
+\define getAgendaItemName(ct) Remove $(currentTiddler)$ from $ct$
+\define cardoAgendaItemList(title)
+  <div class="cardoList">
+    <div class="cardoList title">
+      $title$&nbsp;<<newAgendaItemButton meetingGUID:$meetingGUID$ >>
+    </div>
+    <$list filter="[list[$:/state/Cardo/showCategory]]">
+      <$list filter='[field:cardo-onmeeting<meetingGUID>]+[field:cardo-category<currentTiddler>] -[has[draft.of]]'>
+        <div class="cardoList.listitem"><<toggleComplete>><<toggleStarred>><$button class="deleteX" tooltip=<<getAgendaItemName ct:"$(currentTiddler)$" >> aria-label=<<getAgendaItemName>> >×<$action-deletefield $field="cardo-onmeeting" $tiddler=<<currentTiddler>> /></$button>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+          <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+        </div><!-- listitem -->
+      </$list>
+    </$list>
+  </div><!-- cardoAttendeeList -->
+\end

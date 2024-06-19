@@ -1,0 +1,20 @@
+created: 20160921223710866
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213317284
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/contactInfo/editother
+type: text/vnd.tiddlywiki
+
+<div style="display:block;">
+  <div style="clear: left;"><span class="contactInfoLabel">IM</span><span class="contactInfoDetail"><$edit field="cardo-messenger"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Birthday</span><span class="contactInfoDetail"><$edit field="cardo-birthday"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Twitter</span><span class="contactInfoDetail"><$edit field="cardo-twitter"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Insta</span><span class="contactInfoDetail"><$edit field="cardo-instagram"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Other</span><span class="contactInfoDetail"><$edit field="cardo-personother"/></span></div>
+  <div style="clear: left;" class="contactInfoSpacer"></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Picture</span><span class="contactInfoDetail"><$edit field="cardo-personphoto"/></span></div>
+</div>

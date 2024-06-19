@@ -1,0 +1,11 @@
+created: 20170213203810895
+creator: David Szego
+modified: 20170213203837624
+modifier: David Szego
+tags: 
+title: Code Blocks
+
+```
+this is a code block.
+```
+A link to [[somewhere else|http://www.com.com]]

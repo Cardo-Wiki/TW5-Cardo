@@ -1,0 +1,14 @@
+created: 20160831175212724
+creator: David Szego
+icon: $:/plugins/Cardo/images/clipboard-checkmarks
+modified: 20170223210521310
+modifier: Joe Cardo
+tags: about
+title: Project Features
+
+{{$:/plugins/Cardo/help/ProjectHelp}}
+
+<div class="controls controlstint" style="float:none !important;">
+{{A Big Project Im Working On||$:/plugins/Cardo/ui/ViewTemplates/types/project/controls}}
+{{A Big Project Im Working On||$:/plugins/Cardo/ui/ViewTemplates/types/project/body}}
+</div>

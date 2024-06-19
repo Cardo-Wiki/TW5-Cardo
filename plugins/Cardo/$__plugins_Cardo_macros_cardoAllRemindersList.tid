@@ -1,0 +1,37 @@
+created: 20170202202442318
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170216151448717
+modifier: David Szego
+revision: 11
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoAllRemindersList
+type: text/vnd.tiddlywiki
+
+\define cardoAllRemindersList(title, newButton, newButtonAssignee:"-SKIP-", project:"-SKIP-", assignee:"-SKIP-", dueWithin:"-SKIP-", newButtonAssignee:"-SKIP-", newButtonProject:"-SKIP-")
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newReminderButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='reminder' newTag='Reminder' newButtonText="Do not let me forget..." assigneeGuid=$newButtonAssignee$ projectGuid=$newButtonProject$ />
+      </$set>
+    </div>
+      <$list filter="[list[$:/state/Cardo/showCategory]]">
+        <$list filter='[field:cardo-type[reminder]]+[field:cardo-category<currentTiddler>] -[has[draft.of]]' >
+          <div class="cardoList.listitem"><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this Reminder" aria-label="Delete this reminder">×</$button><span style="display:inline-block;"><<toggleTagButtons tag:'ReminderStatus' shortButtons:'true'>></span>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+            <$set name="parentProject" value={{!!cardo-project}}>
+              <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+            </$set>
+          </div><!-- listitem -->
+        </$list>
+      </$list>
+  </div><!-- cardoList -->
+\end

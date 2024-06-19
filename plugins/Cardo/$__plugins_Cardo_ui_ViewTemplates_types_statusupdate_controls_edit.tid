@@ -1,0 +1,53 @@
+created: 20170224190528364
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170224190610610
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/statusupdate/controls/edit
+type: text/vnd.tiddlywiki
+
+<div class="controls controlstint">
+  <div class="floatright smaller">
+    <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/StatusUpdateHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleStarred>>
+      <span class='title'>
+
+<$vars pattern="""[\|\[\]{}]""" bad-chars="""`| [ ] { }`""">
+
+<$list filter="[is[current]regexp:draft.title<pattern>]" variable="listItem">
+
+<div class="tc-message-box">
+
+{{$:/language/EditTemplate/Title/BadCharacterWarning}}
+
+</div>
+
+</$list>
+
+</$vars>
+
+<$edit-text field="draft.title" class="tc-titlebar tc-edit-texteditor" focus="true"/>
+
+      </span><br>
+    {{$:/plugins/Cardo/subtitle}}
+  </div>
+  <div>
+    <div style="margin-top:5px;overflow:hidden;clear:left;">
+    <!-- Date -->
+    <div class="dueDateBox">
+      <div class="datePicker">
+        <$edit-date field="cardo-date" icon="$:/plugins/Cardo/images/calendar-clock" tag=div />
+      </div>
+      <span class="label">Date:</span><span class="duedate"><$view field="cardo-date" format="relativedate"/></span>
+    </div>
+    <div style="float:left;">
+      <span class="label">Project:</span><br>
+      <<selectProjectForStatus projectGuid:{{!!cardo-project}} myGuid:{{!!cardo-guid}}>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-project}} label="Open this Project"/></span><$button class="deleteX" aria-label="Remove from this project" tooltip="Remove from this project">×<$action-listops $field="cardo-project" $filter="[[]]"/></$button>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+created: 20160904140525015
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170302155650654
+modifier: David Szego
+revision: 2
+tags: Cardo $:/tags/Macro
+title: $:/plugins/Cardo/macros/cardoAttendeeList
+type: text/vnd.tiddlywiki
+
+\define dummyMacro()
+&nbsp; 
+\end
+\define getAttendeeName()
+Remove $(attendeeName)$ from $(currentTiddler)$
+\end
+\define attendeeListItem()
+<!-- Inner list to take the found GUID, put it in a filter as a value and search for Tiddlers with that GUID -->
+      <$list filter='[field:cardo-guid[$(attendeeGUID)$]]' variable='attendeeName'><!-- Find the Tiddler whos GUID matches -->        
+        <div class="cardoList.listitem"><$macrocall $name="toggleStarred" whatTiddler=<<attendeeName>> /><$button class="deleteX" tooltip=<<getAttendeeName>> aria-label=<<getAttendeeName>> >×
+<$action-listops $tiddler="$:/temp/$(currentTiddler)$/chair" $field="text" $subfilter="+[remove[$(attendeeGUID)$]]"/>
+<$action-listops $field="cardo-attendees" $subfilter="+[remove[$(attendeeGUID)$]]"/>
+<$action-listops $field="cardo-attended" $subfilter="+[remove[$(attendeeGUID)$]]"/>
+<$action-listops $field="cardo-chair" $subfilter="+[remove[$(attendeeGUID)$]]"/>
+</$button>
+          <<toggleAttendedCheckbox attendeeGUID:$(attendeeGUID)$>>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<attendeeName>>/>
+
+</$transclude>
+
+</span></div>
+          <span class="cardoListItemName"><$link to=<<attendeeName>> ><<attendeeName>></$link></span>
+        </div><!-- listitem -->
+      </$list>
+\end
+\define cardoAttendeeList(title, meetingGUID)
+<!-- Outer list to find Attendee GUIDs -->
+  <div class="cardoList">
+    <div class="cardoList title">
+      $title$&nbsp;<<newAttendeeButton meetingGUID:$meetingGUID$ >>
+    </div>
+    <$list filter='[list[!!cardo-attendees]]' variable='attendeeGUID'><!-- Make a list of Attendee GUIDs -->
+      <$set name="meetingGUID" value=$meetingGUID$>    
+        <<attendeeListItem meetingGUID:$meetingGUID$ >>
+      </$set>
+    </$list>
+  </div><!-- cardoAttendeeList -->
+\end

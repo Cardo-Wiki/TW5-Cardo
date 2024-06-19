@@ -1,0 +1,24 @@
+caption: Conversation Help
+created: 20170222203953710
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170222204405795
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/ConversationHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Conversations let you track your communications with other people. 
+
+You can mark Conversations as being ''Phone'', ''Email'', ''Text'' (messaging), or ''Face-To-Face''.
+
+{{$:/plugins/Cardo/images/calendar-x}}Log the date of the conversation by clicking on the calendar icon. When the date is set and shown, click on the ''[x]'' to clear it.
+
+Use the ''Person:'' dropdown to indicate who the conversation was with.
+
+@@

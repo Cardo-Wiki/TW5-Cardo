@@ -1,0 +1,22 @@
+created: 20160912134113553
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170221002500366
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/selectProjectLead
+type: text/vnd.tiddlywiki
+
+\define setProjectLead()
+<$action-deletefield cardo-projectlead />
+<$action-setfield cardo-projectlead={{$:/temp/$(currentTiddler)$/projectlead}} />
+<$action-listops $field="cardo-projectteam" $subfilter={{$:/temp/$(currentTiddler)$/projectlead}} />
+\end
+\define selectProjectLead()
+<$select tiddler="""$:/temp/$(currentTiddler)$/projectlead""" default={{!!cardo-projectlead}} actions=<<setProjectLead>> >
+    <$list filter='[tag[Person]] -[has[draft.of]]'>
+      <option value={{!!cardo-guid}} ><$view field='title'/></option>
+    </$list>
+  </$select>
+\end

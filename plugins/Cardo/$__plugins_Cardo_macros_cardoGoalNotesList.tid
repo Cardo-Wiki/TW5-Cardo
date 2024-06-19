@@ -1,0 +1,50 @@
+created: 20190107192516287
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/paper
+modified: 20190107231917022
+modifier: Joe Cardo
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoGoalNotesList
+type: text/vnd.tiddlywiki
+
+\define stateTiddler() $:/state/$(storyTiddler)$/$(currentTiddler)$/goalnote
+\define newGoalNoteButton(goalGUID, goalNoteType, newTitle)
+<$button class="newButton" aria-label="Create a new Goal Note" tooltip="Create a new Goal Note">+<$action-sendmessage $message="tm-new-tiddler" title="$newTitle$" tags="GoalNote" cardo-type='goalnote' cardo-date=<<now format:'YYYY0MM0DD0hh0mm0ss000'>> icon="$:/plugins/Cardo/images/goal" cardo-guid=<<guid>> cardo-goal=$(goalguid)$ cardo-goalnotetype=$goalNoteType$/>
+</$button>
+\end
+\define cardoGoalNotesList(title, type, newButtonText)
+  <div class="cardoList">
+    <div class="cardoList title">
+      $title$&nbsp;<<newGoalNoteButton goalGUID:"$(goalguid)$" goalNoteType:"$type$" newTitle:"$newButtonText$">>
+    </div>
+    <$list filter='[field:cardo-goal[$(goalguid)$]]+[field:cardo-type[goalnote]]+[field:cardo-goalnotetype[$type$]] -[has[draft.of]]' >
+        <div class="cardoList.listitem"><<toggleStarred>><$button class="deleteX" tooltip="Delete this Goal Note" aria-label="Delete this Goal Note" >×<$action-sendmessage $message="tm-delete-tiddler" $tiddler=<<currentTiddler>>/></$button>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+          <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+          <$reveal type="nomatch" state=<<stateTiddler>> text="show">
+            <$button class="newButton" set=<<stateTiddler>> setTo="show">{{$:/core/images/chevron-down}}</$button>
+          </$reveal>
+          <$reveal type="match" state=<<stateTiddler>> text="show">
+            <$button class="newButton" set=<<stateTiddler>> setTo="hide">{{$:/core/images/chevron-up}}</$button>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+          </$reveal>
+
+        </div><!-- listitem -->
+    </$list>
+  </div><!-- cardoGoalNoteList -->
+\end

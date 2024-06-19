@@ -1,0 +1,10 @@
+created: 20160904070857054
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20170212224056764
+modifier: David Szego
+module-type: filteroperator
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/filters/fieldContains.js
+type: application/javascript

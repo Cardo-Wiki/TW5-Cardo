@@ -1,0 +1,10 @@
+created: 20170212185958291
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20170212190039432
+modifier: David Szego
+module-type: macro
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/macros/lessThanOrEqual.js
+type: application/javascript

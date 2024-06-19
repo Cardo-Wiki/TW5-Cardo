@@ -1,0 +1,42 @@
+caption: Project Help
+created: 20160819200402533
+creator: DSzego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170222203700301
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/ProjectHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Projects are a //grouped set of tasks related by objective//. 
+
+These form the heart of your task management system, and show a Dashboard-overview of critical Project info such as progress, priority and due date; as well as your Team, Meetings, Delegated and Waiting Actions, and any  Reference Items, etc.
+
+Keep track of your Projects by status:
+
+:''Active'' - Currently being worked on, but has a definite completion date or objective
+:''Ongoing'' - Constantly being worked on, with no fixed end
+:''Dormant'' - Paused, for the short or long term, but will resume
+:''Someday/Maybe'' - A future goal
+:''Abandoned'' - Stopped, but worth keeping
+
+{{$:/plugins/Cardo/images/calendar-x}}Active projects can have a due-date set by clicking on the calendar icon. When the date is set and shown, click on the ''[x]'' to clear it.
+
+{{$:/plugins/Cardo/images/circle-fast-forward}}As your complete your tasks towards your goal, mark off the progress by clicking the forward arrows. There are 10 shown, for 10% increments.
+
+{{$:/plugins/Cardo/images/checkbox}}When the project is completed, click the checkbox to the left of the project's name.
+
+{{$:/plugins/Cardo/images/star-outline}}If the project is particularly important, click the star.
+
+Using the ''Sub-Project of:'' dropdown, a project can be dependant on another project. For instance, "Home Renovation" could have a sub-project for each room.
+
+Use the ''Project Lead:'' dropdown to indicate who the key person is. All new tasks made from this project's dashboard will be assigned to that person by default.
+
+As the project progresses, use ''Status Updates'' (at the bottom of the Project dashboard) to track free-form notes and thoughts on what's been happening. Click the ''(+)'' button to add a new Status Update.
+
+@@

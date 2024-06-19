@@ -1,0 +1,15 @@
+created: 20161002010152946
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20161002010953711
+modifier: DSzego
+revision: 0
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/deleteEmailButton
+type: text/vnd.tiddlywiki
+
+\define deleteEmailButton(emailGuid)
+  <$button class="deleteEmailButton off" aria-label="Delete this email from server" tooltip="Delete this email from server">Delete
+      <$action-deletetiddler $tiddler=<<currentTiddler>> />
+  </$button>
+\end

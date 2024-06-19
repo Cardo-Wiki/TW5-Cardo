@@ -1,0 +1,19 @@
+caption: Active Tasks
+cardo-type: dashboard
+created: 20170130191945885
+creator: David Szego
+icon: $:/plugins/Cardo/images/dashboard
+modified: 20170216144343963
+modifier: David Szego
+tags: Cardo
+title: Active Tasks
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols1"><!-- list columns -->
+    <div class="col"><!--column 1-->
+        <<cardoTaskList title:'Active Tasks' status:'Next' includeComplete:'false' newButton:'true' newButtonText:'I absolutely must get this done...' newTag:'Task Next' >>
+    </div><!-- column 1 -->
+  </div><!-- list columns -->
+</div><!-- dashboard -->

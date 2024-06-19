@@ -1,0 +1,10 @@
+created: 20160902034658115
+creator: Cardo
+icon: $:/plugins/Cardo/images/card
+modified: 20160928193152663
+modifier: Cardo
+title: Get Updates
+
+<label class="intakeTabHeader intakeTabButtons tc-tab-content button">
+<a href="http://cardo.wiki/Cardo-Tiddlers.json" style="text-decoration: none; color:inherit;">Get Updated Tiddlers</a>&nbsp;(Save As)
+<label>&nbsp;

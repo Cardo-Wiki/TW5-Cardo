@@ -1,0 +1,19 @@
+caption: Completed Projects
+cardo-type: dashboard
+created: 20170130190455158
+creator: David Szego
+icon: $:/plugins/Cardo/images/dashboard
+modified: 20170222210106194
+modifier: David Szego
+tags: Cardo
+title: Completed Projects
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols1">
+    <div class="col"><!--column 1-->
+        <<cardoProjectList title:'Completed Projects' status:'Complete' includeComplete:'true' newButton:'false' >>
+    </div><!-- column 1 -->
+  </div><!--cols-->
+</div><!-- dashboard -->

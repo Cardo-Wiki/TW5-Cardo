@@ -1,0 +1,84 @@
+author: DSzego
+caption: New
+created: 20160808122958812
+creator: DSzego
+description: Cardo Intake tab for collecting your to-do's
+icon: $:/themes/Cardo/images/paper
+list-before: $:/core/ui/SideBar/Tools
+modified: 20190108003739271
+modifier: Joe Cardo
+revision: 3
+tags: Cardo
+title: $:/plugins/Cardo/SideBar/New
+type: text/vnd.tiddlywiki
+version: 1.0.4
+
+\define openAndScrollTo()
+<$action-navigate $to={{$:/temp/review/person}} />
+<$action-setfield $tiddler="$:/temp/review/person" $field="text" />
+\end
+<$set name="myPersonGuid" filter="[field:title{$:/status/UserName}get[cardo-guid]]">
+<$set name="newGuid" value=<<guid>> >
+<$set filter="[title[$:/state/Cardo/showCategory]get[text]]" emptyValue="(Unassigned)" name="whatCategory" >
+<div class="intakeTabButtons">
+<div class="intakeTabHeader">Activities:</div>
+<$button aria-label="Create a new Next Task" tooltip="Create a new Task" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/task}}Task</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="What is your next task..." tags="Task Next" cardo-type="task" icon="$:/plugins/Cardo/images/task" cardo-guid=<<newGuid>> cardo-assignee=<<myPersonGuid>> cardo-category=<<whatCategory>> />
+</$button><br>
+<$button aria-label="Create a new Meeting" tooltip="Create a new Meeting" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/meeting}}Meeting</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="What do you want to discuss..." tags="Meeting Upcoming" cardo-type="meeting" icon="$:/plugins/Cardo/images/meeting" cardo-guid=<<guid>> cardo-category=<<whatCategory>> cardo-meetingchair=<<myPersonGuid>> />
+</$button><br>
+<$button aria-label="Create a new active Project" tooltip="Create a new  Project" style="width:80%" >
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/project}}Project</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="A Project I'd like to start..." tags="Project Active" cardo-type="project" icon="$:/plugins/Cardo/images/project" cardo-guid=<<guid>> cardo-category=<<whatCategory>> cardo-projectlead=<<myPersonGuid>> />
+</$button><br>
+<$button arial-label="Create a new Reminder" tooltip="Create a new Reminder" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/reminder}}Reminder</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="What do you need a reminder for..." tags="Reminder" cardo-type="reminder" icon="$:/plugins/Cardo/images/reminder" cardo-guid=<<guid>> cardo-assignee=<<myPersonGuid>> cardo-category=<<whatCategory>>/>
+</$button><br>
+<$button arial-label="Create a new Goal" tooltip="Create a new Goal" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/goal}}Goal</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="My aim is to..." tags="Goal" cardo-type="goal" icon="$:/plugins/Cardo/images/goal" cardo-guid=<<guid>> cardo-assignee=<<myPersonGuid>> cardo-category=<<whatCategory>>/>
+</$button>
+<div class="intakeTabHeader">Information:</div>
+<$button aria-label="Create a new Reference Item" tooltip="Create a new Reference Item" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/reference}}Reference</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="This Tiddler refers to..." tags="Reference" cardo-type="reference" icon="$:/plugins/Cardo/images/reference" cardo-guid=<<guid>> cardo-category=<<whatCategory>>/>
+</$button><br>
+<$button  actions=<<create-new-person>> aria-label="Create a new Person" tooltip="Create a new Person" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/person}}Person</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="Hello, my name is..." tags="Person" cardo-type="person" icon="$:/plugins/Cardo/images/person" cardo-guid=<<guid>> cardo-category=<<whatCategory>>/>
+</$button><br>
+<$button aria-label="Create a new Conversation Log" tooltip="Create a new Conversation Log" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/conversation}}Conversation</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="And then she said..." tags="Conversation" icon="$:/plugins/Cardo/images/conversation" cardo-guid=<<guid>> cardo-type="conversation" cardo-category=<<whatCategory>>/>
+</$button><br>
+<$button aria-label="Create a new Book" tooltip="Create a new Book" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/book}}Book</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="A new bestseller..." tags="Book ToRead" icon="$:/plugins/Cardo/images/book" cardo-guid=<<guid>> cardo-type="book" cardo-category=<<whatCategory>> />
+</$button><br>
+<$button  actions=<<create-new-person>> aria-label="Create a new Author" tooltip="Create a new Author" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/person}}Author</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="Hello, my name is..." tags="Author" cardo-type="author" icon="$:/plugins/Cardo/images/person" cardo-guid=<<guid>> cardo-category=<<whatCategory>>/>
+</$button><br>
+<$button aria-label="Create a new blank Tiddler" tooltip="Create a new blank Tiddler" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/card}}Blank Tiddler</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="New Tiddler" icon="$:/plugins/Cardo/images/card"/>
+</$button>
+<div class="intakeTabHeader">Categories:</div>
+<$button  aria-label="Create a new Context" tooltip="Create a new Context" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/context}}Context</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="New Context" tags="context" icon="$:/plugins/Cardo/images/context"/>
+</$button><br>
+<$button  aria-label="Create a new Area" tooltip="Create a new Area" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/area}}Area</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="New Area" text="Please assign this Area to a Realm by tagging with the name of a Realm. You can replace this text to describe your Area." tags="Area" icon="$:/plugins/Cardo/images/area" />
+</$button><br>
+<$button aria-label="Create a new Realm" tooltip="Create a new Realm" style="width:80%">
+  <span class="iconButtonText">{{$:/plugins/Cardo/images/realm}}Realm</span>
+  <$action-sendmessage $message="tm-new-tiddler" title="New Realm" tags="Realm" text="Replace this text with a description of your Realm. Assign Areas to this Realm by tagging them with the name of this Tiddler." icon="$:/plugins/Cardo/images/realm" />
+</$button>
+</div>
+</$set></$set></$set>

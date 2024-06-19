@@ -1,0 +1,15 @@
+{
+    "title": "$:/plugins/ahahn/tinka",
+    "author": "Andreas Hahn",
+    "bag": "default",
+    "core-version": ">=5.1.8",
+    "created": "20170302165710434",
+    "dependents": "",
+    "description": "Tinka - an easy plugin packer",
+    "list": "readme usage license",
+    "modified": "20170302165710434",
+    "plugin-type": "plugin",
+    "revision": "2",
+    "source": "http://tinkaplugin.github.io",
+    "version": "0.3.0"
+}

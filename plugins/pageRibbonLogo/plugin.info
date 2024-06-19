@@ -1,0 +1,18 @@
+{
+    "title": "$:/plugins/davidSzego/pageRibbonLogo",
+    "author": "David Szego (based on work found in TW forums)",
+    "bag": "default",
+    "caption": "pageRibbonLogo Plugin",
+    "created": "20170303043100959",
+    "creator": "DavidSzego",
+    "description": "pageRibbonLogo - Easily set a corner banner ribbon and a background logo for your TW",
+    "list": "readme",
+    "modified": "20170305034356346",
+    "modifier": "David Szego",
+    "name": "pageRibbonLogo",
+    "plugin-type": "plugin",
+    "revision": "13",
+    "source": "http://david.szego.me/TWStuff.html",
+    "tags": "pageRibbonLogo [[My Plugins]]",
+    "version": "1.0.0"
+}

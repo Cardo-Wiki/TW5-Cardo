@@ -1,0 +1,30 @@
+created: 20160821054651706
+creator: DSzego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170205154847241
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleComplete
+type: text/vnd.tiddlywiki
+
+\define toggleComplete()
+  <$set name="buttonClass" filter="[is[current]tag[Complete]]" value="complete" emptyValue="complete off">
+    <$list filter="[is[current]tag[Complete]]">
+      <$button class=<<buttonClass>> aria-label="Mark this as incomplete" tooltip="Mark this as incomplete">
+        <$action-listops $tiddler=<<currentTiddler>> $tags="+[remove[Complete]]" />
+        {{$:/plugins/Cardo/images/checkbox-checked}}
+      </$button>
+    </$list>
+    <$list filter="[is[current]!tag[Complete]]">
+      <$vars reminderGuid={{!!cardo-reminder}}>
+        <$button class=<<buttonClass>> aria-label="Mark this as complete" tooltip="Mark this as complete">
+          <$action-deletefield $tiddler=<<currentTiddler>> cardo-reminder />
+          <$action-listops $tiddler=<<currentTiddler>> $tags="+[append[Complete]]" />
+          <$action-deletetiddler $filter="[field:cardo-type[reminder]field:cardo-guid<reminderGuid>]" />
+          {{$:/plugins/Cardo/images/checkbox}}
+        </$button>
+      </$vars>
+    </$list>
+  </$set>
+\end

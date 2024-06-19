@@ -1,0 +1,16 @@
+{
+    "title": "$:/plugins/danielo/2Click2Edit",
+    "author": "Danielo Rodriguez",
+    "bag": "default",
+    "created": "20170302034644064",
+    "creator": "David Szego",
+    "description": "2Click2Edit - Double-click on a Tiddler body to edit",
+    "list": "License",
+    "modified": "20170305033018925",
+    "modifier": "DavidSzego",
+    "name": "2Click2Edit",
+    "plugin-type": "plugin",
+    "revision": "6",
+    "source": "http://david.szego.me/TWStuff.html",
+    "version": "1.0.2"
+}

@@ -1,0 +1,8 @@
+created: 20160825000429398
+icon: $:/themes/Cardo/images/paper
+list: $:/plugins/Cardo/ui/ViewTemplate/title $:/core/ui/ViewTemplate/unfold $:/plugins/Cardo/ui/ViewTemplate/subtitle $:/plugins/Cardo/ui/ViewTemplate/tags $:/core/ui/ViewTemplate/classic $:/core/ui/ViewTemplate/body
+modified: 20160925213324126
+revision: 2
+tags: Cardo
+title: $:/tags/ViewTemplate
+type: text/vnd.tiddlywiki

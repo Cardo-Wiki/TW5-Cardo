@@ -1,0 +1,12 @@
+created: 20160921200512566
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20160927015729842
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/contactInfo/body
+type: text/vnd.tiddlywiki
+
+<<tabs "[all[shadows+tiddlers]tag[$:/tags/ContactInfo]sort[order]] -[has[draft.of]]" class:"tab" state:"$:/state/$(storyTiddler)$/$(currentTiddler)$/contactTab" template:"$:/plugins/Cardo/ui/ViewTemplates/types/contactInfo/tabs">>

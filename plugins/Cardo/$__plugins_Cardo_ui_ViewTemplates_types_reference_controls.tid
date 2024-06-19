@@ -1,0 +1,42 @@
+created: 20160812194849789
+creator: DSzego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170302192546621
+modifier: David Szego
+revision: 7
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/reference/controls
+type: text/vnd.tiddlywiki
+
+\define assigneeState() $:/temp/$(currentTiddler)$/assignee
+\define projectState() $:/temp/$(currentTiddler)$/project
+<div class="controls controlstint">
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button>
+    <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/ReferenceHelp" />?</$button>
+  </div>
+  
+  <div>
+    <<toggleStarred>>
+    <$list filter="[is[current]!has[draft.of]]">
+      <span class='title'>{{!!title}}</span><br>
+    </$list>
+    <div class="subtitle">{{$:/plugins/Cardo/ui/subtitle}}</div>
+  </div>
+  <div class="tc-tags-wrapper">
+    <$list filter="[all[current]tags[]sort[title]]" template="$:/core/ui/TagTemplate" storyview="pop"/>
+  </div>
+ <div>
+  <div class="floatright" style="clear:right;"><br/></div>
+  <div style="margin-top:5px;overflow:hidden;clear:left;">
+  <div class="projectGroup">
+    <span class="label">Project:</span><br/>
+    <<selectParentProject>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-project}} label="Open this Project"/></span><$button class="deleteX" aria-label="Remove from this Project" tooltip="Remove from this Project">×<$action-deletefield $field="cardo-project" /><$action-setfield $tiddler=<<projectState>> $field="text"/></$button>
+  </div> 
+  <div class="assignedToGroup" style="clear:none;">
+    <span class="label">Assigned to:</span><br>
+    <<selectTaskAssignee>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-assignee}} label="Open this persons Dashboard"/></span><$button class="deleteX" aria-label="Remove as assignee" tooltip="Remove as assignee">×<$action-deletefield $field="cardo-assignee" /><$action-setfield $tiddler=<<assigneeState>> $field="text"/></$button>
+  </div>
+  </div>
+ </div>
+</div>

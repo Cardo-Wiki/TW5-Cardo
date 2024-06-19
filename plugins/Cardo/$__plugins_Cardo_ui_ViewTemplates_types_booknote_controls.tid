@@ -1,0 +1,36 @@
+created: 20160930025015411
+creator: DSzego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170223171604446
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/booknote/controls
+type: text/vnd.tiddlywiki
+
+<div class="controls controlstint">
+  <div class="floatright smaller">
+        <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/BookNoteHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleStarred>>
+    <$list filter="[is[current]!has[draft.of]]">
+      <span class='title'>{{!!title}}</span><br>
+    </$list>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+  <div class="projectGroup">
+    <span class="label">Book:</span><br>
+    <<selectBookForNote bookGuid:{{!!cardo-book}} myGuid:{{!!cardo-guid}}>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-book}} label="Open this Book"/></span><$button class="deleteX" aria-label="Remove from this book" tooltip="Remove from this book">×<$action-listops $field="cardo-book" $filter="[[]]"/></$button>
+  </div>
+  <div class="areaGroup">
+    <span class="label">Chapter:</span><br>
+    <$edit-text size="20" rows="1" field="cardo-bookchapter" />
+  </div>
+  <div class="areaGroup">
+    <span class="label">Page:</span><br>
+    <$edit-text size="5" rows="1" field="cardo-bookpage" />
+  </div>
+&nbsp;
+  <div class="clearboth"></div>
+</div>

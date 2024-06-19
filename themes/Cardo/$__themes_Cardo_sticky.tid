@@ -1,0 +1,24 @@
+created: 20160810124118478
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170219235917807
+modifier: David Szego
+revision: 2
+tags: CardoTheme
+title: $:/themes/Cardo/sticky
+type: text/vnd.tiddlywiki
+
+<$reveal state="$:/themes/tiddlywiki/vanilla/options/stickytitles" type="match" text="yes">
+``
+.tc-tiddler-title {
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -o-sticky;
+	position: -ms-sticky;
+	position: sticky;
+	top: 0px;
+	background: ``<<colour tiddler-background>>``;
+	z-index: 500;
+}
+``
+</$reveal>

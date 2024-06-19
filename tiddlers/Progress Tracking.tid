@@ -1,0 +1,17 @@
+cardo-progress: 4
+created: 20170223201612319
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/clipboard-checkmarks
+modified: 20170223202105376
+modifier: Joe Cardo
+tags: about
+title: Progress Tracking
+
+''Cardo'' lets you quickly view and set a progress bar on your Projects, tracking completion in 10% increments.
+
+<div class="controls controlstint">
+  <div class="progressGroup" style="float:none !important;">
+        <span class="label">Progress:</span><br>
+          <<setProgress maxProgress:10 field:"cardo-progress" tiddler:"$(currentTiddler)$" >>
+    </div>
+</div>

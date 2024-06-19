@@ -1,0 +1,30 @@
+created: 20160812192212110
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170308143407382
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/meeting/detail
+type: text/vnd.tiddlywiki
+
+<$vars meetingGUID={{!!cardo-guid}} meetingTiddler=<<currentTiddler>> projectGUID={{!!cardo-project}} >
+<div class="dashboard">
+  <div class="cols3"><!-- list columns -->
+    <div class="col"><!-- column 1 -->
+      <div class="highlight">
+        <<cardoTaskList title:'Important Tasks' status:'Starred' newButton:'true' newButtonText:'An Important Task...' newTag:'Task Next Starred'  includeComplete:'false' projectGuid:$(projectGUID)$ newButtonProject:$(projectGUID)$>>
+      </div>
+      <div class="highlight">
+        <<cardoDueList title:'Upcoming or Overdue Tasks' type:'task' status:'Next WaitingFor' dueWithin:'5' buttonType:'TaskStatus' newButton:'true' newButtonText:'An Important Task...' newTag:'Task'  includeComplete:'false' projectGuid:$(projectGUID)$ newButtonProject:$(projectGUID)$>>
+      </div>
+    </div><!-- column 1 -->
+    <div class="col"><!-- column 2 --> 
+      <<cardoAgendaItemList title:'Agenda Items' meetingGUID:{{!!cardo-guid}} >>
+    </div><!-- column 2 -->   
+    <div class="col"><!-- column 3 --> 
+      <<cardoAttendeeList title:'Attendees' meetingGUID:{{!!cardo-guid}} >>
+    </div><!-- column 3 -->
+  </div><!-- list columns -->
+</div><!-- dashboard -->
+</$vars>

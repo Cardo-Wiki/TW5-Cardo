@@ -1,0 +1,13 @@
+created: 20190107215732064
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/paper
+modified: 20190108010744360
+modifier: Joe Cardo
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/newGoalButton
+type: text/vnd.tiddlywiki
+
+\define newGoalButton(typeText, newButton, newButtonText, newButtonAssignee, newTags:"Goal Ongoing")
+  <$button class="newButton" aria-label="Create a new Goal" tooltip="Create a new Goal">+<$action-sendmessage $message="tm-new-tiddler" title="$newButtonText$" tags="$newTags$" cardo-type="goal" cardo-assignee="$newButtonAssignee$" icon="$:/plugins/Cardo/images/goal" cardo-guid=<<guid>> cardo-category={{!!cardo-category}} /></$button>
+\end

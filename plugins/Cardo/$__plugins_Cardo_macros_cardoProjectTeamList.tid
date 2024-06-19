@@ -1,0 +1,64 @@
+created: 20160916150908772
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170703004727514
+modifier: David Szego
+revision: 2
+tags: Cardo $:/tags/Macro
+title: $:/plugins/Cardo/macros/cardoProjectTeamList
+type: text/vnd.tiddlywiki
+
+\define dummyMacro()
+&nbsp; 
+\end
+\define getTeamMemberName() Remove $(teamMemberName)$ from $(storyTiddler)$
+\define teamMemberListItem(personGUID, projectGUID, shortButtons)
+<$set name="bareGuid" filter="[<personGUID>regexStr[\w{8}-\w{4}-4\w{3}-\w{4}-\w{12}]]">
+  <$list filter='[field:cardo-guid<bareGuid>] -[has[draft.of]]'><!-- Find the Tiddler whos GUID matches -->
+    <$set name="teamMemberName" value=<<currentTiddler>> >
+    <div class="cardoList.listitem"><<toggleStarred>><$button class="deleteX" tooltip=<<getTeamMemberName>> aria-label=<<getTeamMemberName>> >×<$action-listops $tiddler="$:/temp/$(currentTiddler)$/projectlead" $field="text" $subfilter="-[<bareGuid>]"/><$action-listops $tiddler=<<storyTiddler>> $field="cardo-projectteam" $subfilter="-[<personGUID>]"/><$action-listops $tiddler=<<storyTiddler>> $field="cardo-projectlead" $subfilter="-[<bareGuid>]"/>
+<$action-listops $tiddler=<<storyTiddler>> $field="text" $subfilter="-[<bareGuid>]"/></$button>
+<!-- ----------------------------------------------- -->
+      <$list filter="[all[shadows+tiddlers]tag[ProjectRole]] +[sort[order]] -[has[draft.of]]" variable="role">
+        <!-- Get all team members as a list, extract each Role from the GUID, and try to match that role with the previous list's variable <<role>>, if so, use it as a ButtonClass -->
+        <$set filter="[<personGUID>prefix<bareGuid>suffix<role>]" name="buttonClass" emptyValue="off" value=<<role>> >
+          <$button class=<<buttonClass>> aria-label=<<role>> tooltip=<<role>> >
+            <!-- remove personGUID all together, with it's current role -->
+            <$action-listops $tiddler=<<storyTiddler>> $field="cardo-projectteam" $subfilter="-[<personGUID>]"/>
+            <!-- put the person's guid on the Project's Team, with --Role -->
+            <$action-listops $tiddler=<<storyTiddler>> $field="cardo-projectteam" $subfilter="[<bareGuid>addsuffix[--]addsuffix<role>]"/>
+            <$set name=buttonField value=<<booleanMatch leftSide:'$shortButtons$' rightSide:'true' trueValue:'shortbutton' falseValue:'title'>> >
+              <$view tiddler=<<role>> field=<<buttonField>> format="text"/>
+            </$set>
+          </$button>
+        </$set>
+      </$list>
+<!-- ----------------------------------------------- -->
+<div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<teamMemberName>>/>
+
+</$transclude>
+
+</span></div>
+      <span class="cardoListItemName"><$link to=<<teamMemberName>> ><<teamMemberName>></$link></span>
+    </div><!-- listitem -->
+    </$set>
+  </$list>
+</$set>
+\end
+\define cardoProjectTeamList(title, projectGUID, shortButtons)
+<!-- Outer list to find Team Member GUIDs -->
+  <div class="cardoList">
+    <div class="cardoList title">
+      $title$&nbsp;<<newTeamMemberButton projectGUID:$projectGUID$ >>
+    </div>
+    <$set name="projectGUID" value=$projectGUID$>    
+      <$list filter='[list[!!cardo-projectteam]] -[has[draft.of]]' variable='personGUID'><!-- Make a list of Team Member GUIDs with the roles-->
+        <<teamMemberListItem personGUID:$personGUID$ projectGUID:$projectGUID$ role:$role$ shortButtons:'true'>>
+      </$list>
+    </$set>
+  </div><!-- cardoProjectTeamList -->
+\end

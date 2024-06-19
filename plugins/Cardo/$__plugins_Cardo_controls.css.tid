@@ -1,0 +1,475 @@
+author: David Szego
+created: 20160925225837744
+creator: DavidSzego
+description: A theme for displaying tasks, projects, and more using Cardo
+hide-body: yes
+modified: 20190101195703380
+modifier: Joe Cardo
+revision: 1
+tags: $:/tags/Stylesheet Cardo
+title: $:/plugins/Cardo/controls.css
+type: text/vnd.tiddlywiki
+
+div.tc-titlebar .tc-tiddler-title-icon svg {
+    vertical-align: middle;
+    float: left;
+    margin-right: 5px;
+    fill: <<colour tiddler-title-foreground>> !important;
+    color: <<colour tiddler-title-foreground>> !important;
+    height: .8em;
+    float: left;
+    padding: 0px;
+    margin-left: 0px;
+    margin-top: 5px;
+    width: 1.075em;
+}
+
+.intakeTabButtons .button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.intakeTabButtons button {
+    margin-bottom: 10px;
+}
+
+.tc-image-button {
+	fill: black !important;
+}
+
+.controlstint {
+    background-color: <<colour page-background>>;
+    border: 1px solid #ccc !important;
+}
+
+div.controls {
+    clear: right;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+div.controls .title {
+    display: inline-block;
+}
+
+div.controls .subtitle {
+	margin-left: 5px;
+	padding-left: 0;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 1.1em;
+    color: <<colour foreground>> !important;
+}
+div.controls .subtitle .created,
+div.controls .subtitle .modified {
+    display: inline-block;
+}
+
+div.controls .emailSubtitle {
+	margin-left: 5px;
+	padding-left: 0;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 1.1em;
+    color: <<colour foreground>>;
+}
+div.controls .emailSubtitle .created,
+div.controls .emailSubtitle .modified {
+    display: inline-block;
+}
+
+button.off:hover, button:hover {
+	color: darkgrey;
+    border-color: darkgrey;
+}
+
+
+button, .button, button.off, .button.off {
+	padding: 0 0.25em;
+    margin: 0 0.25em;
+    border: 1px solid #db4;
+    font-weight: bold;
+    color: #ccc;
+    background: #fff;
+    //font-size: 100%;
+    text-decoration: none;
+}
+
+div.controls button,
+button.on, .button.on, button.button.on:hover, .button.on:hover {
+	border-color: #55c;
+	background: #cfa;
+	color: #4a4;
+}
+
+div.controls label.button.off,
+div.controls button.off {
+	border-color: #db4;
+	background: #fff;
+	color: #aaa;
+    font-weight: normal;
+    border: 1px solid #db4;
+}
+
+.internal {
+	color: darkgrey !important;
+    margin-right: 3px;
+    margin-left: -2px;
+    padding-right: 0px;
+    background: #fdf6e3;
+    border: 1px solid #db4;
+}
+
+div.controls button.MustReply,
+div.controls button.Upcoming,
+div.dashboard button.Upcoming,
+div.controls button.Active,
+div.dashboard button.Active,
+div.controls button.☺Easy,
+div.controls button.Next,
+div.dashboard button.Next {
+    background: #cfa;
+    color: #4a4;
+    border-color: #4a4;
+    font-weight: bold;
+}
+
+div.controls button.ForReview,
+div.controls button.Ongoing,
+div.dashboard button.Ongoing,
+div.controls button.Rescheduled,
+div.dashboard button.Rescheduled,
+div.controls button.WaitingFor,
+div.dashboard button.WaitingFor {
+    background: darkorange;
+    color: lightgoldenrodyellow;
+    border-color: lightgoldenrodyellow;
+    font-weight: bold;
+}
+
+div.controls button.ToFile,
+div.controls button.Future,
+div.dashboard button.Future,
+div.controls button.Held,
+div.dashboard button.Held,
+div.controls button.SomedayMaybe,
+div.dashboard button.SomedayMaybe {
+    background: #48b;
+    color: #bdf;
+    border-color: #bdf;
+    font-weight: bold;
+}
+
+div.controls button.Dormant,
+div.dashboard button.Dormant {
+    background: lightgrey;
+    color: black;
+    border-color: black;
+    font-weight: bold;
+}
+
+div.controls button.Dismissed,
+div.dashboard button.Dismissed,
+div.controls button.Cancelled,
+div.dashboard button.Cancelled,
+div.controls button.☹Hard, 
+div.controls button.Abandoned,
+div.dashboard button.Abandoned {
+    background: darkred;
+    color: lightgrey;
+    border-color: lightgrey;
+    font-weight: bold;
+}
+
+div.controls button.deleteEmailButton {
+    background: <<colour alert-background>>; 
+    border: <<colour alert-border>>;
+    color: <<colour alert-highlight>>;
+    font-weight: bold;
+}
+
+div.controls .label,
+div.controls label {
+    color: <<colour primary>>; 
+    font-size:90%;
+    font-weight: bold;
+}
+
+div.controls .spaced {
+        margin-top:5px;
+        display: inline-block;
+}
+
+div.controls .floatleft {
+	padding-right: .25em;
+	float:left;
+}
+
+div.controls .floatright {
+	padding-left: .25em;
+	float:right;
+}
+
+div.controls .clearleft { clear:left; }
+div.controls .clearright { clear:right; }
+div.controls .clearboth { clear:both; }
+
+div.dashboard button.starred,
+div.controls button.starred { 
+	border: none;
+	padding: 0px;
+    margin: 0px;
+	font-size: 18pt;
+    background: inherit;
+}
+
+div.dashboard button.starred.off svg:hover,
+div.dashboard button.starred svg,
+div.controls button.starred.off svg:hover,
+div.controls button.starred svg {
+	fill: #9c0000 !important;
+    background: inherit;
+    margin: 0px;
+}
+
+div.dashboard button.starred.off svg,
+div.controls button.starred.off svg {
+	color: red !important;
+    background: inherit;
+}
+
+div.dashboard button.starred.off,
+div.controls button.starred.off { 
+	color: red !important;
+	border: none;
+	padding: 0px;
+	font-size: 18pt;
+    background: inherit;   
+}
+
+button.complete.off {
+    margin-right: -5px;
+}
+
+div.controls button.checkbox,
+div.dashboard button.checkbox,
+div.controls button.complete,
+div.dashboard button.complete { 
+	border: none;
+	padding: 0px;
+    margin-right: -5px;
+	font-size: 16pt;
+    background: inherit;
+}
+
+div.controls button.complete.off svg:hover,
+div.controls button.complete svg,
+div.dashboard button.complete.off svg:hover,
+div.dashboard button.complete svg {
+	fill: green !important;
+    background: inherit;    
+}
+
+div.controls button.checkbox.off,
+div.dashboard button.checkbox.off,
+div.controls button.complete.off,
+div.dashboard button.complete.off { 
+	color: #333;
+	border: none;
+	padding: 0px;
+	font-size: 16pt;
+    background: inherit;
+}
+
+div.controls button.checkbox.off svg,
+div.dashboard button.checkbox.off svg,
+div.controls button.complete.off svg,
+div.dashboard button.complete.off svg {
+	fill: <<colour primary>> !important;
+    background: inherit;
+}
+
+div.controls div.datePicker {
+	float: left;
+}
+
+div.controls div.datePicker svg {
+	width: 26px;
+    fill: darkgrey;
+}
+
+div.dueDateBox span.label{
+    vertical-align: -moz-middle-with-baseline;
+}
+
+div.controls div.dueDateBox {
+    //display: inline-grid;
+    min-width: 160px;
+    float: right;
+    margin-top: 14px;
+}
+
+div.controls div.duedate {
+	float: left;
+    clear: left;
+	background: lightgoldenrodyellow;
+	border: 1px solid;
+	padding-top: 1px;
+	padding-left: 3px;
+	padding-right: 3px;
+    border-color: #db4;
+	background: #fff;
+	color: #aaa;
+    font-weight: normal;
+}
+
+div.controls .recurring {
+    float: none;
+    clear: none;
+}
+
+div.controls div.statusButtons {
+    float: left;
+    margin-right: 14px;
+}
+
+div.controls div.priorityGroup {
+    float: left;
+    margin-right: 14px;
+}
+
+div.controls div.progressGroup {
+    float: left;
+    clear: left;
+    margin-right: 14px;
+}
+
+div.controls .progress {
+    background: none;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+div.controls .progress svg {
+    height: 1.25em;
+    width: 1.25em;
+    padding: 0px;
+    margin: 0px;
+    fill: <<colour sidebar-foreground>> !important;
+}
+
+div.controls div.contextGroup {
+    float: none;
+    clear: left;
+}
+div.controls div.contextGroup label {
+    font-weight: normal;
+}
+
+div.controls div.difficultyGroup {
+    float: left;
+    clear: left;
+}
+
+div.controls div.projectGroup {
+    float: left;
+    clear: left;
+    margin-right: 14px;
+}
+
+div.controls div.areaGroup {
+    float: left;
+    margin-right: 14px;
+}
+
+div.controls div.assignedToGroup {
+    float: left;
+    clear: left;
+    margin-right: 14px;
+}
+
+div.controls div.requestedByGroup {
+    float: left;
+    margin-right: 14px;
+}
+
+div.controls div.dependsOnGroup {
+    float: left;
+}
+
+div.controls .linkTo:hover,
+div.controls .linkTo {
+  font-size: 12pt;
+  color: rgb(51, 51, 51);
+  font-style: italic;
+  margin-right: 6px;
+  margin-left: -3px;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+
+/* cardoList items */
+div.cardoList {
+	border: none;
+}
+
+div.cardoListItem {
+    border: none;
+}
+
+div.cardoListButtons {
+	border: none;
+    display: inline;
+}
+
+div.dashboard div.statusButtons {
+	display: inline-flex;
+    margin-right:10px;
+    float:left;
+    padding-top:0.25em;
+    padding-bottom:0.25em;
+}
+
+div.dashboard span.completeButton.button {
+	vertical-align: bottom;
+}
+
+div.dashboard span.parentProjectName {
+	font-size: 80%;
+    border: none;
+    display: inline-block;
+    vertical-align: bottom;
+}
+    
+div.controls button.deleteX,
+div.dashboard button.deleteX {
+	color: rgb(170, 102, 102);
+	font-weight: bold;
+	margin-left: -3px !important;
+    margin-right: 5px !important;
+	font-size: 0.75em;
+	border: none;
+    background: none;
+}
+
+body.tc-body.tc-dirty svg.tc-image-save-button.tc-image-button {
+  color: <<colour alert-highlight>> !important;
+  fill: <<colour alert-highlight>> !important;
+}
+
+.help svg {
+    width: 24px;
+    height: 24px;
+}
+
+div.controls select,
+div.controls optgroup,
+div.controls input {
+	color: <<colour button-foreground>>;
+}
+
+div.controls tc-edit-typeeditor {
+	max-width: 50%;
+}

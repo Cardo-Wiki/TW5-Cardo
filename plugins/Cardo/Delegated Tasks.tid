@@ -1,0 +1,19 @@
+caption: Delegated Tasks
+cardo-type: dashboard
+created: 20170130192315013
+creator: David Szego
+icon: $:/plugins/Cardo/images/dashboard
+modified: 20170216144325504
+modifier: David Szego
+tags: Cardo
+title: Delegated Tasks
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols1"><!-- list columns -->
+    <div class="col"><!--column 1-->
+        <<cardoList title:'Delegated Tasks' type:'task' status:'WaitingFor' includeComplete:'false' buttonType:'TaskStatus' newButton:'true' newButtonText:'Someone needs to get on this stat...' newTag:'Task WaitingFor' >>
+    </div><!-- column 1 -->
+  </div><!-- list columns -->
+</div><!-- dashboard -->

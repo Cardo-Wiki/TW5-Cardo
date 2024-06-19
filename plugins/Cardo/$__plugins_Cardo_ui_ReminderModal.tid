@@ -1,0 +1,18 @@
+caption: Reminder
+created: 20170219225854350
+creator: David Szego
+footer: <span style="float:left;"><$button>Snooze<$action-setfield $tiddler=<<reminderName>> cardo-snooze=<<now 0DD0MMYYYY>>/><$action-sendmessage $message="tm-close-tiddler"/></$button></span><$button message="tm-close-tiddler">Close</$button>
+modified: 20170219230313497
+modifier: David Szego
+subtitle: You have a reminder set for today...
+tags: Cardo
+title: $:/plugins/Cardo/ui/ReminderModal
+type: text/vnd.tiddlywiki
+
+<$navigator story="$:/StoryList" history="$:/HistoryList">
+
+!<$link to=<<reminderName>> aria-label="Open Reminder" tooltip="Open Reminder" ><<reminderName>></$link>
+
+<<reminderText>>
+
+</$navigator>

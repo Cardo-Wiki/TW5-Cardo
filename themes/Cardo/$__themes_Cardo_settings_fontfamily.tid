@@ -1,0 +1,11 @@
+created: 20160810124100927
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170219235915808
+modifier: David Szego
+revision: 2
+tags: CardoTheme
+title: $:/themes/Cardo/settings/fontfamily
+type: text/vnd.tiddlywiki
+
+"Ubuntu", "Bitstream Vera Sans", Verdana, Arial, sans-serif;

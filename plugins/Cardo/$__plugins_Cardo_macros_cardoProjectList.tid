@@ -1,0 +1,44 @@
+created: 20160912031846822
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170222210211439
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoProjectList
+type: text/vnd.tiddlywiki
+
+\define cardoProjectList(title, status, priority, newButton, newButtonText, newTag, project, personGuid, completeButton, includeComplete, dueWithin, starred)
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='project' newTag='$newTag$' newButtonText='$newButtonText$'/>
+      </$set>
+    </div>
+    <$set name='itemFilter' value=<<booleanMatch leftSide:$includeComplete$ rightSide:'false' 
+      trueValue:'$status$ +[tagging[]] +[fieldContains:cardo-projectteam[$personGuid$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[field:cardo-category<currentTiddler>]+[tagOrEmpty[$starred$]]+[field:cardo-type[project]] -[tag[Complete]] -[has[draft.of]]'
+      falseValue:'$status$ +[tagging[]] +[fieldContains:cardo-projectteam[$personGuid$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[field:cardo-category<currentTiddler>]+[tagOrEmpty[$starred$]]+[field:cardo-type[project]] -[has[draft.of]]'>> > 
+      <$list filter="[list[$:/state/Cardo/showCategory]]">
+        <$list filter=<<itemFilter>> >
+          <div class="cardoList.listitem"><$set name='doIWantThisButton' value=<<booleanMatch leftSide:$completeButton$ rightSide:'false' trueValue:'dummyMacro' falseValue:'toggleComplete'>> ><$macrocall $name=<<doIWantThisButton>> type='project' newTag='$newTag$' newButtonText='$newButtonText$'/></$set><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this Project" aria-label="Delete this Project">×</$button><span style="display:inline-block;"><<toggleTagButtons tag:'ProjectStatus' shortButtons:'true'>></span>
+            <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+            <$set name="parentProject" value={{!!cardo-project}}>
+              <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+            </$set>
+          </div><!-- listitem -->
+        </$list>
+      </$list>
+    </$set>
+  </div><!-- cardoList -->
+\end
+\define dummyMacro()
+&nbsp;
+\end

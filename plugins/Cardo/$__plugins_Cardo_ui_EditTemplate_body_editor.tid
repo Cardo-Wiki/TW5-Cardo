@@ -1,0 +1,37 @@
+created: 20160923024756027
+creator: David Szego
+modified: 20170222142609796
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/EditTemplate/body/editor
+type: text/vnd.tiddlywiki
+
+<$edit
+
+  field="text"
+  class="tc-edit-texteditor postityellow"
+  placeholder={{$:/language/EditTemplate/Body/Placeholder}}
+
+><$set
+
+  name="targetTiddler"
+  value=<<currentTiddler>>
+
+><span style="float:left; clear:none; max-width: 60%;"><$list
+
+  filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!has[draft.of]]"
+
+><$reveal
+
+  type="nomatch"
+  state=<<config-visibility-title>>
+  text="hide"
+  class="tc-text-editor-toolbar-item-wrapper"
+
+><$transclude
+
+  tiddler="$:/core/ui/EditTemplate/body/toolbar/button"
+  mode="inline"
+
+/></$reveal></$list></span></$set><span style="float:right; clear:none; max-width: 30%;"><$transclude tiddler="$:/core/ui/EditTemplate/type" mode="inline"/></span></$edit>

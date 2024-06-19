@@ -1,0 +1,32 @@
+created: 20160831013255942
+creator: David Szego
+icon: $:/plugins/Cardo/images/clipboard-checkmarks
+modified: 20190108012947735
+modifier: Joe Cardo
+tags: about
+title: Welcome to Cardo
+
+!''Cardo'' - A Task and Project Management Wiki for Getting Stuff Done
+!!!!//Latest [[version|Cardo Version & Release Notes]] is <<cardoVersion>>//
+!!''Cardo'' offers Task & Delegation Tracking, Meetings & Agenda Items, Projects & Roles, Progress & Status Updates, Reference Items, Reminders, Contacts & Conversation Logging, Book Notes & Library, Goal Tracking, and More!
+
+!!!''Cardo'' is a standalone, browser-based tool that can be used as a simple [[Getting-Things-Done|http://en.wikipedia.org/wiki/Getting_Things_Done]] task manager, or as a complex Project Management system (and indeed, I do use it this way in my daily work) as well as a fully Wiki-ized personal knowledge store.
+
+!!!It's a single HTML file that runs completely independently in the browser, even without an Internet connection. Your ''Cardo'' can be carried around on a USB stick and used on any computer! 
+
+>''[[Get Cardo]]''
+
+!!''Cardo'' has many features for task and project management include dashboards for:
+
+* Projects, Teams, and RACI charts
+* Tasks & Reminders
+* Contexts
+* Meetings & Agenda Items
+* References
+* People & Conversations
+* Goals
+* Book Library & Notes
+
+!!!They are tightly interlinked, and allow extremely complex tracking to be presented in a very elegant and beautiful way.
+
+!!''//Scroll down to see examples of ''Cardo'' cards in action...//''

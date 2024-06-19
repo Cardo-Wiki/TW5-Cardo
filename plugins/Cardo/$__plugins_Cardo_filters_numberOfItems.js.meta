@@ -1,0 +1,10 @@
+created: 20170212152945770
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20170212205035585
+modifier: David Szego
+module-type: filteroperator
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/filters/numberOfItems.js
+type: application/javascript

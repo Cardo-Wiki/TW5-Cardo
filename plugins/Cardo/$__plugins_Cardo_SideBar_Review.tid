@@ -1,0 +1,105 @@
+caption: Review
+created: 20170203030441107
+creator: David Szego
+icon: $:/plugins/Cardo/images/card
+modified: 20170220044258763
+modifier: David Szego
+tags: Cardo
+title: $:/plugins/Cardo/SideBar/Review
+
+\define regExDateMonthly() ^\d{6}$(dayNum)$
+\define regExDateYearly() ^\d{4}$(monthNum)$$(dayNum)$
+\define openAndScrollTo()
+<$action-navigate $to={{$:/temp/review/person}} />
+<$action-setfield $tiddler="$:/temp/review/person" $field="text" />
+\end
+<div class="intakeTabButtons">
+  <div class="intakeTabHeader">Overview:</div>
+  <$button aria-label="My Dashboard" tooltip="My Dashboard" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/inbox}}My Dashboard</span>
+    <$action-navigate $to={{$:/status/UserName}} />
+  </$button>
+  <p>
+  <$button aria-label="All Items" tooltip="All Items" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/inbox}}All Items</span>
+    <$action-navigate $to="All Items" />
+  </$button>
+  <p>
+  <div class="intakeTabHeader">People:</div>
+  <div class="button" style="display: inline-block;">{{$:/plugins/Cardo/images/person}}<span class="iconButtonText"><$select tiddler="$:/temp/review/person" actions=<<openAndScrollTo>> >
+        <$list filter='[tag[Person]]'>
+          <option><$view field='title'/></option>
+        </$list>
+      </$select>
+    </span>
+  </div>
+  <div class="intakeTabHeader">Activities:</div>
+  <$button aria-label="Active Projects" tooltip="Active Projects" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/project}}Active Projects</span>
+    <$action-navigate $to="Active Projects"/>
+  </$button>
+  <p>
+  <$button aria-label="Completed Projects" tooltip="Completed Projects" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/project}}Completed Projects</span>
+    <$action-navigate $to="Completed Projects" />
+  </$button>
+  <p><br><p>
+  <$button aria-label="Important Tasks" tooltip="Important Tasks" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/task}}Important Tasks</span>
+    <$action-navigate $to="Important Tasks" />
+  </$button>
+  <p>
+  <$button aria-label="Active Tasks" tooltip="Active Tasks" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/task}}Active Tasks</span>
+    <$action-navigate $to="Active Tasks" />
+  </$button>
+  <p>
+  <$button aria-label="Delegated Tasks" tooltip="Active Tasks" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/task}}Delegated Tasks</span>
+    <$action-navigate $to="Delegated Tasks" />
+  </$button>
+  <p><br><p>
+  <$button aria-label="Tasks by Context" tooltip="Active Tasks" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/context}}Tasks by Context</span>
+    <$action-navigate $to="Tasks by Context" />
+  </$button>  
+  <p>
+  <$button aria-label="Reminders" tooltip="Reminders" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/reminder}}Reminders</span>
+    <$action-navigate $to="Reminders" />
+  </$button>
+  <p>
+  <div class="intakeTabHeader">Information:</div>
+  <$button aria-label="References" tooltip="References" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/reference}}References</span>
+    <$action-navigate $to="All Reference Items" />
+  </$button>
+  <p>
+  <$button aria-label="Book Library" tooltip="Book Library" style="width:80%">
+    <span class="iconButtonText">{{$:/plugins/Cardo/images/booklibrary}}Book Library</span>
+    <$action-navigate $to="Book Library" />
+  </$button>
+  <p>
+<p>
+<!-- Fire reminders every time the Cardo sidebar is triggered -->
+<$vars dayName=<<now DDD>> dayNum=<<now 0DD>> monthNum=<<now 0MM>> todaysDate=<<now 0DD0MMYYYY>> >
+<$list filter="[tag[Reminder]]+[tag[Once]]+[days:cardo-due[0]] -[field:cardo-snooze<todaysDate>] -[tag[Complete]] -[has[draft.of]]">
+  <$macrocall $name="reminderModal" reminderName={{!!title}} reminderText={{!!text}} />
+</$list>
+<$list filter="[tag[Reminder]tag[Daily]] -[tag[Complete]] -[field:cardo-snooze<todaysDate>] -[has[draft.of]]">
+  <$macrocall $name="reminderModal" reminderName={{!!title}} reminderText={{!!text}} />
+</$list>
+<$list filter="[tag<dayName>]+[tag[Reminder]]+[tag[Weekly]] -[field:cardo-snooze<todaysDate>] -[tag[Complete]] -[has[draft.of]]">
+  <$macrocall $name="reminderModal" reminderName={{!!title}} reminderText={{!!text}} />
+</$list>
+<$list filter="[regexp:cardo-due<regExDateMonthly>]+[tag[Reminder]]+[tag[Monthly]] -[field:cardo-snooze<todaysDate>] -[tag[Complete]] -[has[draft.of]]">
+  <$macrocall $name="reminderModal" reminderName={{!!title}} reminderText={{!!text}} />
+</$list>
+<$list filter="[regexp:cardo-due<regExDateYearly>]+[tag[Reminder]]+[tag[Yearly]] -[field:cardo-snooze<todaysDate>] -[tag[Complete]] -[has[draft.of]]">
+  <$macrocall $name="reminderModal" reminderName={{!!title}} reminderText={{!!text}} />
+</$list>
+<!--- TO BE REMOVED -- Clean up cardo-category silently in the background (only need this once) -->
+  <$list filter='[has[cardo-type]!has[cardo-category]] [has[cardo-type]fieldOrEmpty:cardo-category["--empty--"]]'>
+    <$action-setfield cardo-category="(Unassigned)" />
+  </$list>
+</$vars>

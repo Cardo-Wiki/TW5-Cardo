@@ -1,0 +1,35 @@
+created: 20160828185038583
+creator: DSzego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170223171720319
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/agendaitem/controls
+type: text/vnd.tiddlywiki
+
+<$set name=agendaItemGuid value={{!!cardo-guid}}>
+<div class="controls controlstint"> 
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button>
+        <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/AgendaItemHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleComplete>>
+    <<toggleStarred>>
+    <$list filter="[is[current]!has[draft.of]]">
+      <span class='title'>{{!!title}}</span><br>
+    </$list>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+  <div class="projectGroup">
+    <span class="label">Meeting:</span><br/>
+    <<meetingSelect agendaItemGuid:$(agendaItemGuid)$>><span class="linkTo"><$link to={{!!cardo-guid}} aria-label="Open this meeting" tooltip="Open this meeting">⇪</$link></span><$button class="deleteX" aria-label="Remove from this meeting" tooltip="Remove from this meeting">×<$action-deletefield $field="cardo-onmeeting" /></$button>
+  </div>
+  <div class="assignedToGroup">
+      <span class="label">Put forward by:</span><br>
+      <<toggleTagSelect tag:Person field:cardo-requestor>><span class="linkTo"><$link to={{!!cardo-requestor}} aria-label="Open this person's dashboard" tooltip="Open this person's dashboard">⇪</$link></span><$button class="deleteX" aria-label="Remove as requestor" tooltip="Remove as requestor">×<$action-listops $field="cardo-requestor" $filter="[[]]"/></$button>
+  </div>&nbsp;
+  <div class="clearboth"></div>
+</div>
+</$set>

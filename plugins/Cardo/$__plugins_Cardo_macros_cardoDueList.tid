@@ -1,0 +1,44 @@
+created: 20160902173618682
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170308143452118
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoDueList
+type: text/vnd.tiddlywiki
+
+\define dummyMacro()
+&nbsp;
+\end
+\define cardoDueList(title, status, priority:"-SKIP-", starred, newButton, newButtonText, newTag, chair, type, buttonType, project:"-SKIP-", assignee:"-SKIP-", requestor:"-SKIP-", completeButton, includeComplete, dueWithin:"-SKIP-", newButtonAssignee:"-SKIP-", newButtonProject:"-SKIP-")
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newTaskButton' falseValue:'dummyMacro'>> >
+        $title$ <$macrocall $name=<<doIWantThisButton>> type='task' newTag='$newTag$' newButtonText='$newButtonText$' projectGuid='$newButtonProject$' assigneeGuid='$newButtonAssignee$' />
+      </$set>
+    </div>
+    <$list filter="[list[$:/state/Cardo/showCategory]]">
+      <$list filter='$status$ +[tagging[]]+[field:cardo-type[$type$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[fieldOrEmpty:cardo-project[$project$]]+[fieldOrEmpty:cardo-assignee[$assignee$]]+[fieldOrEmpty:cardo-requestor[$requestor$]]+[fieldOrEmpty:cardo-chair[$chair$]]+[fieldOrEmpty:cardo-project[$project$]]+[daysOrEmpty:cardo-due[$dueWithin$]]+[field:cardo-category<currentTiddler>] -[tag[Complete]]' >
+        <div class="cardoList.listitem"><$set name='doIWantThisButton' value=<<booleanMatch leftSide:$completeButton$ rightSide:'false' trueValue:'dummyMacro' falseValue:'toggleComplete'>> ><$macrocall $name=<<doIWantThisButton>> type='$type$' newTag='$newTag$' newButtonText='$newButtonText$'/></$set><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this $type$" aria-label="Delete this $type$">×</$button>
+        <$list filter="[is[current]has[cardo-due]]"><span class="dueDate"><$view field="cardo-due" format="relativedate"/></span></$list>
+        <$list filter="[is[current]!has[cardo-due]]"><span style="display:inline-block;"><<toggleTagButtons tag:$buttonType$ shortButtons:'true'>></span></$list>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+          <$set name="parentProject" value={{!!cardo-project}}>
+            <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+          </$set>
+        </div><!-- listitem -->
+      </$list>
+    </$list>
+  </div><!-- cardoDueList -->
+\end
+
+<!-- <span class="cardoListItemProject"><link to=<<parentProject>> tooltip="Custom tooltip">< <parentProject> ></link></span><span class="cardoListItemType">($type$)</span -->

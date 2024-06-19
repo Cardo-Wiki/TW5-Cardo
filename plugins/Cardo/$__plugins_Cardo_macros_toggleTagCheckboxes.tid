@@ -1,0 +1,28 @@
+created: 20160822025834442
+creator: DSzego
+icon: $:/plugins/Cardo/images/paper
+modified: 20160927020232950
+modifier: DavidSzego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleTagCheckboxes
+type: text/vnd.tiddlywiki
+
+\define toggleTagCheckboxes(tag)
+  <$list filter="[all[shadows+tiddlers]tag[$tag$]]" variable="taggedTiddler">
+    <$set name="buttonClass" filter="[<currentTiddler>tag<taggedTiddler>]" value="checkbox on" emptyValue="checkbox off">
+    <$list filter="[is[current]tag<taggedTiddler>]">
+      <span style="white-space: nowrap;"><$button class=<<buttonClass>>>
+        <$action-listops $tiddler=<<currentTiddler>> $tags="+[remove<taggedTiddler>]" />
+        {{$:/plugins/Cardo/images/checkbox-checked}}
+      </$button><label style="white-space: nowrap; margin-left: 5px;"><<taggedTiddler>></label></span>
+    </$list>
+    <$list filter="[is[current]!tag<taggedTiddler>]" variable="thisTiddler">
+      <span style="white-space: nowrap;"><$button class=<<buttonClass>>>
+        <$action-listops $tiddler=<<currentTiddler>> $tags="+[append<taggedTiddler>]" />
+        {{$:/plugins/Cardo/images/checkbox}}
+      </$button><label style="white-space: nowrap; margin-left: 5px;"><<taggedTiddler>></label></span>
+    </$list>
+    </$set>
+  </$list>
+\end

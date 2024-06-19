@@ -1,0 +1,59 @@
+created: 20170130155135319
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170308143342885
+modifier: David Szego
+revision: 11
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoTaskList
+type: text/vnd.tiddlywiki
+
+\define dummyMacro()
+&nbsp;
+\end
+\define cardoTaskList(title, status, priority:"-SKIP-", starred, newButton, newButtonText, newTag, project:"-SKIP-", assignee:"-SKIP-", requestor:"-SKIP-", completeButton, includeComplete, dueWithin:"-SKIP-", newButtonAssignee:"-SKIP-", newButtonProject:"-SKIP-", scrolling:'false')
+<$set name='scrollingDiv' value=<<booleanMatch leftSide:$scrolling$ rightSide:'true' trueValue:'scrollableCol' falseValue:'nonScrollingDiv'>> >
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newTaskButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='task' newTag='$newTag$' newButtonText='$newButtonText$' projectGuid='$newButtonProject$' assigneeGuid='$newButtonAssignee$' />
+      </$set>
+    </div>
+    <div class=<<scrollingDiv>> >
+    <!-- Below: trueValue = filter for explicitly removing completed items / falseValue = filter for allowing completed items -->
+    <$set name="assigneeGuid" value=$assignee$ >
+    <$set name="requestorGuid" value=$requestor$ >
+    <$set name="projectGuid" value=$project$ >
+    <$set name="priorityLevel" value=$priority$ >
+      <$set name='itemFilter' value=<<booleanMatch leftSide:$includeComplete$ rightSide:'false'
+
+      trueValue:'$status$ +[tagging[]]+[field:cardo-type[task]]+[fieldOrEmpty:cardo-priority[$priority$]]+[fieldOrEmpty:cardo-assignee[$assignee$]]+[fieldOrEmpty:cardo-requestor[$requestor$]]+[fieldOrEmpty:cardo-project[$project$]]+[tagOrEmpty[$starred$]]+[daysOrEmpty:cardo-due[$dueWithin$]]+[field:cardo-category<currentTiddler>] -[tag[Complete]] -[has[draft.of]] +[sort[]]'
+
+      falseValue:'$status$ +[tagging[]]+[field:cardo-type[task]] -[!fieldOrEmpty:cardo-requestor<requestorGuid>!fieldOrEmpty:cardo-assignee<assigneeGuid>!fieldOrEmpty:cardo-project<projectGuid>]+[field:cardo-category<currentTiddler>] -[has[draft.of]] +[sort[]]'>> >
+<!--     AG: <<assigneeGuid>><br>
+      RG: <<requestorGuid>><br>
+      PG: <<projectGuid>><br>
+      PL: <<priorityLevel>><br>  -->
+      <$list filter="[list[$:/state/Cardo/showCategory]]">
+        <$list filter=<<itemFilter>> >
+          <div class="cardoList.listitem"><$set name='doIWantThisButton' value=<<booleanMatch leftSide:$completeButton$ rightSide:'false' trueValue:'dummyMacro' falseValue:'toggleComplete'>> ><$macrocall $name=<<doIWantThisButton>>/></$set><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this Task" aria-label="Delete this Task">×</$button><span style="display:inline-block;"><<toggleTagButtons tag:'TaskStatus' shortButtons:'true'>></span>
+            <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+</span></div>
+            <$set name="parentProject" value={{!!cardo-project}} >
+              <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+            </$set>
+          </div><!-- listitem -->
+        </$list>
+      </$list>
+      </$set>
+    </$set></$set></$set></$set>
+    </div><!-- scrolling -->
+  </div><!-- cardoList -->
+</$set>
+\end

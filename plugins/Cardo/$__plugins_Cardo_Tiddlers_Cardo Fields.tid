@@ -1,0 +1,22 @@
+cardo-guid: 6eccd565-98d3-4686-b645-8082784cca13
+cardo-project: 74170e03-ac18-4b8f-a874-422f7b08a1c2
+cardo-type: reference
+created: 20160925200342991
+creator: DavidSzego
+icon: $:/themes/Cardo/images/reference
+modified: 20160926175520214
+modifier: DavidSzego
+revision: 3
+tags: Reference Cardo
+title: $:/plugins/Cardo/Tiddlers/Cardo Fields
+true: Web & Software
+type: text/vnd.tiddlywiki
+
+!!Custom Tiddler fields used in Cardo
+
+|Field Name|Function|Card Type|Macros|h
+|``cardo-guid``|Unique identifier for each Cardo Tiddler |All |All |
+|``cardo-type`` |Identifier for ViewTemplate. Cards should have a matching Tag (for user's purposes) |All |Most, when making a list |
+|``cardo-project`` |GUID of the parent project which this card applies to |Tasks, Projects, Meetings, References |``cardoDueList``<br>``cardo-List``<br>``cardoMeetingList``<br>``cardoNotCompleteList``<br>``cardoProjectList``<br>``cardoProjectRoleList``<br>``cardoProjectTeamList``<br>``cardoStatusUpdateList``<br>``newTaskButton``<br>``newTeamMemberButton``<br>``selectParentProject``<br>``selectProjectForStatus``<br>``selectProjectLead``<br>``selectProjectLead``<br>``setParentTask``<br>Meeting controls and details<br>Project controls<br>StatusUpdate controls<br>Task controls |
+|``cardo-projectteam`` |List of GUIDs of Person cards assigned to a Project.<br>Each GUID potentially has a suffix of ``--Role``, where "Role" is chosen by the names of Tiddlers tagged with ``ProjectStatus`` |Projects |``cardoProjectList``<br>``cardoProjectRoleList``<br>``cardoProjectTeamList``<br>``newTeamMemberButton``<br>``selectProjectLead`` |
+|``cardo-priority``|Priority level for tasks and projects. Cards should have a matching Tag (for user's purposes). Chosen by the names of Tiddlers tagged with ``Priority`` |Projects, Tasks |``cardoDueList``<br>``cardoList``<br>``cardoNotCompleteList``<br>``cardoProjectDueList``<br>``cardoProjectList``<br>``cardoProjectRoleList``<br>``selectPriority``<br>Person and Project detail |

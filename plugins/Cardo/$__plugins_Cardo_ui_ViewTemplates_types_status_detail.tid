@@ -1,0 +1,29 @@
+created: 20160812194919304
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213325379
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/status/detail
+type: text/vnd.tiddlywiki
+
+I AM STATUS UPDATE DETAIL!!!!
+<div class="referencecontrols controls controlstint">
+ <div style="float:right;" class="smaller">
+  <span class="label">Realm:</span>&nbsp;<span macro="multiSelectTag Realm allowNone:on"></span>
+  <span macro="tag StatusUpdate"></span><span macro="help StatusUpdate"></span>
+ </div>
+ <div>
+  <span macro="singleToggleTag tag:Starred"></span>
+  <span class='title' macro='view title'></span>
+  <span macro="linkToParent Area '[A]'"></span>
+  <br>
+  [[CardoTheme##Subtitle]]
+ </div>
+ <div>
+  <div class="floatleft"><span class="label">Project:</span><br><span macro="multiSelectTag Project allowNone:on"></span>&nbsp;<span macro="linkToParent Project '[P]'"></span></div>
+  <div macro="hideWhen tiddler.hasParent('Project')" class="floatleft"><span class="label">Area:</span><br><span macro="multiSelectTag Area allowNone:on"></span><span macro="linkToParent Area '[A]'"></span></div>
+ </div>
+ <div class="clearboth"></div>
+</div>

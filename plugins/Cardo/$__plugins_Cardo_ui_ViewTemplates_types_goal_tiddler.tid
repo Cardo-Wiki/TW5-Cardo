@@ -1,0 +1,20 @@
+created: 20190107181542161
+creator: Joe Cardo
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20190107190045774
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/goal/tiddler
+type: text/vnd.tiddlywiki
+
+<$reveal tag="div" class="tc-tiddler-body" type="nomatch" state=<<folded-state>> text="hide" retain="yes" animate="yes">
+  <$list filter="[all[current]!has[plugin-type]!field:hide-body[yes]]">
+    <$click/>
+    {{||$:/plugins/Cardo/ui/ViewTemplates/types/goal/controls}}
+    {{||$:/plugins/Cardo/ui/ViewTemplates/types/goal/body}}
+    {{||$:/plugins/Cardo/ui/ViewTemplates/types/goal/detail}}
+  </$list>
+<div class="scrollup"><$button tag="span" class="te-btn-to-top" tooltip="Back to Top"><$action-navigate $to=<<currentTiddler>>/>▲</$button></div>
+</$reveal>

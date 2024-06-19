@@ -1,0 +1,19 @@
+caption: All Reference Items
+cardo-type: dashboard
+created: 20170130192831011
+creator: David Szego
+icon: $:/plugins/Cardo/images/dashboard
+modified: 20170216144815186
+modifier: David Szego
+tags: Cardo
+title: All Reference Items
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols1">
+    <div class="col"><!--column 1-->
+      <<cardoList title:'Reference Items' type:'reference' status:'Reference' newButton:'true'  newButtonText:'In reference to $(currentTiddler)$...' newTag:'Reference' completeButton:'false'>>
+    </div><!-- column 1 -->
+  </div><!--cols-->
+</div><!-- dashboard -->     

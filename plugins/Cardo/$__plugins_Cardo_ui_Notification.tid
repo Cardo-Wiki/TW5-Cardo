@@ -1,0 +1,9 @@
+created: 20170202154410631
+creator: David Szego
+modified: 20170202185308395
+modifier: David Szego
+tags: Cardo
+title: $:/plugins/Cardo/ui/Notification
+
+{{$:/plugins/Cardo/images/reminder-small}}//You have a Reminder due today!//
+<p><<reminderName>>

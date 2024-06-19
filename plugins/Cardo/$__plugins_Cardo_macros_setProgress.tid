@@ -1,0 +1,28 @@
+cardo-progress: 4
+created: 20170212210438845
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170212212711736
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/setProgress
+type: text/vnd.tiddlywiki
+
+\define setProgress(maxProgress, field, tiddler:$currentTiddler$)
+  <$list filter="[numberOfItems[$maxProgress$]]" variable="count">
+    <$button class="progress" aria-label="Set Progress to $(count)$" tooltip="Set Progress to $(count)$" >
+      <$macrocall $name='lessThanOrEqual' leftSide=<<count>> rightSide={{!!cardo-progress}} trueValue='<span class="progress">{{$:/plugins/Cardo/images/circle-fast-forward-filled}}</span>' falseValue='<span class="starred">{{$:/plugins/Cardo/images/circle-fast-forward}}</span>' />
+      <$action-setfield $tiddler="$tiddler$" $field="cardo-progress" $value=<<count>> />
+    </$button>            
+  </$list>
+\end
+
+Set Progress: <$macrocall $name="setProgress" maxProgress=10 field="cardo-progress" tiddler=<<currentTiddler>> />
+
+Use like:\\
+``<$macrocall $name="setProgress" maxProgress=10 field="cardo-progress" tiddler=<<currentTiddler>> />``
+
+``<<setProgress maxProgress:10 field:"cardo-progress" tiddler:$currentTiddler$>>``
+
+Current progress: {{!!cardo-progress}}

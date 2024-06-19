@@ -1,0 +1,44 @@
+created: 20190107192117788
+creator: Joe Cardo
+icon: $:/plugins/Cardo/images/paper
+modified: 20190107193640610
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/goalnote/controls/edit
+type: text/vnd.tiddlywiki
+
+<div class="controls controlstint">
+  <div class="floatright smaller">
+        <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/GoalNoteHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleStarred>>
+      <span class='title'>
+
+<$vars pattern="""[\|\[\]{}]""" bad-chars="""`| [ ] { }`""">
+
+<$list filter="[is[current]regexp:draft.title<pattern>]" variable="listItem">
+
+<div class="tc-message-box">
+
+{{$:/language/EditTemplate/Title/BadCharacterWarning}}
+
+</div>
+
+</$list>
+
+</$vars>
+
+<$edit-text field="draft.title" class="tc-titlebar tc-edit-texteditor" focus="true"/>
+
+      </span><br>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+  <div class="projectGroup">
+    <span class="label">Goal:</span><br>
+    <<selectGoalForNote goalGuid:{{!!cardo-goal}} myGuid:{{!!cardo-guid}}>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-goal}} label="Open this Goal"/></span><$button class="deleteX" aria-label="Remove from this Goal" tooltip="Remove from this Goal">×<$action-listops $field="cardo-goal" $filter="[[]]"/></$button>
+  </div>
+&nbsp;
+  <div class="clearboth"></div>
+</div>

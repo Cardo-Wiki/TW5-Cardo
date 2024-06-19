@@ -1,0 +1,7 @@
+created: 20161002032857298
+modified: 20161002032903635
+tags: Cardo
+title: $:/plugins/Cardo/ui/subtitle
+
+<span class='tc-subtitle modified'>Updated by <$link to={{!!modifier}}><$view field="modifier"/></$link> <$view field="modified" format="date" template={{$:/language/Tiddler/DateFormat}}/></span>
+<span class='tc-subtitle created'>(Created by <$link to={{!!modifier}}><$view field="modifier"/></$link> <$view field="modified" format="date" template={{$:/language/Tiddler/DateFormat}}/>)</span>

@@ -1,0 +1,25 @@
+caption: Person Help
+created: 20170222194018418
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170222203910727
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/PersonHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Person cards help you delegate tasks, track conversations you've had, and keep contact info handy.
+
+bla bla bla
+
+Keep track of your Projects by status:
+
+Use the ''Contact Info'' dropdown as an address-book.
+
+Use the ''Conversation Log'' dropdown to track your ''Conversations'' with this person (or if it's your own card, between you and others). You can mark Conversations as being ''Phone'', ''Email'', ''Text'' (messaging), or ''Face-To-Face''.
+@@

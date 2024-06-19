@@ -1,0 +1,34 @@
+created: 20170205015812778
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20190108003657119
+modifier: Joe Cardo
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleReminderCheckbox
+type: text/vnd.tiddlywiki
+
+\define makeReminderTitle() Reminder - $(reminderTitle)$
+\define setReminderButton()
+    <$button class=<<buttonClass>> >
+      <$action-setfield $tiddler=<<currentTiddler>> cardo-reminder=<<reminderGuid>> />
+      <$action-setfield $tiddler=<<makeReminderTitle>> text=<<reminderText>> tags="Reminder Once" cardo-type="reminder" cardo-due=<<reminderDueDate>> cardo-project=<<reminderProjectGuid>> cardo-parent=<<reminderParentGuid>> cardo-assignee=<<reminderAssigneeGuid>> icon="$:/plugins/Cardo/images/reminder" cardo-guid=<<reminderGuid>> cardo-category={{!!cardo-category}} />
+      {{$:/plugins/Cardo/images/checkbox}}
+    </$button>
+\end
+\define clearReminderButton()
+    <$button class=<<buttonClass>> >
+      <$action-deletetiddler $filter="[field:cardo-guid{!!cardo-reminder}]" />
+      <$action-deletefield cardo-reminder />
+      {{$:/plugins/Cardo/images/checkbox-checked}}
+    </$button>
+\end
+\define toggleReminderCheckbox()
+  <$vars reminderTitle={{!!title}} reminderText={{!!text}} reminderGuid=<<guid>> reminderParentGuid={{!!cardo-guid}}  reminderAssigneeGuid={{!!cardo-assignee}} reminderDueDate={{!!cardo-due}}>
+    <$set name="buttonClass" filter="[has[cardo-reminder]]" value="checkbox on" emptyValue="checkbox off">  
+      <$list filter="[has[cardo-reminder]]" emptyMessage="<<setReminderButton>>">
+        <<clearReminderButton>>
+      </$list> 
+    </$set>
+  </$vars>
+\end

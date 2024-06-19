@@ -1,0 +1,26 @@
+created: 20160812192927716
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213320222
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/email/detail
+type: text/vnd.tiddlywiki
+
+I AM AN EMAIL!!!
+<!-- div class="cols3" -->
+    <div><!-- class="col" xx-style="width:66%;" -->
+  	<!-- Don't want to see what's entered, in fact I'd rather block editing -- div class='viewer' macro='view text wikified'></div-->
+        <div class='viewer postityellow' macro='view text wikified'></div>
+    </div>
+    <!-- div class="col" style="margin-left:20px; width:30%">
+        <div macro="CardoList title:'Notes (By Chapter)'
+	  tags:'BookNote && !Trash'
+	  view:plainNotes
+	  ignoreRealm:yes
+	  addButtonTags:'BookNote'
+	  dontShowEmpty:no
+	"></div>
+    </div -->
+<!-- /div-->

@@ -1,0 +1,63 @@
+created: 20190107173715767
+creator: Joe Cardo
+hide-body: no
+icon: $:/plugins/Cardo/images/goal
+modified: 20190108011142861
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/goal/controls
+type: text/vnd.tiddlywiki
+
+\define reminderName() Reminder - {{!!title}}
+<div class="controls controlstint">
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button>
+    <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/GoalHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleComplete>>
+    <<toggleStarred>>
+    <$list filter="[is[current]!has[draft.of]]">
+      <span class='title'>{{!!title}}</span><br>
+    </$list>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+  <$list filter="[is[current]!tag[Complete]]">
+    <div class="statusButtons">
+      <<toggleTagButtons tag:GoalStatus>>
+    </div>
+    <div>
+    <!-- Give non-ongoing goals a due-date -->
+    <$list filter="[is[current]tag[Once]!tag[Completed]]">
+      <div class="dueDateBox">
+          <div class="datePicker">
+            <$list filter="[is[current]!has[cardo-due]]">
+              <$edit-date field="cardo-due" icon="$:/plugins/Cardo/images/calendar-x" tag=div />
+            </$list>
+            <$list filter="[is[current]has[cardo-due]]">
+              <$edit-date field="cardo-due" icon="$:/plugins/Cardo/images/calendar-check" tag=div />
+            </$list>
+          </div>
+          <span class="label">Achieve By:</span><br>           
+            <$list filter="[is[current]has[cardo-due]]">
+            <div class="duedate">
+              <$button tag="label" class="internal button off">×<$action-deletefield $field="cardo-due"/>
+              </$button>
+              <$view field="cardo-due" format="relativedate"/><br>
+              <<toggleReminderCheckbox>>Reminder
+              <$vars reminderGuid={{!!cardo-reminder}}>
+                <$list filter="[field:cardo-type[reminder]field:cardo-guid<reminderGuid>]">
+                  <span class="linkTo"><$link to=<<currentTiddler>> aria-label="Open Reminder" tooltip="Open Reminder" >⇪</$link></span>
+                </$list>
+              </$vars>
+            </div>
+          </$list>
+      </div>
+    </$list>
+    <div class="assignedToGroup">
+      <span class="label">Assigned to:</span><br>
+      <<selectTaskAssignee>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-assignee}} label="Open this persons Dashboard"/></span><$button class="deleteX" aria-label="Remove as assignee" tooltip="Remove as assignee">×<$action-deletefield $field="cardo-assignee" /><$action-setfield $tiddler=<<assigneeState>> $field="text"/></$button>
+    </div>
+  </div>&nbsp;
+<div class="clearboth"></div>

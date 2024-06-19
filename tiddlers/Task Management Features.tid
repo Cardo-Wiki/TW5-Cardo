@@ -1,0 +1,12 @@
+created: 20160831180509981
+creator: David Szego
+icon: $:/plugins/Cardo/images/clipboard-checkmarks
+modified: 20170223202712061
+modifier: Joe Cardo
+tags: about
+title: Task Management Features
+
+!!Track every Action - yours, and those you delgated
+''Cardo'' lets you track who requested an Action, as well as who the Action was delegated to.  This makes for very powerful team management, giving you a quick glance of what each person is waiting on right from their Dashboard.
+
+{{Print 3 copies of TPS report||$:/plugins/Cardo/ui/ViewTemplates/types/task/controls}}

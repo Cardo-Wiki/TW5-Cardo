@@ -1,0 +1,9 @@
+created: 20170303042732605
+creator: DavidSzego
+modified: 20170303043048907
+modifier: DavidSzego
+tags: pageRibbonLogo
+title: $:/plugins/davidSzego/pageRibbonLogo/readme
+
+!!Changing the page background and corner ribbon:
+Open the [[Control Panel]]'s [[Appearance|$:/core/ui/ControlPanel/Appearance]] tab and ...

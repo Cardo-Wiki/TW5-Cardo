@@ -1,0 +1,36 @@
+created: 20160912021138360
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170216151923439
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoProjectDueList
+type: text/vnd.tiddlywiki
+
+\define cardoProjectDueList(title, status, priority, newButton, newButtonText, newTag, project, personGuid, completeButton, includeComplete, dueWithin)
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='project' newTag='Project Active' newButtonText='Create a new Project'/>
+      </$set>
+    </div>
+    <$list filter="[list[$:/state/Cardo/showCategory]]">
+      <$list filter="$status$ +[tagging[]] +[fieldContains:cardo-projectteam[$personGuid$]]+[fieldOrEmpty:cardo-priority<priority>]+[daysOrEmpty:cardo-due[$dueWithin$]]+[field:cardo-category<currentTiddler>] -[tag[Complete]] -[has[draft.of]]">
+        <div class="cardoList.listitem"><$set name='doIWantThisButton' value=<<booleanMatch leftSide:$completeButton$ rightSide:'false' trueValue:'dummyMacro' falseValue:'toggleComplete'>> ><$macrocall $name=<<doIWantThisButton>> type='$type$' newTag='$newTag$' newButtonText='$newButtonText$'/></$set><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this $type$" aria-label="Delete this $type$">×</$button><span class="dueDate"><$view field="cardo-due" format="relativedate"/></span> 
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'> 
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+          <$set name="parentProject" value={{!!cardo-project}}>
+            <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+          </$set>
+        </div><!-- listitem -->
+      </$list>
+    </$list>
+  </div><!-- cardoDueList -->
+\end

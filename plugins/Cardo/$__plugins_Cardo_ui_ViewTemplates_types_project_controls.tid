@@ -1,0 +1,104 @@
+created: 20160913132603109
+creator: DSzego
+hide-body: yes
+icon: $:/plugins/Cardo/images/paper
+modified: 20190101200635592
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/project/controls
+type: text/vnd.tiddlywiki
+
+\define plState() $:/temp/$(currentTiddler)$/projectlead
+\define ppState() $:/temp/$(currentTiddler)$/project
+
+<$set name="project" value={{!!title}}>
+<div class="controls controlstint"> 
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button>
+    <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/ProjectHelp" />?</$button>
+  </div>
+  <div>
+    <<toggleComplete>>
+    <<toggleStarred>>
+    <$list filter="[is[current]!has[draft.of]]">
+      <span class='title'>{{!!title}}</span><br>
+    </$list>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+  <$list filter="[is[current]!tag[Complete]]">
+    <div class="statusButtons">
+      <<toggleTagButtons tag:ProjectStatus>>
+    </div>
+    <div class="xprojectGroup">
+      <!-- Give active projects a due-date -->
+      <$list filter="[is[current]!tag[Ongoing]]">
+        <div class="dueDateBox">
+          <div class="datePicker">
+            <$list filter="[is[current]!has[cardo-due]]">
+              <$edit-date field="cardo-due" icon="$:/plugins/Cardo/images/calendar-x" tag=div />
+            </$list>
+            <$list filter="[is[current]has[cardo-due]!tag[Recurring]]">
+              <$edit-date field="cardo-due" icon="$:/plugins/Cardo/images/calendar-check" tag=div />
+            </$list>
+            <$list filter="[is[current]has[cardo-due]tag[Recurring]]">
+              <$edit-date field="cardo-due" icon="$:/plugins/Cardo/images/calendar-round-double-arrow" tag=div />
+            </$list>
+          </div>
+          <span class="label">Due Date:</span><br>           
+            <$list filter="[is[current]has[cardo-due]]">
+            <div class="duedate">
+              <$button tag="label" class="internal button off">×<$action-deletefield $field="cardo-due"/>
+              </$button>
+              <$view field="cardo-due" format="relativedate"/><br/>  
+              <div class="recurring"><<toggleTagCheckbox tag:"Recurring">>Recurring</div>   
+            </div>
+          </$list>
+        </div>
+      </$list>
+      <!-- Give all projects a start-date -->
+      <div class="dueDateBox">
+          <div class="datePicker">
+            <$list filter="[is[current]!has[cardo-start]]">
+              <$edit-date field="cardo-start" icon="$:/plugins/Cardo/images/calendar-x" tag=div />
+            </$list>
+            <$list filter="[is[current]has[cardo-start]!tag[Recurring]]">
+              <$edit-date field="cardo-start" icon="$:/plugins/Cardo/images/calendar-check" tag=div />
+            </$list>
+            <$list filter="[is[current]has[cardo-start]tag[Recurring]]">
+              <$edit-date field="cardo-start" icon="$:/plugins/Cardo/images/calendar-round-double-arrow" tag=div />
+            </$list>
+          </div>
+          <span class="label">Start Date:</span><br>           
+            <$list filter="[is[current]has[cardo-start]]">
+            <div class="duedate">
+              <$button tag="label" class="internal button off">×<$action-deletefield $field="cardo-start"/>
+              </$button>
+              <$view field="cardo-start" format="relativedate"/>       
+            </div>
+          </$list>
+      </div>
+    </div>
+      <!-- Progress Section -->
+    <$list filter="[is[current]!tag[Ongoing]]">
+      <div class="progressGroup">
+          <span class="label">Progress:</span><br>
+          <<setProgress maxProgress:10 field:"cardo-progress" tiddler:"$(currentTiddler)$" >>
+      </div>
+    </$list>    
+  </$list>
+  <div class="projectGroup">
+    <span class="label">Sub-Project Of:</span><br/>
+    <<selectParentProject>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-project}} label="Open this Project"/></span><$button class="deleteX" aria-label="Remove from this Project" tooltip="Remove from this Project">×<$action-deletefield $field="cardo-project" /><$action-setfield $tiddler=<<ppState>> $field="text"/></$button>
+  </div>
+  <div class="priorityGroup">
+    <span class="label">Priority:</span><br>
+    <<selectPriority>>
+  </div>
+  <div class="assignedToGroup">
+    <span class="label">Project Lead:</span><br>
+    <<selectProjectLead>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-projectlead}} label="Open this persons Dashboard"/></span><$button class="deleteX" aria-label="Remove as Project Lead" tooltip="Remove as Project Lead">×<$action-deletefield $field="cardo-projectlead" /><$action-setfield $tiddler=<<plState>> $field="text"/></$button><br>
+  </div>&nbsp;
+  <div class="clearboth"></div>
+</div>
+</$set>

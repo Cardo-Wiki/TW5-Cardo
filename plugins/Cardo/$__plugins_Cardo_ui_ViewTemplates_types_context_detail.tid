@@ -1,0 +1,44 @@
+created: 20160812192547296
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213323341
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/context/detail
+type: text/vnd.tiddlywiki
+
+<!--{{{-->
+I AM A CONTEXT DASHBOARD!!!
+<div class="cols2">
+
+<div class="col">
+
+	<div macro="CardoList title:'Next'
+	  tags:'Action && Next && !Done && !Trash'
+	  view:ActionProj
+	  newButtonTags:'Action Next'
+	  where:tiddler.hasActiveProject()||!tiddler.hasParent('Project')
+	"></div>
+
+</div>
+<div class="col">
+
+	<div macro="CardoList title:'Waiting'
+	  tags:'Action && [(Waiting For)] && !Done && !Trash'
+	  view:ActionProj
+	  newButtonTags:'Action [[Waiting For]]'
+	  where:tiddler.hasActiveProject()||!tiddler.hasParent('Project')
+	"></div>
+
+	<div macro="CardoList title:'Future'
+	  tags:'Action && Future && !Done && !Trash'
+	  view:ActionProj
+	  newButtonTags:'Action Future'
+	  where:tiddler.hasActiveProject()||!tiddler.hasParent('Project')
+	"></div>
+
+</div>
+
+</div>
+<!--}}}-->

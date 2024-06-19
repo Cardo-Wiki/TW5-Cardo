@@ -1,0 +1,11 @@
+created: 20160808122740174
+creator: DSzego
+icon: $:/plugins/Cardo/images/card
+modified: 20170305035053390
+modifier: Joe Cardo
+revision: 0
+title: $:/SiteSubtitle
+
+A <a href="http://www.tiddlywiki.com" style="text-decoration: none; color: #4e7baa;">~TiddlyWiki</a> for <a href="http://gettingthingsdone.com/" style="text-decoration: none; color: #4e7baa;">Getting Stuff Done</a>
+<p>
+<div class="button" style="min-width:90%; font-size:1.25em; font-weight:bold; text-align:center; padding:5px;">''[[Click to Get Cardo|Get Cardo]]''</div>

@@ -1,0 +1,79 @@
+created: 20160830012638764
+creator: DavidSzego
+icon: $:/plugins/Cardo/images/dashboard
+modified: 20160925232058085
+modifier: DavidSzego
+revision: 1
+tags: $:/tags/Image Cardo
+title: $:/plugins/Cardo/images/dashboard
+type: text/vnd.tiddlywiki
+
+<svg class="tc-image-dashboard tc-image-button" x="0px" y="0px"
+	 viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<path d="M470,0H20C8.972,0,0,8.972,0,20v450c0,11.028,8.972,20,20,20h450c11.028,0,20-8.972,20-20V20C490,8.972,481.028,0,470,0z
+				 M20,20h450v50H20V20z M20,470V90h450l0.001,380H20z"/>
+			<rect x="40" y="35" width="35" height="20"/>
+			<rect x="90" y="35" width="35" height="20"/>
+			<rect x="415" y="35" width="35" height="20"/>
+			<rect x="315" y="125" width="25" height="20"/>
+			<rect x="270" y="125" width="25" height="20"/>
+			<rect x="150" y="125" width="99.995" height="20"/>
+			<rect x="95" y="205" width="300" height="20"/>
+			<rect x="95" y="165" width="300" height="20"/>
+			<path d="M65,305.857l-12.928-12.929l-14.143,14.143l20,20C59.881,329.023,62.441,330,65,330s5.119-0.977,7.072-2.929l45-45
+				l-14.143-14.143L65,305.857z"/>
+			<rect x="135" y="270" width="60" height="20"/>
+			<rect x="135" y="300" width="95" height="20"/>
+			<path d="M280,305.857l-12.928-12.929l-14.143,14.143l20,20c1.952,1.952,4.512,2.929,7.071,2.929c2.559,0,5.119-0.977,7.072-2.929
+				l45-45l-14.143-14.143L280,305.857z"/>
+			<rect x="350" y="270" width="60" height="20"/>
+			<rect x="350" y="300" width="95" height="20"/>
+			<path d="M65,415.857l-12.928-12.929l-14.143,14.143l20,20C59.881,439.023,62.441,440,65,440s5.119-0.977,7.072-2.929l45-45
+				l-14.143-14.143L65,415.857z"/>
+			<rect x="135" y="380" width="60" height="20"/>
+			<rect x="135" y="410" width="95" height="20"/>
+			<path d="M280,415.857l-12.928-12.929l-14.143,14.143l20,20c1.952,1.952,4.512,2.929,7.071,2.929c2.559,0,5.119-0.977,7.072-2.929
+				l45-45l-14.143-14.143L280,415.857z"/>
+			<rect x="350" y="380" width="60" height="20"/>
+			<rect x="350" y="410" width="95" height="20"/>
+			<rect x="210" y="270" width="20" height="20"/>
+			<rect x="210" y="380" width="20" height="20"/>
+			<rect x="425" y="380" width="20" height="20"/>
+			<rect x="425" y="270" width="20" height="20"/>
+		</g>
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>

@@ -1,0 +1,13 @@
+created: 20170127164207836
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170219041249299
+modifier: David Szego
+revision: 6
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/newMeetingButton
+type: text/vnd.tiddlywiki
+
+\define newMeetingButton(newButton, newButtonText, newTag, projectGuid, personGuid)
+  <$button class="newButton" aria-label="Create a new Meeting" tooltip="Create a new Meeting">+<$action-sendmessage $message="tm-new-tiddler" title="$newButtonText$" tags="$newTag$" cardo-type="meeting" cardo-project="$projectGuid$" icon="$:/plugins/Cardo/images/meeting" cardo-guid=<<guid>> cardo-category={{!!cardo-category}}/></$button>
+\end

@@ -1,0 +1,29 @@
+created: 20160913021243336
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170224174030406
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/selectTaskRequestor
+type: text/vnd.tiddlywiki
+
+\define setRequestor()
+<$action-deletefield cardo-requestor/>
+<$action-setfield cardo-requestor={{$:/temp/$(currentTiddler)$/requestor}} />
+<$action-listops $field="cardo-requestor" $subfilter={{$:/temp/$(currentTiddler)$/requestor}} />
+\end
+\define selectTaskRequestor(fieldName, tag)
+<$select tiddler="""$:/temp/$(currentTiddler)$/requestor""" actions=<<setRequestor>> >
+    <optgroup label="In this Arena:">
+    <$list filter='[field:cardo-type[person]] +[field:cardo-category{!!cardo-category}] -[has[draft.of]]'>
+      <option value={{!!cardo-guid}} ><<currentTiddler>></option>
+    </$list>
+    </optgroup>
+    <optgroup label="In other Arenas:">
+    <$list filter='[field:cardo-type[person]] -[field:cardo-category{!!cardo-category}] -[has[draft.of]]'>
+      <option value={{!!cardo-guid}} ><<currentTiddler>></option>
+    </$list>
+    </optgroup>
+  </$select>
+\end

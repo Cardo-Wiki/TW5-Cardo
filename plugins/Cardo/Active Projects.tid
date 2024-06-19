@@ -1,0 +1,25 @@
+caption: Active Projects
+cardo-type: dashboard
+created: 20170130182115762
+creator: David Szego
+icon: $:/plugins/Cardo/images/dashboard
+modified: 20170228204547267
+modifier: David Szego
+tags: Cardo
+title: Active Projects
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols2"><!-- list columns -->
+    <div class="col"><!--column 1-->
+      <div class="highlight">
+        <<cardoProjectList title:'Important Projects' type:'project' status:'Active Ongoing Dormant SomedayMaybe' starred:'Starred' includeComplete:'false' buttonType:'ProjectStatus' newButton:'true' newButtonText:'This is a really important project...' newTag:'Project Active Starred' >>
+      </div><!--highlight-->
+      <<cardoProjectList title:'Ongoing Projects' type:'project' status:'Ongoing' includeComplete:'false' buttonType:'ProjectStatus' newButton:'true' newButtonText:'A whole bunch of things rolled up in one...' newTag:'Project Ongoing' >>
+    </div><!-- column 1 -->
+    <div class="col"><!--col2-->
+      <<cardoProjectList title:'Active Projects' type:'project' status:'Active' includeComplete:'false' buttonType:'ProjectStatus' newButton:'true' newButtonText:'A whole bunch of things rolled up in one...' newTag:'Project Active' >>
+      </div><!--col2-->
+  </div><!-- list columns -->
+</div><!-- dashboard -->

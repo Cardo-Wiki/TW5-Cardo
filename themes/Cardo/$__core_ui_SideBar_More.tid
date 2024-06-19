@@ -1,0 +1,14 @@
+caption: {{$:/language/SideBar/More/Caption}}
+created: 20160809201135265
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170220000131923
+modifier: David Szego
+revision: 2
+tags: CardoTheme
+title: $:/core/ui/SideBar/More
+type: text/vnd.tiddlywiki
+
+<div class="tc-more-sidebar">
+<<tabs "[title[Shown]] [all[shadows+tiddlers]tag[$:/tags/MoreSideBar]!has[draft.of]]" "$:/core/ui/MoreSideBar/Tags" "$:/state/tab/moresidebar" "tc-vertical">>
+</div>

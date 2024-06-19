@@ -1,0 +1,22 @@
+caption: Reference Help
+created: 20170222175508603
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170222203940999
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/ReferenceHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!References contain any information you'd like to attach to a project. 
+
+Just like regular Tiddler cards, put any sort of WikiText in a Reference card.
+
+In the "//Project://" dropdown, select the project it's associated with. The reference will show up in the project's dashboard.
+
+@@

@@ -1,0 +1,29 @@
+created: 20160902212933828
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170221151424931
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/newAttendeeButton
+type: text/vnd.tiddlywiki
+
+\define setAttendee()
+<$action-listops $tiddler=<<currentTiddler>> $field="cardo-attendees" $subfilter={{$:/temp/$(currentTiddler)$/$meeting$/attendee}} />
+\end
+\define newAttendeeButton(person) 
+<$button class="newButton" aria-label="Create a new Attendee" tooltip="Create a new Attendee">N<$action-sendmessage $message="tm-new-tiddler" title="Look who's coming..." tags="Person" cardo-type='person' icon="$:/plugins/Cardo/images/person" cardo-guid=<<guid>> />
+  <$action-listops $tiddler=<<currentTiddler>> $field="cardo-attendees" $subfilter=$person$/>
+</$button>
+<$reveal type="nomatch" state="""$:/temp/$(currentTiddler)$/$meeting$/attendee""" text="show">
+  <$button class="newButton" aria-label="Add an Attendee" tooltip="Add an Attendee" set="""$:/temp/$(currentTiddler)$/$meeting$/attendee""" setTo="show">E</$button>
+</$reveal>
+<$reveal type="match" state="""$:/temp/$(currentTiddler)$/$meeting$/attendee""" text="show">
+  <$button class="newButton" set="""$:/temp/$(currentTiddler)$/$meeting$/attendee""" setTo="hide">-</$button>
+  <$select tiddler="""$:/temp/$(currentTiddler)$/$meeting$/attendee""" actions=<<setAttendee>> >
+    <$list filter='[field:cardo-type[person]] -[has[draft.of]] +[sort[]]'>
+      <option value={{!!cardo-guid}} ><$view field='title'/></option>
+    </$list>
+  </$select>
+</$reveal>
+\end

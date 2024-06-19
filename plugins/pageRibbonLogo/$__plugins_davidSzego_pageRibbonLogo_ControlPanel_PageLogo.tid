@@ -1,0 +1,9 @@
+caption: Page Logo
+created: 20170303034502198
+creator: David Szego
+modified: 20170303041846878
+modifier: DavidSzego
+tags: $:/tags/ControlPanel/Appearance pageRibbonLogo CardoTheme
+title: $:/plugins/davidSzego/pageRibbonLogo/ControlPanel/PageLogo
+
+<div style="align: top; width: 90%;">Image Tiddler for page logo: <$edit-text tiddler="$:/plugins/davidSzego/pageRibbonLogo/PageLogo" field="text" tag="textarea"/></div>

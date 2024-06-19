@@ -1,0 +1,255 @@
+author: David Szego
+created: 20160925230104951
+creator: DavidSzego
+description: A theme for displaying tasks, projects, and more using Cardo
+hide-body: yes
+modified: 20190102011427390
+modifier: Joe Cardo
+revision: 2
+tags: CardoTheme
+title: $:/themes/Cardo/main.css
+type: text/vnd.tiddlywiki
+
+body {
+        background: <<colour page-background>>;
+}
+
+.logobackground {
+	position:absolute; 
+        z-index: -1000;
+	top: 10px; 
+	left: 10px;
+}
+
+.logobackground svg {
+	color: <<colour very-muted-foreground>> !important;
+	fill: <<colour very-muted-foreground>> !important;
+}
+
+.tc-sidebar-scrollable {
+	padding: 30px 8px 18px 12px !important;
+}
+
+.tc-topbar {
+    position: fixed;
+    top: 5px;
+    right: 20px;
+}
+
+.tc-topbar-right {
+    top: 5px;
+}
+
+.tc-topbar button {
+    position: fixed;
+    top: 5px;
+    right: 20px;
+}
+
+.tc-topbar button svg,
+.tc-btn-invisible svg {
+    fill: <<colour primary>> !important;
+    width: 1em !important;
+    height: 1em !important;
+}
+
+.tc-tiddler-frame {
+    padding-top: 0px;
+    margin-bottom: 8px; 
+    border: 2px solid <<colour tiddler-border>>;
+}
+
+.tc-tiddler-frame .tc-image-button,
+.tc-tiddler-frame .tc-image-button svg {
+    color: <<colour tiddler-controls-foreground>> !important;
+    fill: <<colour tiddler-controls-foreground-hover>> !important;
+}
+
+.tc-tiddler-frame .tc-image-button:hover,
+.tc-tiddler-frame .tc-image-button svg:hover {
+    color: <<colour tiddler-controls-foreground-hover>> !important;
+    fill: <<colour tiddler-controls-foreground-hover>> !important;
+}
+
+.tc-tiddler-title-icon {
+    vertical-align: inherit;
+}
+
+.tc-tab-set {
+    width: 100%;
+}
+
+.tc-tab-content button {
+    vertical-align: baseline;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+}
+
+.tc-tab-content button svg {
+    height: 1.5em !important;
+    width: 1.5em !important;
+    float: left;
+    color: <<colour tab-foreground>> !important;
+    fill: <<colour tab-foreground>> !important;
+    background: <<colour tab-background>>;
+}  
+
+div.tc-sidebar-lists tc-tab-set div.tc-tab-buttons {
+ 
+}
+
+.tc-tiddler-title-icon svg {
+    height: .8em;
+    float: left;
+    padding: 0px;
+    margin-left: 0px;
+    margin-top: 5px;
+    width: 1.075em;
+}
+
+.intakeTabButtons {
+    text-align: center;
+    background: <<colour tiddler-background>>; 
+    border: 1px solid <<colour sidebar-tab-border>>;
+    border-radius: 5px, padding: 5px;
+    margin-bottom: 10px;
+}
+
+.intakeTabButtons button {
+    background: <<colour button-background>>;
+    text-align: center;
+    color: <<colour sidebar-button-foreground>>;
+    font-weight: bold;
+}
+
+div.intakeTabButtons svg {
+  height: 1.5em !important;
+  width: 1.5em !important;
+  margin-right: 5px; 
+  vertical-align: bottom;
+  color: <<colour sidebar-button-foreground>> !important;
+  fill: <<colour sidebar-button-foreground>> !important;
+  background: inherit;
+}
+
+.intakeTabHeader {
+    text-align: left;
+    font-size: 9pt;
+    color: <<colour sidebar-controls-foreground>>;
+    font-family: 'Ubuntu', 'Bitstream Vera Sans', 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    margin: 8px;
+}
+
+section.tc-story-river div.tc-tiddler-frame {
+    min-width: 274px !important;
+}
+
+.tc-popup.tc-preview-tiddler,
+.tc-message-box {
+    margin: 10px -16px 10px -16px;
+    color: <<colour button-foreground>>;
+    background: <<colour button-background>>;
+    font-style: italic;
+    border-color: <<colour sidebar-border>>;
+    border-width: 2px;
+    border-style: solid;
+    width: auto;
+}
+
+div.tc-tiddler-body.tc-reveal {
+    color: <<colour primary>>;
+}
+
+div.tc-tiddler-body.tc-reveal pre,
+div.tc-tiddler-body.tc-reveal > pre,
+div.tc-tiddler-body.tc-reveal > pre > code {
+    color: <<colour button-foreground>>;
+}
+
+.tc-page-controls .tc-popup {
+	left: unset !important;
+	margin-right: -40px;
+	font-size: 10pt;
+}
+
+div.tc-reveal.tc-popup div.tc-drop-down {
+    min-width: 200px !important;
+    z-index: 10000 !important;
+    background: <<colour pre-background>>;
+    background-color: <<colour pre-background>>;
+    color: <<colour pre-foreground>>;
+}
+div.tc-reveal.tc-popup div.tc-drop-down button svg{
+    fill: <<colour sidebar-tab-background>> !important;
+}
+.scrollup {
+    width: 100%;
+    text-align: right;
+    margin-bottom: -10px;
+}
+
+.scrollup a {
+    text-decoration: none;
+    color: <<colour modal-background>>;
+}
+    
+button.tc-btn-rounded {
+	font-size: 0.4em;
+	line-height: .0em;
+	padding: 0em 0.3em 0.2em 0.4em;
+	margin: 1px;
+	border: 1px solid <<colour button-border>>;
+	background: <<colour button-background>>;
+	color: <<colour button-foreground>>;
+	border-radius: 2em;
+        vertical-align: bottom !important;
+        height: 16px;
+        margin-top: 10px;
+}
+
+.tc-tiddler-controls {
+	margin-bottom: 0px;
+        margin-top: -10px;
+}
+
+.tc-tiddler-controls > span > button {
+	margin-left: 0px;
+}
+
+tc-tiddler-controls .tc-btn-rounded {
+	height: .6em;
+}
+
+.tc-tiddler-icon svg {
+	height: 20px;
+}
+
+button svg.tc-image-button {
+	padding-top: 2px;
+}
+
+.title, .tc-tiddly-link, .tc-titlebar, .tc-titlebar h2, .tc-title {
+	font-size: 18pt;
+	color: <<colour tiddler-title-foreground>>;
+	font-family: 'Ubuntu', 'Bitstream Vera Sans', 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+}
+
+/* more subtle tiddler subtitle */
+.subtitle {
+	padding:0px;
+	margin:0px;
+	padding-left:1em;
+	font-size: 90%;
+	color: <<colour tiddler-title-foreground>>;
+}
+.subtitle .tiddlyLink {
+	color: <<colour tiddler-title-foreground>>;
+}
+
+.iconButtonText {
+    color: <<colour primary2>>;
+}

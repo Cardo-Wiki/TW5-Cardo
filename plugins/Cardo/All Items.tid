@@ -1,0 +1,55 @@
+caption: All Items
+cardo-type: dashboard
+created: 20170203030820623
+creator: David Szego
+icon: $:/plugins/Cardo/images/inbox
+modified: 20190108011707805
+modifier: Joe Cardo
+tags: Cardo
+title: All Items
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols3"><!-- list columns -->
+    <div class="col"><!-- col 1 -->
+    <!-- cardoList(title, type, status, priority, buttonType, starred -->
+      <div class="highlight"><<cardoTaskList title:'Important Tasks' status:'Starred' newButton:'true' newButtonText:'An Important Task...' newTag:'Task Next Starred'  includeComplete:'false'>></div>
+	  <<cardoTaskList title:'Next Tasks' status:'Next' newButton:'true' newButtonText:'The Next Thing We Must Do Is...' newTag:'Task Next'  includeComplete:'false'>>
+      <<cardoDueList title:'Waiting Tasks' type:'task' status:'WaitingFor' buttonType:'TaskStatus' groupBy:'cardo-priority' newButton:'true' newButtonText:'Someone should get on this...' newTag:'Task WaitingFor'  includeComplete:'false'>>
+      <<cardoTaskList title:'Future Tasks' status:'Future' newButton:'true' newButtonText:'We can do this later...' newTag:'Task Future' includeComplete:'false'>>
+      <<cardoAllRemindersList title:"All Reminders" newButton:'true'>>
+    </div><!-- column 1 -->
+    <div class="col"><!-- column 2 -->
+      <div class="highlight">
+        <<cardoDueRemindersList title:"Today's Reminders" newButton:'true'>>
+      </div><!--highlight-->
+      <div class="highlight">
+        <<cardoDueList title:'Upcoming or Overdue Tasks' type:'task' status:'Next WaitingFor' dueWithin:'5'>>
+      </div>
+      <<cardoDueList title:'Upcoming Meetings' type:'meeting' status:'Upcoming Rescheduled' buttonType:'MeetingStatus' groupBy:'cardo-priority' newButton:'true' newButtonText:'Meeting to discuss...' newTag:'Meeting Upcoming' completeButton:'false' includeComplete:'false' dueWithin:'5'>>
+      <<cardoList title:'Previous Meetings' type:'meeting' status:'Held' buttonType:'MeetingStatus' groupBy:'cardo-priority' completeButton:'false'>>
+      <<cardoList title:'Reference Items' type:'reference' status:'Reference' newButton:'true'  newButtonText:'In reference to $(currentTiddler)$...' newTag:'Reference' completeButton:'false' scrolling:'true'>>
+    </div><!-- column 2 -->
+    <div class="col"><!-- column 3 -->
+      <div class="highlight"><<cardoDueList title:'Upcoming or Overdue Projects' status:'Active' type:'project' dueWithin:'10'>></div>
+      <<cardoList title:'Active Projects' type:'project' status:'Active' includeComplete:'false' buttonType:'ProjectStatus' newButton:'true' newButtonText:'A whole bunch of things rolled up in one...' newTag:'Project Active' >>
+      <<cardoList title:'Ongoing Projects' type:'project' status:'Ongoing' includeComplete:'false' buttonType:'ProjectStatus' newButton:'true' newButtonText:'A whole bunch of things rolled up in one...' newTag:'Project Ongoing' >>
+      <<cardoList title:'Someday/Maybe Projects' type:'project' status:'SomedayMaybe' includeComplete:'false' buttonType:'ProjectStatus' newButton:'false' >>
+      <<cardoList title:'Completed Projects' type:'project' status:'Complete'  newButton:'false' includeComplete:'true'>>
+      <div class="scrollableCol">
+        <<cardoTaskList title:'Completed Tasks' status:'Complete' newButton:'false' includeComplete:'true'>>
+      </div>
+
+
+      <div class="highlight">
+        <<cardoGoalList title:"Goals" status:'Once Daily Weekly Monthly Yearly Ongoing' includeComplete:'true' newButton:'true' newTag:'Goal Ongoing' shortButtons:'true' >>
+      </div>
+
+
+      <div class="scrollableCol" style="margin-top: 10px;">
+        <<cardoList title:'People' type:'person' status:'Person' buttonType:'RACIStatus'  newButton:'true' completeButton:'false' newButtonText:'Someone New...' newTag:'Person'>>
+      </div>
+    </div><!-- column 3 -->
+  </div><!-- list columns -->
+</div><!-- dashboard -->

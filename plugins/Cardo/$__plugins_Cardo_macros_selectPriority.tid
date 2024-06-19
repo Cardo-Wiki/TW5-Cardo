@@ -1,0 +1,16 @@
+created: 20160822021342728
+creator: DSzego
+icon: $:/plugins/Cardo/images/card
+modified: 20161002030046702
+modifier: Cardo
+revision: 0
+tags: $:/tags/Macro
+title: $:/plugins/Cardo/macros/selectPriority
+
+\define selectPriority()
+  <$select field="cardo-priority">
+    <$list filter="[all[shadows+tiddlers]tag[PriorityLevel]sort[order]] -[has[draft.of]]">
+	    <option value={{!!text}}><<currentTiddler>></option>
+    </$list>
+  </$select>
+\end

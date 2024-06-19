@@ -1,0 +1,11 @@
+created: 20160906133918538
+creator: David Szego
+icon: $:/themes/Cardo/images/card
+modified: 20170224020846997
+modifier: Joe Cardo
+revision: 2
+tags: CardoTheme
+title: $:/config/DefaultSidebarTab
+type: text/vnd.tiddlywiki
+
+$:/plugins/Cardo/SideBar

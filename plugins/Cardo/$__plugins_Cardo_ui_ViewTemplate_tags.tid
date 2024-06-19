@@ -1,0 +1,17 @@
+created: 20160820020234432
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213315992
+modifier: DSzego
+revision: 2
+tags: $:/tags/ViewTemplate Cardo
+title: $:/plugins/Cardo/ui/ViewTemplate/tags
+type: text/vnd.tiddlywiki
+
+<$list filter="[all[current]!has[cardo-type]]">
+  <$reveal type="nomatch" state=<<folded-state>> text="hide" tag="div" retain="yes" animate="yes">
+    <div class="tc-tags-wrapper">
+      <$list filter="[all[current]tags[]sort[title]]" template="$:/core/ui/TagTemplate" storyview="pop"/>
+    </div>
+  </$reveal>
+</$list>

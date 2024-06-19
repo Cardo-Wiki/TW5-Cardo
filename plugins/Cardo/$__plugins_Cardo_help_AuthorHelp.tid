@@ -1,0 +1,22 @@
+caption: Author Help
+created: 20170223182905839
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170223190014477
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/AuthorHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Authors help you catalog your book library and track your favourite writers. 
+
+Add books to your collection by clicking the ''(+)'' button in the list shown.
+
+{{$:/plugins/Cardo/images/star-filled}}{{$:/plugins/Cardo/images/star-filled}}{{$:/plugins/Cardo/images/star-outline}}{{$:/plugins/Cardo/images/star-outline}}Rate this book by clicking the stars beside the title.
+
+@@

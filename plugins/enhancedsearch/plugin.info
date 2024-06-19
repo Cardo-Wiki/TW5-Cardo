@@ -1,0 +1,21 @@
+{
+    "title": "$:/plugins/spangenhelm/enhancedsearch",
+    "author": "FelixHayashi & Spangenhelm",
+    "bag": "default",
+    "core-version": "5.1.9",
+    "created": "20160825004105030",
+    "creator": "DavidSzego",
+    "dependents": "",
+    "depends": "",
+    "description": "TW5-EnhancedSearchResults – Show search results in a tab",
+    "icon": "$:/plugins/Cardo/images/card",
+    "list": "readme license",
+    "modified": "20160928193152645",
+    "modifier": "Cardo",
+    "plugin-type": "plugin",
+    "released": "2015/07/24",
+    "revision": "1",
+    "source": "https://github.com/Spangenhelm/TW5-EnhancedSearchResults",
+    "suggested": "",
+    "version": "0.0.2"
+}

@@ -1,0 +1,24 @@
+created: 20160820001653619
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170221001218398
+modifier: David Szego
+revision: 0
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleTagButtons
+type: text/vnd.tiddlywiki
+
+\define tagWithSpaces()[[$(myTag)$]]  
+\define toggleTagButtons(tag, shortButtons)
+<$list filter="[all[shadows+tiddlers]tag[$tag$]sort[order]] -[has[draft.of]]" variable="myTag">
+  <$set filter="[is[current]tag<myTag>]" name="buttonClass" value=<<myTag>> emptyValue="off" >
+  <$button class=<<buttonClass>> aria-label=<<myTag>> tooltip=<<myTag>> >
+      <$action-listops $tiddler="""$:/temp/$(currentTiddler)$/$tag$""" $field:list $subfilter="[all[shadows+tiddlers]tag[$tag$]] -[has[draft.of]]"/>
+      <$action-listops $tiddler=<<currentTiddler>> $tags="""+[remove{$:/temp/$(currentTiddler)$/$tag$!!list}append<tagWithSpaces>]""" />
+      <$set name=buttonField value=<<booleanMatch leftSide:'$shortButtons$' rightSide:'true' trueValue:'shortbutton' falseValue:'title'>> >
+        <$view tiddler=<<myTag>> field=<<buttonField>> format="text"/>
+      </$set>
+  </$button>
+  </$set>
+</$list>
+\end

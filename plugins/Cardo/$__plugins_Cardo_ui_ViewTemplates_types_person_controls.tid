@@ -1,0 +1,29 @@
+calendarstyle: 
+created: 20160906171735302
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170223171452691
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/person/controls
+type: text/vnd.tiddlywiki
+
+<div class="contactcontrols controls controlstint">
+  <$list filter="[all[current]has[cardo-personphoto]]">
+    <img src={{!!cardo-personphoto}} height="52px" style="float: left; margin-right: 5px;">
+  </$list>
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button>
+    <span macro="tag contact"></span><$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/PersonHelp" />?</$button>
+  </div>
+  
+  <div>
+    <<toggleStarred>>
+    <$list filter="[is[current]!has[draft.of]]">
+      <span class='title'>{{!!title}}</span><br>
+    </$list>
+    <span macro="miniTag"></span>
+    <br>
+    {{$:/plugins/Cardo/subtitle}}
+  </div>

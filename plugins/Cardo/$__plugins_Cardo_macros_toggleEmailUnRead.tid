@@ -1,0 +1,15 @@
+created: 20161005143410481
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20161005143509157
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleEmailUnRead
+type: text/vnd.tiddlywiki
+
+\define toggleEmailUnread(messageUID)
+    <$button class="emailCheckbox" aria-label="Mark this email as unread" tooltip="Mark this email as unread">{{$:/plugins/Cardo/images/checkbox-checked}}
+      <<setEmailFlagRead messageUID:$messageUID$>>
+    </$button>
+\end

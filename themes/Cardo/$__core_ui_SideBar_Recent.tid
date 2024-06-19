@@ -1,0 +1,12 @@
+caption: {{$:/language/SideBar/Recent/Caption}}
+created: 20160809201228437
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20170220000102760
+modifier: David Szego
+revision: 2
+tags: CardoTheme
+title: $:/core/ui/SideBar/Recent
+type: text/vnd.tiddlywiki
+
+<$macrocall $name="timeline" format={{$:/language/RecentChanges/DateFormat}}/>

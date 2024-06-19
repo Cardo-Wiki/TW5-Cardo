@@ -1,0 +1,42 @@
+created: 20160904023242037
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170703003159832
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoMeetingList
+type: text/vnd.tiddlywiki
+
+\define dummyMacro()
+&nbsp;
+\end
+\define cardoMeetingList(title, status, priority:"-SKIP-", newButton, newButtonText, newTag, project:"-SKIP-", requestor:"-SKIP-", chair:"-SKIP-", dueWithin:"-SKIP-", attendeeGUID:"-SKIP-", starred) 
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name="doIWantThisButton" value=<<booleanMatch leftSide:$newButton$ rightSide:"true" trueValue:"newMeetingButton" falseValue:"dummyMacro">> >
+      $title$&nbsp;<$macrocall $name=<<doIWantThisButton>> type='meeting' newTag="Meeting Upcoming" newButtonText="We need to talk about..." projectGuid=$project$ />
+      </$set>
+    </div>
+    <$list filter="[list[$:/state/Cardo/showCategory]]">
+      <$set name='itemFilter' value='$status$ +[tagging[]]+[field:cardo-type[meeting]]+[fieldContains:cardo-project[$project$]]+[fieldOrEmpty:cardo-priority<priority>]+[fieldOrEmpty:cardo-requestor<requestor>]+[fieldOrEmpty:cardo-chair<chair>]+[tagOrEmpty<starred>]+[daysOrEmpty:cardo-due[$dueWithin$]]+[fieldContains:cardo-attendees<attendeeGUID>]+[field:cardo-category<currentTiddler>]  -[tag[Complete]] -[has[draft.of]]'>
+        <$list filter=<<itemFilter>> >
+          <div class="cardoList.listitem"><$macrocall $name=<<doIWantThisButton>> type='$type$' newTag='$newTag$' newButtonText='$newButtonText$'/><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<meetingName>> tooltip="Delete this meeting" aria-label="Delete this meeting">×</$button><span class="dueDate"><$view tiddler=<<meetingName>> field="cardo-due" format="relativedate"/></span> 
+            <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+            <$set name="parentProject" value={{!!cardo-project}}>
+              <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+            </$set>
+          </div><!-- listitem -->
+        </$list>
+      </$set>
+    </$list>
+  </div><!-- cardoDueList -->
+\end

@@ -1,0 +1,78 @@
+created: 20160812192416289
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213315459
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/area/detail
+type: text/vnd.tiddlywiki
+
+<!--{{{-->
+I AM AN AREA DASHBOARD!!!!!
+<div class="cols3">
+
+<div class="col">
+	<div macro="CardoList title:'Active Projects'
+	  tags:'Project && !Complete && !Someday/Maybe && !Trash'
+	  view:Project newButtonTags:'Project Active'
+	  ignoreRealm:yes
+	  dontShowEmpty:no
+	"></div>
+
+	<!--
+	for those who wanted actions in their area view
+	comment the following out if you don't want it
+
+	NB under construction, doesn't work at all...
+
+	<div xx-macro="CardoList title:'Next Actions'
+		mode:global
+		startTag:Action
+		tags:'!Done'
+		group:ActionStatus
+		gView:bold
+		newButtonTags:'Action'
+		view:Action
+		where:{{'tiddler.actionInArea('+tiddler.title+')'}}
+		ignoreRealm:yes
+	"></div>
+	-->
+	<div macro="CardoList title:'Reference Items'
+	  tags:'Reference && !Trash'
+	  view:plainNotes
+	  newButtonTags:'Reference' 
+	  ignoreRealm:no
+	  dontShowEmpty:no
+	"></div>
+</div>
+<div class="col">
+	<div macro="CardoList title:'Someday/Maybe Projects'
+	  tags:'Project && !Complete && Someday/Maybe && !Trash'
+	  view:Project
+	  newButtonTags:'Project Someday/Maybe'
+	  ignoreRealm:yes
+	  dontShowEmpty:no
+	"></div>
+</div>
+<div class="col">
+	<div macro="CardoList title:'Actions (without a project)'
+	  tags:'Action && !Done && !Trash'
+	  view:Action
+	  newButtonTags:'Action' 
+	  group:ActionStatus
+	  gView:bold
+	  ignoreRealm:yes
+	  dontShowEmpty:no
+	"></div>
+	<div macro="CardoList title:'Completed Projects'
+	  tags:'Project && Complete && !Trash'
+	  view:ProjectComplete
+	  newButtonTags:'Project Someday/Maybe' 
+	  ignoreRealm:yes
+	  dontShowEmpty:no
+	"></div>
+</div>
+
+</div>
+<!--}}}-->

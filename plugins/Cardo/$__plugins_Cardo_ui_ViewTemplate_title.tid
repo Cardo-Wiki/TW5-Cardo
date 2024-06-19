@@ -1,0 +1,104 @@
+created: 20160820020301980
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20161002025410675
+modifier: DSzego
+revision: 2
+tags: $:/tags/ViewTemplate Cardo
+title: $:/plugins/Cardo/ui/ViewTemplate/title
+type: text/vnd.tiddlywiki
+
+\define title-styles()
+fill:$(foregroundColor)$;
+\end
+\define config-title()
+$:/config/ViewToolbarButtons/Visibility/$(listItem)$
+\end 
+
+<!-- Title and controls for regular Tiddlers -->
+<$list filter="[all[current]!has[cardo-type]]">
+  <div class="tc-tiddler-title">
+    <div class="tc-titlebar">
+      <$set name="foregroundColor" value={{!!color}}>
+        <span class="tc-tiddler-title-icon" style=<<title-styles>>>
+          <$transclude tiddler={{!!icon}}/>
+        </span>
+      </$set>
+      <span class="tc-tiddler-controls">
+        <$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem">
+          <$reveal type="nomatch" state=<<config-title>> text="hide">
+            <$transclude tiddler=<<listItem>>/>
+          </$reveal>
+        </$list>
+      </span>
+      <$set name="tv-wikilinks" value={{$:/config/Tiddlers/TitleLinks}}>
+        <$link>          
+          <$list filter="[all[current]removeprefix[$:/]]">
+            <h2 class="tc-title" title={{$:/language/SystemTiddler/Tooltip}}>
+              <span class="tc-system-title-prefix">$:/</span><$text text=<<currentTiddler>>/>
+            </h2>
+          </$list>
+          <$list filter="[all[current]!prefix[$:/]]">
+            <h2 class="tc-title">
+              <$view field="title"/>
+            </h2>
+          </$list>
+        </$link>
+      </$set>
+    </div>
+    <$reveal type="nomatch" text="" default="" state=<<tiddlerInfoState>> class="tc-tiddler-info tc-popup-handle" animate="yes" retain="yes">
+      <$transclude tiddler="$:/core/ui/TiddlerInfo"/>
+    </$reveal>
+  </div> 
+</$list><!-- regular Tiddlers -->
+
+<!-- Title and controls for Cardo Tiddlers -->
+<$list filter="[all[current]has[cardo-type]]">
+  <div class="tc-tiddler-title">
+    <div class="tc-titlebar">
+          <span class="tc-tiddler-title-icon" style=<<title-styles>>>
+            <$list filter="[all[current]has[cardo-personphoto]]">
+              <img src={{!!cardo-personphoto}} style="width: 24px; height: 24px; float: left; margin-right: 5px;">
+            </$list>
+            <$list filter="[all[current]!has[cardo-personphoto]]">
+              <$transclude tiddler={{!!icon}}/>
+            </$list>
+          </span>
+        <span class="tc-tiddler-controls">
+          <$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem">
+            <$reveal type="nomatch" state=<<config-title>> text="hide">
+              <$transclude tiddler=<<listItem>>/>
+            </$reveal>
+          </$list>
+        </span>
+<!-- If Tiddler is folded, show the title -->
+        <$reveal tag="div" class="tc-tiddler-body" style="clear:none;" type="match" state=<<folded-state>> text="hide" retain="yes" animate="yes"> 
+          <$set name="tv-wikilinks" value={{$:/config/Tiddlers/TitleLinks}}>
+            <$link>
+              <$list filter="[all[current]!has[caption]]">
+                <$list filter="[all[current]removeprefix[$:/]]">
+                  <h2 class="tc-title" title={{$:/language/SystemTiddler/Tooltip}}>
+                    <span class="tc-system-title-prefix">$:/</span><$text text=<<currentTiddler>>/>
+                  </h2>
+                </$list> 
+                <$list filter="[all[current]!prefix[$:/]]">
+                  <h2 class="tc-title" title={{$:/language/SystemTiddler/Tooltip}}>
+                    <$text text=<<currentTiddler>>/>
+                  </h2>
+                </$list>                
+              </$list>
+              <$list filter="[all[current]has[caption]]">
+                <h2 class="tc-title">
+                  <$view field="caption"/>
+                </h2>
+              </$list>
+            </$link>
+          </$set>
+        </$reveal>
+    </div>
+    <$reveal type="nomatch" text="" default="" state=<<tiddlerInfoState>> class="tc-tiddler-info tc-popup-handle" animate="yes" retain="yes">
+      <$transclude tiddler="$:/core/ui/TiddlerInfo"/>
+    </$reveal>
+  </div>
+</$list><!-- Cardo Tiddlers -->

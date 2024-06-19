@@ -1,0 +1,69 @@
+created: 20170201152821921
+creator: David Szego
+hide-body: no
+icon: $:/plugins/Cardo/images/paper
+modified: 20190108002522746
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/reminder/controls
+type: text/vnd.tiddlywiki
+
+\define parentState() $:/temp/$(currentTiddler)$/parent
+\define assigneeState() $:/temp/$(currentTiddler)$/assignee
+\define requestorState() $:/temp/$(currentTiddler)$/requestor
+\define dependancyState() $:/temp/$(currentTiddler)$/dependancy
+
+<div class="controls controlstint">
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button><$button message="tm-modal" param="$:/plugins/Cardo/help/ReminderHelp" tag="label" class="button off floatright" style="color:red;">?</$button>
+  </div>
+  <div>
+    <$list filter="[is[current]!has[draft.of]]">
+      <span class='title'>{{!!title}}</span><br>
+    </$list>
+    <div class="subtitle">{{$:/plugins/Cardo/subtitle}}</div>
+  </div>
+    <div class="statusButtons">
+      <<toggleTagButtons tag:TicklerStatus>>
+    </div>
+    <div class="statusButtons" style="clear:left;">
+      <$list filter="Weekly +[tagging[]] +[is[current]]">
+        <<toggleTagButtons tag:DailyStatus>>
+      </$list>
+    </div>
+    <!-- Give next or waiting tasks a due-date -->
+    <$list filter="Once Monthly Yearly +[tagging[]] +[is[current]]">
+      <div class="dueDateBox">
+          <div class="datePicker">
+            <$list filter="[is[current]!has[cardo-due]]">
+              <$edit-date field="cardo-due" icon="$:/plugins/Cardo/images/calendar-x" tag=div />
+            </$list>
+            <$list filter="[is[current]has[cardo-due]!tag[Recurring]]">
+              <$edit-date field="cardo-due" icon="$:/plugins/Cardo/images/calendar-check" tag=div />
+            </$list>
+            <$list filter="[is[current]has[cardo-due]tag[Recurring]]">
+              <$edit-date field="cardo-due" icon="$:/plugins/Cardo/images/calendar-round-double-arrow" tag=div />
+            </$list>
+          </div>
+          <span class="label">Due Date:</span><br>           
+            <$list filter="[is[current]has[cardo-due]]">
+            <div class="duedate">
+              <$button tag="label" class="internal button off">×<$action-deletefield $field="cardo-due"/>
+              </$button>
+              <$view field="cardo-due" format="relativedate"/>       
+            </div>
+          </$list>
+      </div>
+    </$list>
+    <!-- Due-Date Section -->
+  <div class="projectGroup">
+    <span class="label">Reminder for:</span><br/>
+    <<selectParentTPG>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-parent}} label="Open this Tiddler"/></span><$button class="deleteX" aria-label="Remove from this Tiddler" tooltip="Remove from this Tiddler">×<$action-deletefield $field="cardo-parent" /><$action-setfield $tiddler=<<parentState>> $field="text"/></$button>
+  </div>
+  <div class="assignedToGroup">
+    <span class="label">Assigned to:</span><br>
+    <<selectTaskAssignee>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-assignee}} label="Open this persons Dashboard"/></span><$button class="deleteX" aria-label="Remove as assignee" tooltip="Remove as assignee">×<$action-deletefield $field="cardo-assignee" /><$action-setfield $tiddler=<<assigneeState>> $field="text"/></$button>
+  </div>&nbsp;
+  <div class="clearboth"></div>
+</div>

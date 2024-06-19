@@ -1,0 +1,43 @@
+created: 20160920224028429
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213318583
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/person/info
+type: text/vnd.tiddlywiki
+
+\define personguid() {{!!cardo-guid}}
+\define contInfoStateTiddler() $:/state/$(currentTiddler)$/contactinfo
+\define convLogStateTiddler() $:/state/$(currentTiddler)$/conversationlog
+\define convItemStateTiddler() $:/state/$(storyTiddler)$/$(currentTiddler)$/conversationitem
+<$vars personguid={{!!cardo-guid}} personName=<<currentTiddler>> >
+<div class="controls controlstint">
+  <div class="cols2"><!-- Contact info and conversation log -->
+    <div class="col splittable"><!-- Contact info -->
+      <$reveal type="nomatch" state=<<contInfoStateTiddler>> text="show">
+        <$button class="off" set=<<contInfoStateTiddler>> setTo="show">Contact Info {{$:/core/images/unfold-button}}</$button>
+      </$reveal>
+      <$reveal type="match" state=<<contInfoStateTiddler>> text="show">
+        <$button class="off" set=<<contInfoStateTiddler>> setTo="hide">Contact Info {{$:/core/images/fold-button}}</$button>
+        <div class="dashboard contactInfo" style="width:98%;">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/contactInfo/body}}
+        </div>
+      </$reveal>
+    </div><!-- /Contact Info -->
+    <div class="col splittable"><!-- Conversation log -->
+      <$reveal type="nomatch" state=<<convLogStateTiddler>> text="show">
+        <$button class="off" set=<<convLogStateTiddler>> setTo="show">Conversation Log {{$:/core/images/unfold-button}}</$button>
+      </$reveal>
+      <$reveal type="match" state=<<convLogStateTiddler>> text="show">
+        <$button class="off" set=<<convLogStateTiddler>> setTo="hide">Conversation Log {{$:/core/images/fold-button}}</$button>
+        <div class="cols1"><!-- status column -->
+          <div class="dashboard conversationLog" style="width:98%;"><<cardoConversationList title:"Conversations">></div>
+        </div> <!-- status column -->
+      </$reveal>
+    </div><!-- /Conversation Log -->
+  </div><!-- /Contact Info and Conversation Log -->
+</div>
+</$vars>

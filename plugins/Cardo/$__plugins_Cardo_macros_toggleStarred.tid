@@ -1,0 +1,26 @@
+created: 20160821051001591
+creator: DSzego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170302161919907
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleStarred
+type: text/vnd.tiddlywiki
+
+\define toggleStarred(whatTiddler:"-skip-", whatGuid)
+  <$set name="buttonClass" filter=<<booleanMatch leftSide:$whatTiddler$ rightSide:"-skip-" trueValue:"[is[current]tag[Starred]]" falseValue:"[title[$whatTiddler$]]">> value="starred" emptyValue="starred off">
+  <$list filter=<<booleanMatch leftSide:$whatTiddler$ rightSide:"-skip-" trueValue:"[is[current]tag[Starred]]" falseValue:"[title[$whatTiddler$]tag[Starred]]">> >
+    <$button class=<<buttonClass>> aria-label="Mark this as unimportant" tooltip="Mark this as unimportant">
+      <$action-listops $tiddler=<<currentTiddler>> $tags="+[remove[Starred]]" />
+      {{$:/plugins/Cardo/images/star-filled}}
+    </$button>
+  </$list>
+  <$list filter=<<booleanMatch leftSide:$whatTiddler$ rightSide:"-skip-" trueValue:"[is[current]!tag[Starred]]" falseValue:"[title[$whatTiddler$]!tag[Starred]]">> >
+    <$button class=<<buttonClass>> aria-label="Mark this as important" tooltip="Mark this as important">
+      <$action-listops $tiddler=<<currentTiddler>> $tags="+[append[Starred]]" />
+      {{$:/plugins/Cardo/images/star-outline}}
+    </$button>
+  </$list>
+  </$set>
+\end

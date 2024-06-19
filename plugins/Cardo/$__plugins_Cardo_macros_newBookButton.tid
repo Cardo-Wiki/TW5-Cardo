@@ -1,0 +1,13 @@
+created: 20170223184929876
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170307151135867
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/newBookButton
+type: text/vnd.tiddlywiki
+
+\define newBookButton(newButton, newButtonText, newTag, authorguid:"-")
+<$button class="newButton" aria-label="Create a new Book" tooltip="Create a new Book">+<$action-sendmessage $message="tm-new-tiddler" title="$newButtonText$" tags="$newTag$" cardo-type="book" cardo-bookauthor=$authorguid$ icon="$:/plugins/Cardo/images/book" cardo-guid=<<guid>> cardo-category={{!!cardo-category}}/></$button><br>
+\end

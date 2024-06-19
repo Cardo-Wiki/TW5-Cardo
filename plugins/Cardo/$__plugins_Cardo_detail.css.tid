@@ -1,0 +1,414 @@
+author: David Szego
+created: 20160925225826015
+creator: DavidSzego
+description: A theme for displaying tasks, projects, and more using Cardo
+hide-body: yes
+modified: 20170703035635098
+modifier: David Szego
+revision: 1
+tags: $:/tags/Stylesheet Cardo
+title: $:/plugins/Cardo/detail.css
+type: text/vnd.tiddlywiki
+
+div.dashboard {
+	background: <<colour button-background >>;
+	border:2px solid <<colour tiddler-info-border >>;
+	padding-left:1em;
+        padding-top: 1em;
+	padding-bottom:0.5em;
+        margin-bottom: 0.5em;
+}
+
+div.dashboard .title {
+        border-bottom: 1px solid <<colour table-border>>;
+}
+
+div.dashboard > .tc-title {
+	margin-top: 0px;
+}
+
+div.dashboard button.tc-tiddlylink,
+div.dashboard a.tc-tiddlylink {
+    color: <<colour button-foreground>>;
+}
+
+div.dashboard button, div.dashboard button.off {
+    border-color: <<colour tab-background>>;
+}
+
+/* == div based columns == */
+.col {
+        float: left;
+        vertical-align:top;
+}
+
+.cols3, .cols2, .cols1 {
+	overflow: hidden; /* contains floats. tnx FND */
+    width: 100%;
+}
+
+/* IE not doing these right :( */
+/* .cols3>br, .col>br { display:none; } */
+
+/* so try this instead. it's annoying and will mean you have trouble 
+with brs in non-mgtdlist content. .normal might help */
+.cols2 br, .cols3 br  { display:none; }
+.CardoInboxList br, .normal { display:block!important; }
+.CardoList br, .normal { display:block!important; }
+.col .CardoInboxList { margin-bottom:1.5em; }
+.col .CardoList { margin-bottom:1.5em; } /* since we're no longer seeing the brs... */
+
+.cols3 .col {
+  width: 33%;
+}
+.cols2 .col {
+  width: 49%; /* 50% makes IE put them under each other */
+}
+.cols1 .col {
+  width: 96%; /* 50% makes IE put them under each other */
+}
+.clear {
+  clear: left;
+}
+
+.scrollableCol {
+    overflow-x: hidden;
+    overflow-y: auto;
+	max-height: 21em;
+    min-height: 4em;
+}
+
+
+/* ============= */
+
+div.dashboard .highlight {
+  background: <<colour alert-background>> none repeat scroll 0% 0%;
+  padding: 5px;
+  width: 96%;
+  margin-bottom: 8px;
+}
+
+div.dashboard div.cardoList {
+  margin-bottom: 16px;
+  width: 98%;
+}
+
+div.dashboard div.cardoList .title {
+  border-bottom: 1px solid <<colour table-border>>;
+  color: <<colour button-foreground>>;
+  font-size: 9pt;
+  margin: 0;
+  padding: 0;
+  width: 90%;
+}
+
+div.dashboard div.cardoList .newButton {
+  border-radius: 10px;
+  color: <<colour toolbar-new-button>>;
+  background: <<colour tiddler-background>>;
+  border-color: <<colour tiddler-border>>;
+}
+
+div.dashboard div.cardoList button {
+  margin: 0px;
+}
+
+div.dashboard div.cardoList button.starred {
+  border: none;
+  padding: 0px;
+  font-size: 16pt;
+  background: inherit;
+  margin-right: -4px;
+}
+
+div.dashboard div.cardoList button.Accountable {
+    background: darkred;
+    color: lightgrey;
+    border-color: lightgrey;
+    font-weight: bold;
+}
+div.dashboard div.cardoList button.Responsible {
+    background: #cfa;
+    color: #4a4;
+    border-color: #4a4;
+    font-weight: bold;
+}
+div.dashboard div.cardoList button.Consulting {
+    background: #48b;
+    color: #bdf;
+    border-color: #bdf;
+    font-weight: bold;
+}
+div.dashboard div.cardoList button.Informed {
+    background: lightgrey;
+    color: black;
+    border-color: black;
+    font-weight: bold;
+}
+div.dashboard div.cardoList button.Supporting {
+    background: darkorange;
+    color: lightgoldenrodyellow;
+    border-color: lightgoldenrodyellow;
+    font-weight: bold;
+}
+
+div.dashboard div.cardoList div.cardoListItem {
+  width: 95%;
+}
+
+div.dashboard div.cardoList span.cardoListItemName {
+  border: none;
+  vertical-align: baseline;
+}
+
+div.dashboard div.cardoList span.dueDate {
+  background: <<colour modal-background>>;
+  border: 1px solid;
+  padding-top: 1px;
+  padding-left: 3px;
+  padding-right: 3px;
+  border-color: <<colour modal-border>>;
+  color: <<colour modal-foreground>>;
+  font-weight: normal;
+}
+
+div.dashboard div.cardoList div.itemPreview {
+  height: 18px;
+  width: 18px;
+  vertical-align: middle;
+}
+
+div.dashboard div.cardoList div.itemPreview svg {
+  height: 18px;
+  width: 18px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto; //120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+div.dashboard.contactInfo {
+    padding-left: .5em;
+    padding-right: .5em;
+    margin-left: 2px;
+}
+
+div.dashboard.contactInfo button.editbutton,
+div.dashboard.contactInfo button.editbutton svg {
+    background: <<colour button-background>> !important;
+    fill: <<colour button-foreground>> !important;
+}
+
+div.dashboard.conversationLog {
+    padding-left: .5em;
+    padding-right: .5em;
+    margin-left: 2px;
+}
+
+div.dashboard.contactInfo button {
+    background-color: button-background;
+    color: #657b83;
+    border-left: 1px solid <<colour sidebar-tab-border>>;
+    border-top: 1px solid <<colour sidebar-tab-border>>;
+    border-right: 1px solid <<colour sidebar-tab-border>>;
+}
+
+div.dashboard.contactInfo button.tc-tab-selected {
+    background: <<colour sidebar-tab-background-selected>> !important;
+    color: <<colour sidebar-tab-foreground-selected>>;
+    border-left: 1px solid <<colour sidebar-tab-border>>;
+    border-top: 1px solid <<colour sidebar-tab-border>>;
+    border-right: 1px solid <<colour sidebar-tab-border>>;
+}
+
+div.dashboard.contactInfo .tc-tab-buttons > button {
+    background: <<colour sidebar-tab-background>>;
+    color: <<colour sidebar-tab-foreground>>;
+    border-left: 1px solid <<colour sidebar-tab-border>>;
+    border-top: 1px solid <<colour sidebar-tab-border>>;
+    border-right: 1px solid <<colour sidebar-tab-border>>;
+}
+
+div.dashboard.contactInfo button.editbutton {
+    vertical-align: baseline;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+    color: #657b83;
+    fill: #657b83;
+    background: inherit;
+    width: 2em !important;
+    border: 1px solid <<colour sidebar-tab-border>>;
+    float: right;
+}
+
+div.dashboard.contactInfo span.contactInfoLabel {
+    border: 1px solid <<colour sidebar-tab-background>>;
+    display: inline-block;
+    clear: left;
+    padding-left: 4px;
+    padding-right: 4px;
+    width: 20%;
+    text-align: right;
+    background: <<colour sidebar-tab-background>>;
+    color: <<colour tiddler-title-foreground>>;
+}
+
+div.dashboard.contactInfo span.contactInfoDetail:empty:before {
+    content: "\200b";
+}
+div.dashboard.contactInfo span.contactInfoDetail {
+    background: <<colour button-background>>;
+    border: 1px solid <<colour sidebar-tab-background>>;
+    color: <<colour button-foreground>>;
+    padding-left: 4px;
+    padding-right: 4px;
+    display: inline-block;
+    width: 70%;
+}
+
+div.dashboard.contactInfo span.contactInfoDetail a {
+  color: <<colour tiddler-title-foreground>>;
+}
+
+div.dashboard.contactInfo span.contactInfoPictureSmall {
+    max-width: 240px;
+    max-height: 240px;
+    display: inherit;
+}
+
+div.dashboard.contactInfo div.contactInfoSpacer {
+    border: 2px solid white;
+    width: 90%;
+}
+
+div.dashboard .emailListReplied svg {
+    fill: #657b83 !important;
+    width: 1em;
+    height: 1em;
+    margin-right: 7px;
+    margin-left: 3px;
+}
+
+div.dashboard .emailListReplied .off svg {
+    fill: inherit !important;
+    width: 1em;
+}
+
+div.dashboard .emailListFromName {
+    font-size: .9em;
+}
+
+div.dashboard .emailListFromAddress {
+    font-size: .9em;
+    font-style: italic;
+}
+
+div.dashboard .emailCheckbox {
+    background: inherit;
+    border: none;
+    line-height: inherit;
+}
+
+div.dashboard .emailCheckbox svg {
+	height: 1.5em;
+    width: 1.5em;
+    fill: inherit;
+    vertical-align: middle;
+}
+
+div.dashboard .emailStar {
+    background: inherit;
+    border: none;
+    line-height: inherit;
+}
+
+div.dashboard .emailStar svg {
+	height: 1.5em;
+    width: 1.5em;
+    fill: inherit;
+    vertical-align: middle;
+}
+
+.postityellow {
+	background-color: <<colour tiddler-background>>;
+        color: <<colour tiddler-foreground>>;
+	border:2px solid #dd8;
+	padding-left:1em;
+        padding-top: 0.5em;
+	padding-bottom:0.5em;
+        margin-bottom: 0.5em;
+}
+.postityellow h1,
+.postityellow h2,
+.postityellow h3,
+.postityellow h4
+{
+	border-style:none;
+}
+
+.cardo-reminder-icon {
+    width: 160px;
+    heigh: 160px;
+}
+
+.optionGroup {
+    font-weight: bold;
+}
+.optionChild {
+    padding-left: 15px;
+}
+
+div.dashboard select,
+div.dashboard optgroup,
+div.dashboard input {
+	color: <<colour button-foreground>>;
+}
+
+textarea,
+.tc-edit-texteditor > textarea,
+iframe.tc-edit-texteditor.postityellow > textarea {
+    border: 1px dotted <<colour button-border>>  !important;
+    color: <<colour primary>>;
+    background: <<colour tiddler-editor-background>> !important;
+    max-width: 99%;
+}
+
+div.tc-type-selector > input {
+    max-width: 50%;
+}

@@ -1,0 +1,58 @@
+created: 20160812191144707
+creator: DSzego
+icon: $:/themes/Cardo/images/paper
+modified: 20190107192254670
+modifier: Joe Cardo
+revision: 2
+tags: $:/tags/ViewTemplate Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types
+type: text/vnd.tiddlywiki
+
+<$list filter="[all[current]field:cardo-type[task]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/task/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[project]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/project/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[person]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/person/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[reference]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/reference/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[meeting]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/meeting/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[agendaitem]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/agendaitem/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[dashboard]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/dashboard/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[statusupdate]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/statusupdate/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[book]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/book/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[conversation]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/conversation/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[booknote]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/booknote/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[author]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/author/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[email]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/email/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[reminder]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/reminder/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[goal]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/goal/tiddler}}
+</$list>
+<$list filter="[all[current]field:cardo-type[goalnote]]">
+{{||$:/plugins/Cardo/ui/ViewTemplates/types/goalnote/tiddler}}
+</$list>

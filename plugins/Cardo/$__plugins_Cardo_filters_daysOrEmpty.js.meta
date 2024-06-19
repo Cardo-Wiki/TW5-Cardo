@@ -1,0 +1,10 @@
+created: 20160902153037405
+creator: David Szego
+icon: $:/core/images/options-button
+modified: 20160925213307868
+modifier: David Szego
+module-type: filteroperator
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/filters/daysOrEmpty.js
+type: application/javascript

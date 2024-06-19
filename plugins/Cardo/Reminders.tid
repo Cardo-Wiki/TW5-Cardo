@@ -1,0 +1,24 @@
+caption: Reminders
+cardo-type: dashboard
+created: 20170203001114938
+creator: David Szego
+icon: $:/plugins/Cardo/images/reminder
+modified: 20170216144240944
+modifier: David Szego
+tags: Cardo
+title: Reminders
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols2"><!-- list columns -->
+    <div class="col"><!--column 1-->
+      <div class="highlight">
+        <<cardoDueRemindersList title:"Today's Reminders" newButton:'true'>>
+      </div><!--highlight-->
+    </div><!-- column 1 -->
+    <div class="col"><!--col2-->
+        <<cardoAllRemindersList title:"All Reminders" newButton:'true'>>
+      </div><!--col2-->
+  </div><!-- list columns -->
+</div><!-- dashboard -->

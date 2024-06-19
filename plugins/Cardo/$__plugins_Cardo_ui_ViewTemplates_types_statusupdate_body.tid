@@ -1,0 +1,20 @@
+created: 20160907015511822
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213325302
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/statusupdate/body
+type: text/vnd.tiddlywiki
+
+<div class="postityellow">
+
+<$transclude>
+
+<$transclude tiddler="$:/language/MissingTiddler/Hint"/>
+
+</$transclude>
+
+</div>

@@ -1,0 +1,44 @@
+caption: Items Without a Project
+cardo-type: dashboard
+created: 20170222183337817
+creator: David Szego
+icon: $:/plugins/Cardo/images/dashboard
+modified: 20170223013609401
+modifier: David Szego
+tags: Cardo
+title: Items Without a Project
+
+\define cardoUnassignedList(title, type, statusButtonType)
+  <div class="cardoList">
+    <div class="cardoList title">$title$</div>
+        <$list filter="[field:cardo-type[$type$]] -[has[cardo-project]]  -[has[cardo-assignee]] -[has[draft.of]] -[tag[Complete]]" >
+          <div class="cardoList.listitem"><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this $type$" aria-label="Delete this $type$">×</$button><span style="display:inline-block;"><<toggleTagButtons tag:$statusButtonType$ shortButtons:'true'>></span>
+            <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+</span></div>
+            <$set name="parentProject" value={{!!cardo-project}} >
+              <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+            </$set>
+          </div><!-- listitem -->
+        </$list>
+  </div><!-- cardoList -->
+\end
+
+<div class="dashboard">
+      <div class="floatright smaller" style="float:right; clear:none; margin-right:10px;">''Focus:'' <<showCategory>></div>
+    <h2 class="tc-title"><$view field="caption"/></h2>
+  <div class="cols2"><!-- list columns -->
+    <div class="col"><!--column 1-->
+        <<cardoUnassignedList type:"task" statusButtonType:"TaskStatus" title:"Tasks Without a Project" newButton:'false'>>
+        <<cardoUnassignedList type:"meeting" statusButtonType:"MeetingStatus" title:"Meetings Without a Project" newButton:'false'>>
+    </div><!-- column 1 -->
+    <div class="col"><!--col2-->
+        <<cardoUnassignedList type:"reference" statusButtonType:"" title:"References Without a Project or Person" newButton:'false'>>
+      </div><!--col2-->
+  </div><!-- list columns -->
+</div><!-- dashboard -->

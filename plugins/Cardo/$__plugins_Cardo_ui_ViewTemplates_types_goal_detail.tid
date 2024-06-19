@@ -1,0 +1,29 @@
+created: 20190107184037173
+creator: Joe Cardo
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20190108012319130
+modifier: Joe Cardo
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/goal/detail
+type: text/vnd.tiddlywiki
+
+<div class="controls controlstint">
+
+<$vars goalguid={{!!cardo-guid}} goalName=<<currentTiddler>> >
+<div class="dashboard">
+
+  <div class="cols1"><!-- status column -->
+    <div class="col"><!-- col 1 -->
+      <<cardoGoalNotesList title:"Why I need to do this" type:"why" newButtonText:"I'm driven to achieve this because...">>
+      <<cardoGoalNotesList title:"What I will gain if I do this" type:"positive" newButtonText:"This will benefit me by...">>
+      <<cardoGoalNotesList title:"What I will lose of I don't do this" type:"negative" newButtonText:"If I don't achieve this...">>
+      <<cardoGoalNotesList title:"What rituals will support this" type:"ritual" newButtonText:"Get in the habit of...">>
+    </div><!-- col 1 -->
+  </div><!-- cols -->
+
+</div><!-- dashboard -->
+</$vars>
+
+</div>

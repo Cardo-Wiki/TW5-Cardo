@@ -1,0 +1,15 @@
+created: 20161005143602480
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20161005143706251
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/toggleEmailUnstarred
+type: text/vnd.tiddlywiki
+
+\define toggleEmailUnstarred(messageUID)
+    <$button class="emailStar" aria-label="Mark this email as unimportant" tooltip="Mark this email as unimportant">{{$:/plugins/Cardo/images/star-filled}}
+      <<setEmailUnflagged messageUID:$messageUID$>>
+    </$button>
+\end

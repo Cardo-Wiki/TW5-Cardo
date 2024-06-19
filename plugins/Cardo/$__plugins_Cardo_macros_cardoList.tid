@@ -1,0 +1,49 @@
+created: 20160828035851206
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20190107223033553
+modifier: Joe Cardo
+revision: 11
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoList
+type: text/vnd.tiddlywiki
+
+\define dummyMacro()
+&nbsp;
+\end
+\define cardoList(title, type, status, priority, starred, buttonType, newButton, newButtonText, newTag, newPG, project, meeting, book, author, booknote, assignee, requestor, chair, person, completeButton, includeComplete, dueWithin, scrolling:'false')
+<$set name='scrollingDiv' value=<<booleanMatch leftSide:$scrolling$ rightSide:'true' trueValue:'scrollableCol' falseValue:'nonScrollingDiv'>> >
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='$type$' newTag='$newTag$' newButtonText='$newButtonText$' newPG='$newPG$' />
+      </$set>
+    </div>
+    <!-- Below: trueValue = filter for explicitly removing completed items / falseValue = filter for allowing completed items -->
+    <$set name='itemFilter' value=<<booleanMatch leftSide:$includeComplete$ rightSide:'false'
+      trueValue:'$status$ +[tagging[]]+[field:cardo-type[$type$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[fieldOrEmpty:cardo-assignee[$assignee$]]+[fieldOrEmpty:cardo-requestor[$requestor$]]+[fieldOrEmpty:cardo-meeting[$meeting$]]+[fieldOrEmpty:cardo-chair[$chair$]]+[fieldOrEmpty:cardo-person[$person$]]+[fieldOrEmpty:cardo-project[$project$]]+[fieldOrEmpty:cardo-book[$book$]]+[tagOrEmpty[$starred$]]+[daysOrEmpty:cardo-due[$dueWithin$]]+[field:cardo-category<currentTiddler>] -[tag[Complete]] -[has[draft.of]]'
+      falseValue:'$status$ +[tagging[]]+[field:cardo-type[$type$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[fieldOrEmpty:cardo-assignee[$assignee$]]+[fieldOrEmpty:cardo-requestor[$requestor$]]+[fieldOrEmpty:cardo-meeting[$meeting$]]+[fieldOrEmpty:cardo-chair[$chair$]]+[fieldOrEmpty:cardo-person[$person$]]+[fieldOrEmpty:cardo-project[$project$]]+[fieldOrEmpty:cardo-book[$book$]]+[tagOrEmpty[$starred$]]+[daysOrEmpty:cardo-due[$dueWithin$]]+[field:cardo-category<currentTiddler>] -[has[draft.of]]'>> >
+    <div class=<<scrollingDiv>> >
+    <$list filter="[list[$:/state/Cardo/showCategory]]">
+      <$list filter=<<itemFilter>> >
+        <div class="cardoList.listitem"><$set name='doIWantThisButton' value=<<booleanMatch leftSide:$completeButton$ rightSide:'false' trueValue:'dummyMacro' falseValue:'toggleComplete'>> ><$macrocall $name=<<doIWantThisButton>>/></$set><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this $type$" aria-label="Delete this $type$">×</$button><span style="display:inline-block;"><<toggleTagButtons tag:$buttonType$ shortButtons:'true'>></span>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+          <$set name="parentProject" value={{!!cardo-project}}>
+            <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+          </$set>
+        </div><!-- listitem -->
+      </$list>
+    </$list>
+  </div><!-- cardoList -->
+</$set><!-- scrolling class -->
+\end
+
+<!-- <span class="cardoListItemProject"><link to=<<parentProject>> tooltip="Custom tooltip">< <parentProject> ></link></span><span class="cardoListItemType">($type$)</span -->

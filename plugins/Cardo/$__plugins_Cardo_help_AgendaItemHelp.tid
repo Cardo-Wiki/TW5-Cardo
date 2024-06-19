@@ -1,0 +1,27 @@
+caption: Agenda Item Help
+created: 20170216204502900
+creator: David Szego
+footer: <$button message="tm-close-tiddler">Close</$button>
+icon: $:/plugins/Cardo/images/info
+modified: 20170216204934860
+modifier: David Szego
+revision: 2
+subtitle: <span style="font-size: 1.5em;">{{$:/plugins/Cardo/images/info}} {{!!caption}} </span>
+tags: Cardo Help
+title: $:/plugins/Cardo/help/AgendaItemHelp
+type: text/vnd.tiddlywiki
+
+@@.help
+
+!!!Agenda Items are topics to be discussed in a meeting.
+Use the ''Meeting:'' dropdown to select which meeting you'd like to discuss this topic in. The item will show up in the meeting's dashboard.
+
+Use the ''Put forward by:'' dropdown to indicate who wanted to discuss this topic.
+
+{{$:/plugins/Cardo/images/checkbox}}When the topic has been discussed, click the checkbox to the left of the Agenda Item's name.
+
+{{$:/plugins/Cardo/images/star-outline}}If the topic is particularly important, click the star.
+
+During your meeting, open each Agenda Item to see what needs discussing and edit it to keep notes. Check them off to indicate they've been discussed, or leave them unchecked if you didn't get to that item.
+
+@@

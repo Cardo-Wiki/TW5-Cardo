@@ -1,0 +1,73 @@
+created: 20170224191206337
+creator: David Szego
+icon: $:/themes/Cardo/images/paper
+modified: 20170224191218267
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/book/controls/edit
+type: text/vnd.tiddlywiki
+
+\define bookState() $:/temp/$(currentTiddler)$/book
+\define authorState() $:/temp/$(currentTiddler)$/bookauthor
+\define loadnedToState() $:/temp/$(currentTiddler)$/loanedto
+ 
+<div class="controls controlstint">
+  <div class="floatright smaller">
+    <span class="label">Arena:</span>&nbsp;<span><<selectCategory>></span>&nbsp;<$button class="deleteX" aria-label="Remove from this Arena" tooltip="Remove from this Arena">×<$action-setfield $field="cardo-category" $value="(Unassigned)" /></$button>
+        <$button tag="label" class="button off floatright" style="color:red;"><$action-sendmessage $message="tm-modal" $param="$:/plugins/Cardo/help/BookHelp" />?</$button>
+  </div>
+  <div>
+    <<setRating maxRating:4 field:"cardo-rating" tiddler:"$(currentTiddler)$" >>
+      <span class='title'>
+
+<$vars pattern="""[\|\[\]{}]""" bad-chars="""`| [ ] { }`""">
+
+<$list filter="[is[current]regexp:draft.title<pattern>]" variable="listItem">
+
+<div class="tc-message-box">
+
+{{$:/language/EditTemplate/Title/BadCharacterWarning}}
+
+</div>
+
+</$list>
+
+</$vars>
+
+<$edit-text field="draft.title" class="tc-titlebar tc-edit-texteditor" focus="true"/>
+
+      </span><br>
+  </div>
+  <div class="statusButtons">
+    <<toggleTagButtons tag:BookStatus>>
+  </div>
+  <div class="contextGroup">
+    <span class="label">Genre:</span><br>
+    <span class="context"><<toggleTagCheckboxes tag:genre>></span><br>
+  </div>
+  <div class="dueDateBox">
+    <div class="recurring"><<toggleTagCheckbox tag:"ReadLots">>More than once</div>
+    <div class="datePicker">
+      <$edit-date field="cardo-bookstarted" icon="$:/plugins/Cardo/images/calendar-clock" tag=div />
+    </div>
+    <span class="label">Started:</span><br>           
+    <div class="duedate">
+      <$button tag="label" class="internal button off">×<$action-deletefield $field="cardo-bookstarted"/></$button>
+      <$view field="cardo-bookstarted" format="relativedate"/>       
+    </div>
+  </div>
+  <div class="projectGroup">
+    <span class="label">Author(s):</span><br/>
+    <<selectAuthors>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-bookauthor}} label="Open this author"/></span><$button class="deleteX" aria-label="Remove this author" tooltip="Remove this author">×<$action-deletefield $field="cardo-bookauthor" /><$action-setfield $tiddler=<<bookState>> $field="text"/></$button>
+  </div>
+  <div class="areaGroup">
+    <span class="label">ISBN:</span><br><$edit-text size="15" rows="1" class="isbnField" field="cardo-bookisbn"/>
+  </div>  
+  <div class="areaGroup">
+    <span class="label"><<toggleTagCheckbox tag:"LoanedOut">>Loaned Out</span><br>
+    <<selectLoanedTo>><span class="linkTo"><$macrocall $name=cardoGuidLink targetGuid={{!!cardo-bookloanedto}} label="Open this persons Dashboard"/></span><$button class="deleteX" aria-label="Remove as loanee" tooltip="Remove as loanee">×<$action-deletefield $field="cardo-bookloanedto" /><$action-setfield $tiddler=<<loanedToState>> $field="text"/></$button>
+  </div>
+&nbsp;
+  <div class="clearboth"></div>
+</div>

@@ -1,0 +1,35 @@
+caption: Other
+created: 20160921223625590
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213317049
+modifier: DSzego
+order: 2
+revision: 2
+tags: Cardo $:/tags/ContactInfo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/contactInfo/othertab
+type: text/vnd.tiddlywiki
+
+\define stateTiddler() $:/state/$(storyTiddler)$/$(currentTiddler)$/contactEditor
+\define editbutton()
+<span title="edit details"><$button set=<<stateTiddler>> setTo="show" class="editbutton">{{$:/core/images/edit-button}}</$button></span>
+\end
+\define editfield()
+<$reveal state=<<stateTiddler>> text="show" type="match">
+<$button set=<<stateTiddler>> setTo="hide" class="editbutton">{{$:/core/images/done-button}}</$button>
+{{!!title||$:/plugins/Cardo/ui/ViewTemplates/types/contactInfo/editother}}
+</$reveal>
+\end
+<$reveal state=<<stateTiddler>> text="show" type="nomatch"><<editbutton>></$reveal><<editfield>>
+<$reveal state=<<stateTiddler>> text="show" type="nomatch">
+  <div style="display:block;">
+     <span class="contactInfoLabel">IM</span><span class="contactInfoDetail">{{!!cardo-messenger}}</span>
+     <span class="contactInfoLabel">Birthday</span><span class="contactInfoDetail">{{!!cardo-birthday}}</span>
+     <span class="contactInfoLabel">Twitter</span><span class="contactInfoDetail">{{!!cardo-twitter}}</span>
+     <span class="contactInfoLabel">Insta</span><span class="contactInfoDetail">{{!!cardo-instagram}}</span>
+     <span class="contactInfoLabel">Other</span><span class="contactInfoDetail">{{!!cardo-personother}}</span>
+     <div style="clear: left;" class="contactInfoSpacer"></div>
+     <span class="contactInfoLabel">Picture</span><span class="contactInfoPictureSmall"><img src={{!!cardo-personphoto}}></span>
+  </div>
+</$reveal>

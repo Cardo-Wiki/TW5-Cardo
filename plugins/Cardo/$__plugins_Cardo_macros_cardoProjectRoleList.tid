@@ -1,0 +1,61 @@
+created: 20160919224924270
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170702230749894
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoProjectRoleList
+type: text/vnd.tiddlywiki
+
+\define cardoProjectRoleList(title, status, priority, newButton, newButtonText, newTag, project, personGuid, completeButton, includeComplete, dueWithin, shortButtons, newProjectLead:"-SKIP-", listExisting:'false', newParentProject:"-SKIP-")
+  <div class="cardoList">
+    <div class="cardoList title">
+      <$set name='doIWantThisButton' value=<<booleanMatch leftSide:$newButton$ rightSide:'true' trueValue:'newProjectButton' falseValue:'dummyMacro'>> >
+      $title$ <$macrocall $name=<<doIWantThisButton>> type='project' newTag='$newTag$' newButtonText='$newButtonText$' newProjectLead=$newProjectLead$ listExisting='$listExisting' newParentProject=$newParentProject$ status=$status$ />
+      </$set>
+    </div>
+    <$set name='itemFilter' value=<<booleanMatch leftSide:$includeComplete$ rightSide:'false' 
+      trueValue:'$status$ +[tagging[]] +[field:cardo-type[project]]+[fieldContains:cardo-projectteam[$personGuid$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[field:cardo-category<currentTiddler>] -[tag[Complete]] -[has[draft.of]]'
+      falseValue:'$status$ +[tagging[]] +[field:cardo-type[project]]+[fieldContains:cardo-projectteam[$personGuid$]]+[fieldOrEmpty:cardo-priority[$priority$]]+[field:cardo-category<currentTiddler>] -[has[draft.of]]'>> > 
+      <$list filter="[list[$:/state/Cardo/showCategory]]">
+        <$list filter=<<itemFilter>> >
+          <div class="cardoList.listitem"><$set name='doIWantThisButton' value=<<booleanMatch leftSide:$completeButton$ rightSide:'false' trueValue:'dummyMacro' falseValue:'toggleComplete'>> ><$macrocall $name=<<doIWantThisButton>> type='project' newTag='$newTag$' newButtonText='$newButtonText$'/></$set><<toggleStarred>><$button class="deleteX" message="tm-delete-tiddler" param=<<currentTiddler>> tooltip="Delete this Project" aria-label="Delete this Project">×</$button><span style="display:inline-block;">
+<!-- button list -->
+            <$set name="bareGuid" filter="[<personGuid>regexStr[\w{8}-\w{4}-4\w{3}-\w{4}-\w{12}]]">
+              <$list filter="[all[shadows+tiddlers]tag[ProjectRole]] +[sort[order]] -[has[draft.of]]" variable="role">
+                <$set filter="[list[!!cardo-projectteam]prefix<bareGuid>suffix<role>]" name="buttonClass" value=<<role>> emptyValue="off" >
+                  <$button class=<<buttonClass>> aria-label=<<role>> tooltip=<<role>> >
+                    <!-- remove personGuid all together, with it's current role -->
+                    <$action-listops $field="cardo-projectteam" $filter="-[prefix<bareGuid>]"/>
+                    <$action-listops $field="cardo-projectteam" $subfilter="[<bareGuid>addsuffix[--]addsuffix<role>]"/>
+                    <$set name=buttonField value=<<booleanMatch leftSide:'$shortButtons$' rightSide:'true' trueValue:'shortbutton' falseValue:'title'>> >
+                      <$view tiddler=<<role>> field=<<buttonField>> format="text"/>
+                    </$set>
+                  </$button>
+                </$set>
+              </$list>
+            </$set>
+<!-- /button list -->
+</span>
+            <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+            <$set name="parentProject" value={{!!cardo-project}}>
+              <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+            </$set>
+          </div><!-- listitem -->
+        </$list>
+      </$list>
+    </$set>
+  </div><!-- cardoList -->
+\end
+\define dummyMacro()
+&nbsp;
+\end

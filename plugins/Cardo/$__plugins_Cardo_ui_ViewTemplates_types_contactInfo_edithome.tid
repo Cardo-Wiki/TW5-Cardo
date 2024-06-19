@@ -1,0 +1,22 @@
+created: 20160921200409969
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20160925213317368
+modifier: DSzego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/contactInfo/edithome
+type: text/vnd.tiddlywiki
+
+<div style="display:block;">
+  <div style="clear: left;"><span class="contactInfoLabel">Street</span><span class="contactInfoDetail"><$edit field="cardo-addresshome"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Town</span><span class="contactInfoDetail"><$edit field="cardo-townhome"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Prov.</span><span class="contactInfoDetail"><$edit field="cardo-provincehome"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Postal</span><span class="contactInfoDetail"><$edit field="cardo-postalcodehome"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Country</span><span class="contactInfoDetail"><$edit field="cardo-country"/></span></div>
+  <div style="clear: left;" class="contactInfoSpacer"></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Email</span><span class="contactInfoDetail"><$edit field="cardo-emailhome"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Phone</span><span class="contactInfoDetail"><$edit field="cardo-phonehome"/></span></div>
+  <div style="clear: left;"><span class="contactInfoLabel">Web</span><span class="contactInfoDetail"><$edit field="cardo-websitehome"/></span></div>
+</div>

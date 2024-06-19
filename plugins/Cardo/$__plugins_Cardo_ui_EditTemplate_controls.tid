@@ -1,0 +1,17 @@
+created: 20160923023524492
+creator: David Szego
+modified: 20170224193856603
+modifier: David Szego
+revision: 2
+tags: $:/plugins/Cardo/tags/EditTemplate Cardo
+title: $:/plugins/Cardo/ui/EditTemplate/controls
+type: text/vnd.tiddlywiki
+
+\define config-title()
+$:/config/EditToolbarButtons/Visibility/$(listItem)$
+\end
+<div class="tc-tiddler-title" style="float: right; clear: none; margin-bottom: 15px;">
+<span class="tc-tiddler-controls tc-titlebar">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/EditToolbar]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$transclude tiddler=<<listItem>>/></$reveal></$list></span>
+<div style="clear: both;"></div>
+</div>

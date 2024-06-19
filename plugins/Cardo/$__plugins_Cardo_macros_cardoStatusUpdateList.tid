@@ -1,0 +1,54 @@
+created: 20160906235524345
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170212144212818
+modifier: David Szego
+revision: 2
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/cardoStatusUpdateList
+type: text/vnd.tiddlywiki
+
+\define stateTiddler() $:/state/$(storyTiddler)$/$(currentTiddler)$/statusupdate
+\define newStatusUpdateButton(projectGUID)
+<$button class="newButton" aria-label="Create a new Status Update" tooltip="Create a new Status Update">+<$action-sendmessage $message="tm-new-tiddler" title="What's happening..." tags="StatusUpdate" cardo-type='statusupdate' cardo-date=<<now format:'YYYY0MM0DD0hh0mm0ss000'>> icon="$:/plugins/Cardo/images/statusupdate" cardo-guid=<<guid>> cardo-project=$(projectguid)$ />
+</$button>
+\end
+\define cardoStatusUpdateList(title, , scrolling:'false')
+<$set name='scrollingDiv' value=<<booleanMatch leftSide:$scrolling$ rightSide:'true' trueValue:'scrollableCol' falseValue:'nonScrollingDiv'>> >
+  <div class="cardoList">
+    <div class="cardoList title">
+      $title$&nbsp;<<newStatusUpdateButton projectGUID:$(projectguid)$ >>
+    </div>
+    <div class=<<scrollingDiv>> >
+    <$list filter='[field:cardo-project[$(projectguid)$]]+[field:cardo-type[statusupdate]sort[cardo-date]] -[has[draft.of]]' >
+        <div class="cardoList.listitem"><<toggleStarred>><$button class="deleteX" tooltip="Delete this status update" aria-label="Delete this status update" >×<$action-sendmessage $message="tm-delete-tiddler" $tiddler=<<currentTiddler>>/></$button>
+          <span class="dueDate"><$view tiddler=<<currentTiddler>> field="cardo-date" format="date" template={{$:/language/Tiddler/DateFormat"}} /></span>
+          <div class='tooltip itemPreview'>{{$:/plugins/Cardo/images/paper}}<span class='tooltiptext'>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+</span></div>
+          <span class="cardoListItemName"><$link to=<<currentTiddler>> ><<currentTiddler>></$link></span>
+          <$reveal type="nomatch" state=<<stateTiddler>> text="show">
+            <$button class="newButton" set=<<stateTiddler>> setTo="show">{{$:/core/images/chevron-down}}</$button>
+          </$reveal>
+          <$reveal type="match" state=<<stateTiddler>> text="show">
+            <$button class="newButton" set=<<stateTiddler>> setTo="hide">{{$:/core/images/chevron-up}}</$button>
+        
+<$transclude>
+
+<$transclude tiddler=<<currentTiddler>>/>
+
+</$transclude>
+
+          </$reveal>
+
+        </div><!-- listitem -->
+    </$list>
+    </div>
+  </div><!-- cardoStatusUpdateList -->
+\end

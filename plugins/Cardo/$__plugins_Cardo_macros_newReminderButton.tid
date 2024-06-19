@@ -1,0 +1,13 @@
+created: 20170203000723438
+creator: David Szego
+icon: $:/plugins/Cardo/images/paper
+modified: 20170703024927039
+modifier: David Szegoxx
+revision: 6
+tags: $:/tags/Macro Cardo
+title: $:/plugins/Cardo/macros/newReminderButton
+type: text/vnd.tiddlywiki
+
+\define newReminderButton(newButton, newButtonText, newTag, projectGuid, assigneeGuid)
+<$button class="newButton" aria-label="Create a new Reminder" tooltip="Create a new Reminder">+<$action-sendmessage $message="tm-new-tiddler" title="$newButtonText$" tags="Reminder Daily" cardo-type="reminder" cardo-project=$projectGuid$ icon="$:/plugins/Cardo/images/reminder" cardo-guid=<<guid>> cardo-assignee=<<assigneeGuid>> cardo-category={{!!cardo-category}} /></$button>
+\end

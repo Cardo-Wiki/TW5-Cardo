@@ -1,0 +1,11 @@
+{
+    "title": "$:/plugins/kixam/datepicker",
+    "author": "kixam",
+    "core-version": ">=5.1.8",
+    "dependents": "",
+    "description": "datepicker plugin for TiddlyWiki5",
+    "list": "readme license usage",
+    "plugin-type": "plugin",
+    "source": "https://github.com/kixam/TW5-datepicker.js",
+    "version": "0.5.2"
+}

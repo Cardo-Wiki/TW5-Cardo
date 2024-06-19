@@ -1,0 +1,20 @@
+created: 20160930144106664
+creator: DSzego
+hide-body: yes
+icon: $:/themes/Cardo/images/paper
+modified: 20170102151033923
+modifier: David Szego
+revision: 2
+tags: Cardo
+title: $:/plugins/Cardo/ui/ViewTemplates/types/author/info
+type: text/vnd.tiddlywiki
+
+\define personguid() {{!!cardo-guid}}
+\define contInfoStateTiddler() $:/state/$(currentTiddler)$/contactinfo
+\define convLogStateTiddler() $:/state/$(currentTiddler)$/conversationlog
+\define convItemStateTiddler() $:/state/$(storyTiddler)$/$(currentTiddler)$/conversationitem
+<!-- $vars personguid={{!!cardo-guid}} personName=<<currentTiddler>> >
+<div class="controls controlstint">
+  <div class="cols2">
+</div>
+</$vars -->

@@ -1,0 +1,200 @@
+author: David Szego <info@cardo.wiki>
+caption: Cardo Version & Release Notes
+created: 20160831020739334
+creator: David Szego
+description: A Task and Project Management Wiki for Getting Stuff Done
+icon: $:/themes/Cardo/images/clipboard-checkmarks
+modified: 20190108024941097
+modifier: Joe Cardo
+released: 7-Jan-2019
+revision: 2
+source: http://cardo.wiki
+tags: Cardo about
+title: $:/plugins/Cardo/About/Cardo Version & Release Notes
+type: text/vnd.tiddlywiki
+version: 1.0.4
+
+|>|Cardo Version Info|h
+| Name:|Cardo |
+| Description:|A GTD-Based Wiki for Task and Project Management, Conversations, Book Library, and more. |
+| Version:|1.0.4 |
+| Date:|7-Jan-2019 |
+| Source:|http://cardo.wiki |
+| Author:|David Szego - info@cardo.wiki |
+| License:|See Tiddlywiki Contributor License: https://github.com/Jermolene/TiddlyWiki5/blob/master/licenses/cla-individual.md |
+
+!!!Revisions:
+
+* //''1.0.4'' (7 Jan 2019)://
+** Added: Goals - with a very Tony Robbins feel
+** Fixed: IE11 compatibility (issue with guid.js)
+** Fixed: Reminder wording better reflects goals, tasks and projects
+** Fixed: Alignment of Tiddler buttons in Cardo theme
+** Added: Start date (cardo-start) to Projects and Tasks
+** Changed: Moved "Recurring"/"Reminder" checkboxes for cleaner layout
+** Fixed: New Conversation from sidebar was tagged wrong
+** Fixed: New items are set with the Focus currently set in the sidebar (unless Focus is set to "All")
+*** (This fixes a number of bugs where items don't appear due to sidebar being un-set, as well as allows new items to have a default so they should never be un-set)
+* //''1.0.3'' (3 Jul 2017)://
+** Added: "Someday/Maybe" projects can now be found in "All Items" Review dashboard
+** Fixed: Some palette tweaks
+** Fixed: Restored specific colours to RACI roles (thought I had that at one point?)
+** Fixed: Meetings and Projects not showing up on dashboards properly
+** Fixed: Person dashboards not filtering projects to show only this person's
+** Reported but not found: Some people are having reminder issues... I couldn't replicate. Seems to work fine for me...
+* //''1.0.2'' (7 Mar 2017)://
+** Fixed: New projects weren't showing up on Person dashboard
+** Fixed: Display issues with Book Library
+* //''1.0.1'' (4 Mar 2017)://
+** Added: Tag editing to Reference items
+** Fixed: Active Projects was showing Completed projects too.
+** Fixed: New task from Meeting didn't set project
+** Fixed: Starring Attendees on Meetings starred all attendees
+** Fixed: pre tag made more legible
+** Fixed: Popup location
+** Fixed: Export Cardo items button
+** Changed: Previous meetings on project dashboard now scroll
+* //''1.0'' (25 Feb 2017)://
+* ''//Dedicated to my Mom, who always helped keep me organized and showed her pride in even the silly things I came up with, on the first anniversary of her death.//''
+** Added: Danielo Rodriguez's wonderful 2Click2Edit - Double-click Tiddlers to edit (integrated with Cardo items)
+** Added: References can be assigned to a Person (as well as a Project)
+** Changed: Titles in edit mode are now in-place rather than at header of Tiddler
+** Changed: Re-added Tiddler Type selector (not Cardo type) to Cardo items, in Edit mode on right of Toolbar
+** Changed: Removed duplicate title showing "Draft of..." when editing Cardo items
+** Changed: Removed a number of Realms/Areas
+** Changed: Assigning items to a Project or a Person now groups by Current/Completed Project, and People in Arena / in other Arenas
+** Fixed: Select dropdown colours in Dashboards
+** Fixed: Project dashboard shows Active and Ongoing sub-projects
+** Fixed: Quotes in titles now work right
+** Fixed: ProjectRoleList now respects shown Arena (Person dashboards showed all projects)
+** Fixed: Can't make tasks and projects a sub of / dependant on itself or Completed item (Removed current tiddler name from list, removed [tag[Complete]] )
+** Fixed: cardoMeetingList (Upcoming meetings weren't showing on Dashboards)
+** Fixed: Focus dropdown text colour, other colour tweaks for better contrast and readability
+** Fixed: Attendance tracking on meetings
+** Fixed: Forgot to write some help Tiddlers
+** Fixed: Creating a Reminder from a Task sets Arena properly
+** Fixed: New Reference button on Project dashboard assigns Arena
+** Fixed: Maintenance buttons and unassigned dashboard
+** Fixed: Dashboard bugs (using wrong cardoList macro)
+** Fixed: cardoProjectList wasn't actually forcing cardo-type:project (oy!)
+** Fixed: A whole whack of incomplete bits and pieces relating to the Book Library, Book Notes, and Authors
+** Fixed: Clearing Project assignment from a Reference cleared the text of the Reference
+* //''1.0&beta;7'' (19 Feb 2017)://
+** Added: Maintenance button to put "(Unassigned)" Arena on items with missing or blank cardo-category field
+** Added: Reminders are now triggered (as Modals) when changing to the Review sidebar. Maybe too annoying?
+** Added: Snooze button on Reminders (when fired as modals) - will prevent firing for rest of day
+** Added: Focus selector (global) on all dashboards (great if sidebar not visible, or on tablet/phone)
+** Added: Help for all types of items - click the ''[?]'' at the top right of Tasks, Projects, etc.
+** Fixed: Reference list now scrolling (in Project dashboard), tweaked width and made title static
+** Fixed: Project details weren't setting new Important Tasks properly
+** Fixed: ProjectTeamList wasn't changing roles correctly
+** Fixed: Focusing on "All" now shows all items (including unassigned ones), focusing on Realm shows Realm + all child Areas
+** Fixed: Added focus to all appropriate lists
+** Fixed: New tasks set Arena to Unassigned if All is in focus
+** Fixed: New Person added to project from Project dashboard
+** Fixed: Agenda Items now selected and added properly
+** Fixed: New sidebar buttons assign shown Arena
+** Fixed: All "New" buttons now assign parent arena
+** Fixed: Select dropdown colours
+** Fixed: Meetings properly show on Person dashboard of attendees
+** Removed: "Rescheduled" meeting status - redundant
+* //''1.0&beta;6a'' (13 Feb 2017)://
+* 6a: Tweaks to code blocks, external links in theme and palettes
+* 6a: Included forgotton [[Book Library]] Tiddler
+** Added: Existing projects can be added to a person's roster on the Person Dashboard
+** Added: Proper handling of Realms and Areas (referred to as "Arena")
+*** Realms and Groups are now shown in groups as one dropdown in the top-right of an item, called "Arena", rather than separate dropdowns.
+*** Tiddlers tagged with "Realm" become a major grouping, with Tiddlers tagged with a realm name + "Area" as a child within the group.
+*** Selecting an arena to show in the Cardo Sidebar affects all Dashboards and Detail panes
+*** New items created from the "New" sidebar will inherit the focused Arena
+** Added: Filter for iterations: "[numberOfItems[x]]" will return 1, 2, 3, ...x allowing x things to happen like a "for" loop.
+** Fixed: Proper progressive progress-markers for projects
+** Fixed: Proper progressive ratings for books
+** Fixed: Proper listing of books in "[[Book Library]]"
+** Fixed: Proper setting/deleting Project Lead and Project Team members
+** Fixed: Broken setParentProject
+** Changed: Added "scrolling:'true'|'false'" to lists, to keep list title visible
+** Changed: Reverted text.includes to text.indexOf() != -1 in fieldContains, for backwards compatibility
+* //''1.0&beta;5'' (10 Feb 2017)://
+** Fixed: Contact info
+** Fixed: Meeting show up properly on people's dashboards
+** Fixed: Theme/palette tweaks for better contrast
+** Added: Times to meetings (bug: Kixam's datepicker plugin seems to call noon and midnight "undefined")
+** Added: "Tasks by Context" dashboard
+** Changed: New Tasks now default to your name as asignee, and project name if created from a Project dashboard
+** Changed: New Reminders now default to your name as assignee / project lead / meeting chair
+** Changed: New Reminders now default daily, to guarantee they fire all the time! (When I figure that out!)
+* //''1.0&beta;42 (Birthday Edition!)'' (Feb 6 2017)://
+** Added: Reminders! (dGSD Ticklers)
+***//Note:// In this beta, I don't have a way to trigger an alert yet, although there is an alert dialog ready and waiting ... be patient!
+***To use, add a Reminder from your "My Dashboard", or the "New" or "Review" sidebars.
+***If you don't set an assignee on the reminder, or set it to someone else, it will still trigger (for whenever it's set), and show up in the Reminders review dashboard, but not on your own "My Dashboard". It will show up on the proper person's dashboard if assigned to someone else.
+** Added: Tasks can set a Reminder
+** Added: Completed tasks will delete any matching reminder
+** Changed: Some dashboard and sidebar layouts to show Reminders
+** Changed: Tasks marked "Recurring" can no longer be marked "Complete" (because really, if they're recurring they're never truly done)
+** Fixed: fieldOrEmpty filter handles "-SKIP-" as well as actual empty vars, for times when a var can't literally be empty (such as ``$set value=''``)
+** Fixed: Correct completed tasks show on project or person's dashboard
+** Fixed: Ordered tasks properly in lists
+** Added: Favicon!
+* //''1.0&beta;2'' (Jan 30 2017)://
+** Fixed: assignment of agenda items to meetings, meetings to projects
+** Added: ability to track attendance of attendees in meetings
+** Fixed: Project status updates now sort by date
+** Fixed: Meeting previews now show up in list tooltip
+** Fixed: New tasks pre-select project when added from Project Tiddler
+** Fixed: New tasks pre-select assignee when added from Person Tiddler
+** Removed: Some now-redundant macros
+** Added: Dashboards, similar to dGSD but not quite so crazy granular
+** Added: "Review" sidebar tab, to separate "New" buttons from dashboards
+**Fixed: Date on Conversation controls
+**Fixed: Assigning Person on a Conversation
+* //''1.0&beta;1'' (15 Dec 2016)://
+** Email routines - server and email list now working
+** More general fixes (conversations, XXX, other bugs from GoogleGroups forums)
+** New "Espresso" (dark brown) theme, and various colour tweaks
+* //''1.0&alpha;10'' (26 Sept 2016):// 
+** Beginning of email cards
+** Cleaned up some buttons and icons
+** Added books, authors, and book notes
+** Completely separated theme from plugin, as separate packages
+** Bunch of CSS fixes, and functional bug fixes
+* //''1.0&alpha;9'' (26 Sept 2016):// 
+** Packaged into proper TW5 plugin, in prep for beta (broke some things as a result)
+* //''1.0&alpha;8'' (23 Sept 2016):// 
+** Separated theme from plugin, for more generic compatibility
+** Started packaging (rather than Tiddler export)
+** Added Contact Info including in-line editing (thanks to Stephan Hradek for inspriation and example code)
+** Added photos to Person Tiddlers if the field cardo-personphoto has a src URL (or base64)
+** Made a bit more responsive, including bigger buttons on small screens (much more usable for tablets and phones)
+** Custom EditTemplate to show the controls while editing only the body, no fields/tags etc.
+* //''1.0&alpha;7'' (16 Sept 2016):// 
+** Added Conversation Logs including an area on Person cards for Conversations and Contact Info
+* //''1.0&alpha;6'' (16 Sept 2016):// 
+** Person detail now shows their role in project, not project status
+** Fixed status updates in project details
+** Tasks now get created with project attached, in project detail lists
+** Created "Tools" tab in sidebar with maintenance buttons
+* //''1.0&alpha;5'' (18 Sept 2016):// 
+** Added project roles (RACI chart)
+** Fixed tasks not showing up on meetings
+** Sync'd attendees / chair in details and controls
+** Started on checkbox for discussed agendaitems, attendees who attended
+** Added filter (regexStr.js) to do a regex on a string and return the altered string / result, rather than returning the matching Tiddlers (which the build-in regexp.js does)
+** Added maintenance Tiddler ([[Maintain Cardo Tiddlers]]), useful for alpha users
+* //''1.0&alpha;4'' (11 Sept 2016):// 
+** Started Status Updates on Project Dashboards
+** Added People dropdown in Review sidebar tab
+** Breaking cardoList out into specific-use lists, rather than fighting with conditional logic in TW
+* //''1.0&alpha;3'' (4 Sept 2016):// 
+** Added GUIDs to all Cardo Tiddlers (and macro to generate) for absolute references even if changing names
+** Add Attendees from Meeting Tiddlers (sync'd on their Person dashboards)
+** Started to add AgendaItems on Meeting Tiddlers
+* //''1.0&alpha;2'' (2 Sept 2016):// 
+** Added duedates and previews to dashboards, 
+** started Attendees on meetings, 
+** cleaned up dashboards, controls, and responsive CSS overall
+* //''1.0&alpha;1'' (1 Sept 2016)://
+** Corrected completed tasks and New buttons on Project dashboard
+* //''1.0&alpha;'' (1 Sept 2016):// 
+** First alpha release posted to [[Cardo.wiki|http://cardo.wiki]]
